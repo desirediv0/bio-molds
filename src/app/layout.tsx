@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${dmSans.variable} ${cormorant.variable} antialiased bg-white flex flex-col min-h-screen`}>
+      <body className={`${dmSans.variable} ${cormorant.variable} antialiased bg-white flex flex-col min-h-screen overflow-x-hidden`}>
         <Navbar />
         <main className="flex-grow">
           {children}
