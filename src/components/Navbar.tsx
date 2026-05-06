@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Logo from "./Logo";
-import { FaMicroscope, FaVial, FaDna, FaPills, FaLaptopMedical, FaChartBar, FaDumbbell, FaBolt, FaSuitcaseMedical, FaFlask } from "react-icons/fa6";
+import { FaMicroscope, FaVial, FaDna, FaPills, FaLaptopMedical, FaChartBar, FaDumbbell, FaBolt, FaSuitcaseMedical, FaFlask, FaSyringe, FaStethoscope, FaBacteria, FaBriefcaseMedical } from "react-icons/fa6";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -31,21 +31,33 @@ export default function Navbar() {
               Products
             </button>
             <div className="absolute top-16 left-1/2 -translate-x-1/2 w-[280px] bg-white rounded-xl shadow-lg border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-2 pointer-events-none group-hover:pointer-events-auto flex flex-col">
-              <Link href="/products#protein" className="px-5 py-2.5 hover:bg-cyan-pale group/link flex items-start gap-3">
-                <span className="text-xl text-cyan-500 w-5 flex justify-center mt-0.5"><FaDumbbell /></span>
-                <div className="flex flex-col"><span className="text-sm font-medium text-black">PROTEIN</span></div>
+              <Link href="/products/fish-and-sanger-sequencing" className="px-5 py-2.5 hover:bg-cyan-pale group/link flex items-start gap-3">
+                <span className="text-xl text-cyan-500 w-5 flex justify-center mt-0.5"><FaDna /></span>
+                <div className="flex flex-col"><span className="text-sm font-medium text-black">FISH & Sanger Sequencing</span></div>
               </Link>
-              <Link href="/products#gainer" className="px-5 py-2.5 hover:bg-cyan-pale group/link flex items-start gap-3">
-                <span className="text-xl text-cyan-500 w-5 flex justify-center mt-0.5"><FaBolt /></span>
-                <div className="flex flex-col"><span className="text-sm font-medium text-black">GAINER</span></div>
+              <Link href="/products/rt-pcr-kit" className="px-5 py-2.5 hover:bg-cyan-pale group/link flex items-start gap-3">
+                <span className="text-xl text-cyan-500 w-5 flex justify-center mt-0.5"><FaVial /></span>
+                <div className="flex flex-col"><span className="text-sm font-medium text-black">RT-PCR Kit</span></div>
               </Link>
-              <Link href="/products#preworkout" className="px-5 py-2.5 hover:bg-cyan-pale group/link flex items-start gap-3">
+              <Link href="/products/extraction-kit" className="px-5 py-2.5 hover:bg-cyan-pale group/link flex items-start gap-3">
                 <span className="text-xl text-cyan-500 w-5 flex justify-center mt-0.5"><FaFlask /></span>
-                <div className="flex flex-col"><span className="text-sm font-medium text-black">PRE WORKOUT</span></div>
+                <div className="flex flex-col"><span className="text-sm font-medium text-black">Extraction Kit</span></div>
               </Link>
-              <Link href="/products#essentials" className="px-5 py-2.5 hover:bg-cyan-pale group/link flex items-start gap-3">
-                <span className="text-xl text-cyan-500 w-5 flex justify-center mt-0.5"><FaSuitcaseMedical /></span>
-                <div className="flex flex-col"><span className="text-sm font-medium text-black">WORKOUT ESSENTIALS</span></div>
+              <Link href="/products/equipment" className="px-5 py-2.5 hover:bg-cyan-pale group/link flex items-start gap-3">
+                <span className="text-xl text-cyan-500 w-5 flex justify-center mt-0.5"><FaMicroscope /></span>
+                <div className="flex flex-col"><span className="text-sm font-medium text-black">Equipment</span></div>
+              </Link>
+              <Link href="/products/consumable" className="px-5 py-2.5 hover:bg-cyan-pale group/link flex items-start gap-3">
+                <span className="text-xl text-cyan-500 w-5 flex justify-center mt-0.5"><FaSyringe /></span>
+                <div className="flex flex-col"><span className="text-sm font-medium text-black">Consumables</span></div>
+              </Link>
+              <Link href="/products/surgical" className="px-5 py-2.5 hover:bg-cyan-pale group/link flex items-start gap-3">
+                <span className="text-xl text-cyan-500 w-5 flex justify-center mt-0.5"><FaStethoscope /></span>
+                <div className="flex flex-col"><span className="text-sm font-medium text-black">Surgicals</span></div>
+              </Link>
+              <Link href="/products/culture-media" className="px-5 py-2.5 hover:bg-cyan-pale group/link flex items-start gap-3">
+                <span className="text-xl text-cyan-500 w-5 flex justify-center mt-0.5"><FaBacteria /></span>
+                <div className="flex flex-col"><span className="text-sm font-medium text-black">Culture Media</span></div>
               </Link>
             </div>
           </div>
@@ -114,10 +126,13 @@ export default function Navbar() {
             </button>
             {activeDropdown === 'products' && (
               <div className="flex flex-col gap-2 pb-4 pl-4">
-                <Link href="/products#protein" onClick={() => setIsOpen(false)} className="text-gray-600 py-1">PROTEIN</Link>
-                <Link href="/products#gainer" onClick={() => setIsOpen(false)} className="text-gray-600 py-1">GAINER</Link>
-                <Link href="/products#preworkout" onClick={() => setIsOpen(false)} className="text-gray-600 py-1">PRE WORKOUT</Link>
-                <Link href="/products#essentials" onClick={() => setIsOpen(false)} className="text-gray-600 py-1">WORKOUT ESSENTIALS</Link>
+                <Link href="/products/fish-and-sanger-sequencing" onClick={() => setIsOpen(false)} className="text-gray-600 py-1">FISH & Sanger Sequencing</Link>
+                <Link href="/products/rt-pcr-kit" onClick={() => setIsOpen(false)} className="text-gray-600 py-1">RT-PCR Kit</Link>
+                <Link href="/products/extraction-kit" onClick={() => setIsOpen(false)} className="text-gray-600 py-1">Extraction Kit</Link>
+                <Link href="/products/equipment" onClick={() => setIsOpen(false)} className="text-gray-600 py-1">Equipment</Link>
+                <Link href="/products/consumable" onClick={() => setIsOpen(false)} className="text-gray-600 py-1">Consumables</Link>
+                <Link href="/products/surgical" onClick={() => setIsOpen(false)} className="text-gray-600 py-1">Surgicals</Link>
+                <Link href="/products/culture-media" onClick={() => setIsOpen(false)} className="text-gray-600 py-1">Culture Media</Link>
               </div>
             )}
           </div>

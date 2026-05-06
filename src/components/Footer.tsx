@@ -31,8 +31,8 @@ export default function Footer() {
               <li><Link href="/services/drug-discovery" className="hover:text-cyan-400 transition-colors">Drug Discovery</Link></li>
               <li><Link href="/services/bioinformatics" className="hover:text-cyan-400 transition-colors">Bioinformatics</Link></li>
               <li><Link href="/services/biostatistics" className="hover:text-cyan-400 transition-colors">Biostatistics</Link></li>
-              <li><Link href="/services/genetic-test" className="hover:text-cyan-400 transition-colors">DNA FISH</Link></li>
-              <li><Link href="/products#diagnostic" className="hover:text-cyan-400 transition-colors">RT-PCR Kits</Link></li>
+              <li><Link href="/products/fish-and-sanger-sequencing" className="hover:text-cyan-400 transition-colors">DNA FISH</Link></li>
+              <li><Link href="/products/rt-pcr-kit" className="hover:text-cyan-400 transition-colors">RT-PCR Kits</Link></li>
             </ul>
           </div>
 
@@ -41,10 +41,10 @@ export default function Footer() {
             <h4 className="text-xs tracking-widest text-gray-500 uppercase mb-5 font-semibold">Company</h4>
             <ul className="flex flex-col gap-3 text-sm text-gray-400">
               <li><Link href="/#about" className="hover:text-cyan-400 transition-colors">About Us</Link></li>
-              <li><Link href="/products" className="hover:text-cyan-400 transition-colors">Products</Link></li>
+              <li><Link href="/products/rt-pcr-kit" className="hover:text-cyan-400 transition-colors">Products</Link></li>
               <li><Link href="/#learn" className="hover:text-cyan-400 transition-colors">Learn With Us</Link></li>
               <li><Link href="/#news" className="hover:text-cyan-400 transition-colors">News & Media</Link></li>
-              <li><Link href="/products#pharma" className="hover:text-cyan-400 transition-colors">Pharma & Cosmetics</Link></li>
+              <li><Link href="/products/culture-media" className="hover:text-cyan-400 transition-colors">Culture Media</Link></li>
               <li><Link href="/#contact" className="hover:text-cyan-400 transition-colors">Contact</Link></li>
             </ul>
           </div>
