@@ -18,7 +18,7 @@ import {
   FaFlask,
   FaDumbbell,
   FaSuitcaseMedical,
-
+  FaServer,
 } from "react-icons/fa6";
 
 export default function Home() {
@@ -178,22 +178,22 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { icon: <FaDna />, name: "Genetic Testing", desc: "DNA-based diagnostic services" },
-              { icon: <FaPills />, name: "Drug Discovery", desc: "Druggable molecules for rare diseases" },
-              { icon: <FaLaptopMedical />, name: "Bioinformatics", desc: "Computational genomic & proteomic analysis" },
-              { icon: <FaChartBar />, name: "Biostatistics", desc: "Statistical analysis for research & clinical trials" },
-              { icon: <FaMicroscope />, name: "Cytogenetics (DNA FISH)", desc: "Chromosomal analysis & FISH" },
-              { icon: <FaVial />, name: "Molecular Diagnostics", desc: "RT-PCR kits, Sanger sequencing" }
+              { id: "turn-key", icon: <FaServer />, name: "Turn Key", desc: "End-to-end lab solutions & setup" },
+              { id: "sequencing", icon: <FaVial />, name: "Sequencing", desc: "NGS & Sanger sequencing services" },
+              { id: "bioinformatics", icon: <FaLaptopMedical />, name: "Bioinformatics", desc: "Genomic & computational data analysis" },
+              { id: "biostatistics", icon: <FaChartBar />, name: "Biostatistics", desc: "Statistical design & clinical analysis" },
+              { id: "drug-discovery-analysis", icon: <FaPills />, name: "Drug Discovery Analysis", desc: "Target identification & validation" },
+              { id: "cytogenetic-analysis", icon: <FaDna />, name: "Cytogenetic Analysis", desc: "Chromosomal studies & FISH" }
             ].map((service, i) => (
               <FadeUp key={i} delay={i * 100}>
-                <div className="block card-base p-7 group h-full cursor-pointer">
+                <Link href={`/services/${service.id}`} className="block card-base p-7 group h-full cursor-pointer bg-white">
                   <div className="h-1 w-10 bg-cyan-500 rounded mb-5 group-hover:w-full transition-all duration-300"></div>
                   <div className="w-12 h-12 rounded-xl bg-cyan-pale text-cyan-600 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
                     {service.icon}
                   </div>
                   <h3 className="text-base font-semibold text-black mb-2">{service.name}</h3>
                   <p className="text-sm text-gray-500 leading-relaxed mb-4">{service.desc}</p>
-                </div>
+                </Link>
               </FadeUp>
             ))}
           </div>

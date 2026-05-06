@@ -27,12 +27,12 @@ export default function Footer() {
           <div>
             <h4 className="text-xs tracking-widest text-gray-500 uppercase mb-5 font-semibold">Services</h4>
             <ul className="flex flex-col gap-3 text-sm text-gray-400">
-              <li><Link href="/services/genetic-test" className="hover:text-cyan-400 transition-colors">Genetic Testing</Link></li>
-              <li><Link href="/services/drug-discovery" className="hover:text-cyan-400 transition-colors">Drug Discovery</Link></li>
+              <li><Link href="/services/turn-key" className="hover:text-cyan-400 transition-colors">Turn Key</Link></li>
+              <li><Link href="/services/sequencing" className="hover:text-cyan-400 transition-colors">Sequencing</Link></li>
               <li><Link href="/services/bioinformatics" className="hover:text-cyan-400 transition-colors">Bioinformatics</Link></li>
               <li><Link href="/services/biostatistics" className="hover:text-cyan-400 transition-colors">Biostatistics</Link></li>
-              <li><Link href="/products/fish-and-sanger-sequencing" className="hover:text-cyan-400 transition-colors">DNA FISH</Link></li>
-              <li><Link href="/products/rt-pcr-kit" className="hover:text-cyan-400 transition-colors">RT-PCR Kits</Link></li>
+              <li><Link href="/services/drug-discovery-analysis" className="hover:text-cyan-400 transition-colors">Drug Discovery Analysis</Link></li>
+              <li><Link href="/services/cytogenetic-analysis" className="hover:text-cyan-400 transition-colors">Cytogenetic Analysis</Link></li>
             </ul>
           </div>
 
