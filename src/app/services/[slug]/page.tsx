@@ -5,13 +5,12 @@ import Link from "next/link";
 import FadeUp from "@/components/FadeUp";
 import PageHero from "@/components/PageHero";
 import { FaCommentDots, FaArrowRight, FaDna, FaServer, FaLaptopMedical, FaChartPie, FaMicroscope, FaVial } from "react-icons/fa6";
-import Image from "next/image";
 
 interface ServiceInfo {
   id: string;
   title: string;
   shortDesc: string;
-  icon: any;
+  icon: React.ReactNode;
   overview: string;
   features: { title: string; desc: string }[];
   details: string;
@@ -139,7 +138,7 @@ export default function ServiceDetailPage() {
             <FadeUp>
               <div className="flex items-center gap-4 mb-8">
                 <div className="w-16 h-16 bg-cyan-pale text-cyan-600 rounded-2xl flex items-center justify-center text-3xl shadow-sm">
-                   {getIconForService(service.id)}
+                  {getIconForService(service.id)}
                 </div>
                 <h2 className="font-serif text-4xl text-black font-medium">{service.title} Overview</h2>
               </div>
@@ -179,13 +178,13 @@ export default function ServiceDetailPage() {
                 {Object.values(serviceData).map((s) => (
                   <li key={s.id}>
                     {s.id === service.id ? (
-                       <span className="text-cyan-600 font-medium flex items-center gap-2 bg-cyan-pale px-3 py-2 rounded-lg">
-                         <span aria-hidden="true" className="text-xs">▶</span> {s.title}
-                       </span>
+                      <span className="text-cyan-600 font-medium flex items-center gap-2 bg-cyan-pale px-3 py-2 rounded-lg">
+                        <span aria-hidden="true" className="text-xs">▶</span> {s.title}
+                      </span>
                     ) : (
-                       <Link href={`/services/${s.id}`} className="text-gray-500 hover:text-cyan-600 transition-colors py-2 px-3 block hover:bg-gray-50 rounded-lg">
-                         {s.title}
-                       </Link>
+                      <Link href={`/services/${s.id}`} className="text-gray-500 hover:text-cyan-600 transition-colors py-2 px-3 block hover:bg-gray-50 rounded-lg">
+                        {s.title}
+                      </Link>
                     )}
                   </li>
                 ))}

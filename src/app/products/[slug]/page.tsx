@@ -2,11 +2,10 @@
 
 import { useParams } from "next/navigation";
 import Link from "next/link";
-import { useState } from "react";
 import FadeUp from "@/components/FadeUp";
-import { 
-  FaArrowLeft, 
-  FaCircleCheck, 
+import {
+  FaArrowLeft,
+  FaCircleCheck,
   FaEnvelope,
   FaMicroscope,
   FaVial,
@@ -16,7 +15,6 @@ import {
   FaStethoscope,
   FaBacteria
 } from "react-icons/fa6";
-import Image from "next/image";
 
 interface ProductTableItem {
   refNo: string;
@@ -105,11 +103,11 @@ const medicalProductData: Record<string, MedicalProduct> = {
       {
         name: "Other Diseases",
         items: [
-           { refNo: "-", description: "Hepatitis Diseases Detection Kit", specification: "Various", certificate: "RUO" },
-           { refNo: "-", description: "Sexual Transmitted Diseases Detection Kit", specification: "Various", certificate: "RUO" },
-           { refNo: "-", description: "Enterovirus Diseases Detection Kit", specification: "Various", certificate: "RUO" },
-           { refNo: "-", description: "Tumor Diseases & Genetics Diseases Panels", specification: "Various", certificate: "RUO" },
-           { refNo: "-", description: "Animal Diseases Pathogen Detection", specification: "Various", certificate: "RUO" }
+          { refNo: "-", description: "Hepatitis Diseases Detection Kit", specification: "Various", certificate: "RUO" },
+          { refNo: "-", description: "Sexual Transmitted Diseases Detection Kit", specification: "Various", certificate: "RUO" },
+          { refNo: "-", description: "Enterovirus Diseases Detection Kit", specification: "Various", certificate: "RUO" },
+          { refNo: "-", description: "Tumor Diseases & Genetics Diseases Panels", specification: "Various", certificate: "RUO" },
+          { refNo: "-", description: "Animal Diseases Pathogen Detection", specification: "Various", certificate: "RUO" }
         ]
       }
     ]
@@ -245,13 +243,13 @@ export default function ProductDetailPage() {
           {/* Left: Product Image */}
           <div className="space-y-4">
             <FadeUp className="relative aspect-square rounded-3xl overflow-hidden bg-gray-50 border border-gray-100 flex items-center justify-center group">
-               <div className="text-center px-8 w-full h-full flex flex-col justify-center items-center p-8 bg-gradient-to-br from-gray-50 to-gray-100">
-                  <div className="w-32 h-32 bg-white rounded-full flex items-center justify-center text-cyan-500 text-6xl shadow-sm mb-6">
-                     {getIconForCategory(product.category)}
-                  </div>
-                  <h2 className="text-2xl font-bold mb-2 tracking-tighter text-black">{product.name}</h2>
-                  <p className="text-sm text-gray-500 uppercase tracking-widest">{product.category}</p>
-               </div>
+              <div className="text-center px-8 w-full h-full flex flex-col justify-center items-center p-8 bg-gradient-to-br from-gray-50 to-gray-100">
+                <div className="w-32 h-32 bg-white rounded-full flex items-center justify-center text-cyan-500 text-6xl shadow-sm mb-6">
+                  {getIconForCategory(product.category)}
+                </div>
+                <h2 className="text-2xl font-bold mb-2 tracking-tighter text-black">{product.name}</h2>
+                <p className="text-sm text-gray-500 uppercase tracking-widest">{product.category}</p>
+              </div>
             </FadeUp>
           </div>
 
@@ -278,12 +276,12 @@ export default function ProductDetailPage() {
               </p>
 
               <div className="flex gap-4">
-                 <Link href="/#contact" className="flex-grow bg-cyan-500 text-white py-4 rounded-2xl font-bold hover:bg-cyan-400 transition-all shadow-lg flex items-center justify-center gap-2">
-                   <FaEnvelope /> Request a Quote
-                 </Link>
-                 <a href="tel:+919315465339" className="flex-grow bg-white border-2 border-gray-100 text-gray-600 py-4 rounded-2xl font-bold hover:border-cyan-500 transition-all flex items-center justify-center gap-2">
-                   Call Us
-                 </a>
+                <Link href="/#contact" className="flex-grow bg-cyan-500 text-white py-4 rounded-2xl font-bold hover:bg-cyan-400 transition-all shadow-lg flex items-center justify-center gap-2">
+                  <FaEnvelope /> Request a Quote
+                </Link>
+                <a href="tel:+919315465339" className="flex-grow bg-white border-2 border-gray-100 text-gray-600 py-4 rounded-2xl font-bold hover:border-cyan-500 transition-all flex items-center justify-center gap-2">
+                  Call Us
+                </a>
               </div>
             </FadeUp>
           </div>
@@ -294,8 +292,8 @@ export default function ProductDetailPage() {
           <FadeUp delay={100} className="space-y-12 mb-16">
             {product.sections.map((sec, idx) => (
               <div key={idx} className="bg-gray-50 p-8 md:p-10 rounded-3xl border border-gray-100">
-                 <h3 className="font-serif text-2xl text-black font-medium mb-4">{sec.title}</h3>
-                 <p className="text-gray-600 leading-relaxed">{sec.content}</p>
+                <h3 className="font-serif text-2xl text-black font-medium mb-4">{sec.title}</h3>
+                <p className="text-gray-600 leading-relaxed">{sec.content}</p>
               </div>
             ))}
           </FadeUp>
@@ -303,37 +301,37 @@ export default function ProductDetailPage() {
 
         {/* Dynamic Table (e.g. RT-PCR Kit details) */}
         {product.tableCategories && product.tableCategories.length > 0 && (
-           <FadeUp delay={200} className="space-y-12">
-             {product.tableCategories.map((cat, idx) => (
-               <div key={idx} className="bg-white rounded-3xl border border-gray-100 overflow-hidden shadow-sm">
-                  <div className="bg-gray-50 p-6 md:p-8 border-b border-gray-100">
-                     <h2 className="font-serif text-2xl text-black font-medium">{cat.name}</h2>
-                  </div>
-                  <div className="overflow-x-auto">
-                    <table className="w-full text-left border-collapse min-w-[800px]">
-                      <thead>
-                        <tr className="bg-gray-50/50">
-                          <th className="p-4 md:p-6 text-xs font-bold text-gray-900 uppercase tracking-widest border-b border-gray-100">REF No.</th>
-                          <th className="p-4 md:p-6 text-xs font-bold text-gray-900 uppercase tracking-widest border-b border-gray-100">Description</th>
-                          <th className="p-4 md:p-6 text-xs font-bold text-gray-900 uppercase tracking-widest border-b border-gray-100">Specification</th>
-                          <th className="p-4 md:p-6 text-xs font-bold text-gray-900 uppercase tracking-widest border-b border-gray-100">Certificate</th>
+          <FadeUp delay={200} className="space-y-12">
+            {product.tableCategories.map((cat, idx) => (
+              <div key={idx} className="bg-white rounded-3xl border border-gray-100 overflow-hidden shadow-sm">
+                <div className="bg-gray-50 p-6 md:p-8 border-b border-gray-100">
+                  <h2 className="font-serif text-2xl text-black font-medium">{cat.name}</h2>
+                </div>
+                <div className="overflow-x-auto">
+                  <table className="w-full text-left border-collapse min-w-[800px]">
+                    <thead>
+                      <tr className="bg-gray-50/50">
+                        <th className="p-4 md:p-6 text-xs font-bold text-gray-900 uppercase tracking-widest border-b border-gray-100">REF No.</th>
+                        <th className="p-4 md:p-6 text-xs font-bold text-gray-900 uppercase tracking-widest border-b border-gray-100">Description</th>
+                        <th className="p-4 md:p-6 text-xs font-bold text-gray-900 uppercase tracking-widest border-b border-gray-100">Specification</th>
+                        <th className="p-4 md:p-6 text-xs font-bold text-gray-900 uppercase tracking-widest border-b border-gray-100">Certificate</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-gray-50">
+                      {cat.items.map((row, i) => (
+                        <tr key={i} className="hover:bg-cyan-pale/30 transition-colors">
+                          <td className="p-4 md:p-6 text-sm text-cyan-600 font-bold">{row.refNo}</td>
+                          <td className="p-4 md:p-6 text-sm text-gray-700 font-medium">{row.description}</td>
+                          <td className="p-4 md:p-6 text-sm text-gray-600">{row.specification}</td>
+                          <td className="p-4 md:p-6 text-sm text-gray-500 font-medium">{row.certificate}</td>
                         </tr>
-                      </thead>
-                      <tbody className="divide-y divide-gray-50">
-                        {cat.items.map((row, i) => (
-                          <tr key={i} className="hover:bg-cyan-pale/30 transition-colors">
-                            <td className="p-4 md:p-6 text-sm text-cyan-600 font-bold">{row.refNo}</td>
-                            <td className="p-4 md:p-6 text-sm text-gray-700 font-medium">{row.description}</td>
-                            <td className="p-4 md:p-6 text-sm text-gray-600">{row.specification}</td>
-                            <td className="p-4 md:p-6 text-sm text-gray-500 font-medium">{row.certificate}</td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-               </div>
-             ))}
-           </FadeUp>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            ))}
+          </FadeUp>
         )}
 
       </div>
