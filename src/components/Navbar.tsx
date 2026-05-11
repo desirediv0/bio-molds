@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import Logo from "./Logo";
 import { FaMicroscope, FaVial, FaDna, FaPills, FaLaptopMedical, FaChartBar, FaFlask, FaSyringe, FaStethoscope, FaBacteria, } from "react-icons/fa6";
+import Image from "next/image";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,7 +18,7 @@ export default function Navbar() {
     <>
       <nav className="sticky top-0 left-0 right-0 h-16 backdrop-blur-md bg-white/90 border-b border-gray-100 z-50 px-4 sm:px-6 flex items-center justify-between">
         <Link href="/" className="z-50 relative">
-          <Logo size="md" />
+          <Image src="/logo.png" alt="Logo" width={150} height={150} />
         </Link>
 
         {/* Desktop Nav */}
