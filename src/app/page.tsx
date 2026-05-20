@@ -1,3 +1,6 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import FadeUp from "@/components/FadeUp";
@@ -21,6 +24,36 @@ import {
   FaServer,
 } from "react-icons/fa6";
 
+const cardSlides = [
+  // Card 1 - Molecular (top left)
+  ["/home-1.png", "/Cytogenetics-2.png", "/home-3.png"],
+  // Card 2 - Cytogenetics (top right)
+  ["/Cytogenetics.png", "/Cytogenetics-3.png", "/home-4.png"],
+  // Card 3 - Bioinformatics & Services (center)
+  ["/home-2.png", "/Cytogenetics-4.png", "/Cytogenetics.png"],
+  // Card 4 - Hospital Healthcare (bottom left)
+  ["/home-4.png", "/home-1.png", "/Cytogenetics-3.png"],
+  // Card 5 - Turnkey (bottom right)
+  ["/Cytogenetics-2.png", "/home-3.png", "/Cytogenetics-4.png"],
+];
+
+function CardCarousel({ images, interval = 3000 }: { images: string[]; interval?: number }) {
+  const [idx, setIdx] = useState(0);
+  useEffect(() => {
+    const t = setInterval(() => setIdx(p => (p + 1) % images.length), interval);
+    return () => clearInterval(t);
+  }, [images, interval]);
+  return (
+    <div className="relative w-full h-full overflow-hidden">
+      {images.map((src, i) => (
+        <div key={i} className={`absolute inset-0 transition-opacity duration-700 ${i === idx ? "opacity-100" : "opacity-0"}`}>
+          <Image src={src} alt="" fill className="object-cover" />
+        </div>
+      ))}
+    </div>
+  );
+}
+
 export default function Home() {
   return (
     <>
@@ -31,7 +64,7 @@ export default function Home() {
           <FadeUp className="max-w-xl z-10">
             <div className="inline-flex items-center gap-2 bg-pink-pale text-pink px-4 py-1.5 rounded-full text-sm font-semibold mb-8">
               <span className="w-1.5 h-1.5 rounded-full bg-pink"></span>
-              Registered Startup · New Delhi, India
+              Startup India Registered · New Delhi
             </div>
 
             <h1 className="font-serif text-[56px] lg:text-[72px] text-black font-medium leading-tight mb-6">
@@ -41,7 +74,7 @@ export default function Home() {
             </h1>
 
             <p className="text-lg text-gray-500 leading-relaxed mb-8">
-              BioMolds develops diagnostic kits, molecular research tools, and drug-discovery solutions — focused on rare diseases and multi-analyte detection across India.
+              BioMolds delivers diagnostic kits, molecular research tools, and drug-discovery solutions — focused on rare diseases and multi-analyte detection across India.
             </p>
 
             <div className="flex flex-wrap gap-4 items-center mb-8">
@@ -64,26 +97,36 @@ export default function Home() {
             </div>
           </FadeUp>
 
-          <FadeUp delay={200} className="relative h-[500px] lg:h-[600px] hidden lg:block">
-            {/* Absolute positioned collage */}
-            <div className="absolute top-[5%] left-[5%] w-[280px] h-[200px] rounded-2xl overflow-hidden shadow-lg border-2 border-white z-10 bg-white">
-              <Image src="/home-1.png" alt="Diagnostics" fill className="object-cover" />
+          {/* Desktop: 5-card collage, each with its own carousel */}
+          <FadeUp delay={200} className="relative h-[560px] hidden lg:block">
+
+            {/* Card 1 - top left */}
+            <div className="absolute top-[0%] left-[0%] w-[260px] h-[185px] rounded-2xl overflow-hidden shadow-lg border-2 border-white z-10 bg-white">
+              <CardCarousel images={cardSlides[0]} interval={3200} />
             </div>
 
-            <div className="absolute top-[10%] right-[10%] w-[220px] h-[180px] rounded-2xl overflow-hidden shadow-lg border-2 border-white z-20 bg-white">
-              <Image src="/home-2.png" alt="Medical Computing" fill className="object-cover" />
+            {/* Card 2 - top right */}
+            <div className="absolute top-[2%] right-[0%] w-[210px] h-[165px] rounded-2xl overflow-hidden shadow-lg border-2 border-white z-20 bg-white">
+              <CardCarousel images={cardSlides[1]} interval={2800} />
             </div>
 
-            <div className="absolute bottom-[20%] left-[10%] w-[260px] h-[190px] rounded-2xl overflow-hidden shadow-lg border-2 border-white z-30 bg-white">
-              <Image src="/home-3.png" alt="DNA Research" fill className="object-cover" />
+            {/* Card 3 - center (perfectly centered) */}
+            <div className="absolute top-[30%] left-1/2 -translate-x-1/2 w-[240px] h-[175px] rounded-2xl overflow-hidden shadow-lg border-2 border-white z-30 bg-white">
+              <CardCarousel images={cardSlides[2]} interval={3500} />
             </div>
 
-            <div className="absolute bottom-[10%] right-[5%] w-[200px] h-[160px] rounded-2xl overflow-hidden shadow-lg border-2 border-white z-40 bg-white">
-              <Image src="/home-4.png" alt="Lab Testing" fill className="object-cover" />
+            {/* Card 4 - bottom left */}
+            <div className="absolute bottom-[3%] left-[0%] w-[220px] h-[170px] rounded-2xl overflow-hidden shadow-lg border-2 border-white z-20 bg-white">
+              <CardCarousel images={cardSlides[3]} interval={4000} />
+            </div>
+
+            {/* Card 5 - bottom right */}
+            <div className="absolute bottom-[5%] right-[0%] w-[200px] h-[155px] rounded-2xl overflow-hidden shadow-lg border-2 border-white z-20 bg-white">
+              <CardCarousel images={cardSlides[4]} interval={2600} />
             </div>
 
             {/* Floating Badge */}
-            <div className="absolute bottom-[5%] left-1/2 -translate-x-1/2 bg-white p-4 rounded-xl shadow-lg border border-gray-100 z-50 flex items-center gap-4 w-[280px]">
+            <div className="absolute bottom-[2%] left-1/2 -translate-x-1/2 bg-white p-4 rounded-xl shadow-lg border border-gray-100 z-50 flex items-center gap-4 w-[260px]">
               <div className="relative flex h-4 w-4">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-4 w-4 bg-cyan-500"></span>
@@ -95,27 +138,14 @@ export default function Home() {
             </div>
           </FadeUp>
 
-          {/* Mobile visual (fallback) */}
-          <div className="lg:hidden w-full h-[300px] relative rounded-2xl overflow-hidden shadow-lg border border-gray-100 bg-cyan-pale flex items-center justify-center text-8xl text-cyan-500">
-            <FaMicroscope />
+          {/* Mobile: single carousel */}
+          <div className="lg:hidden w-full h-[300px] relative rounded-2xl overflow-hidden shadow-lg border border-gray-100 bg-white">
+            <CardCarousel images={cardSlides[0]} interval={3000} />
           </div>
         </div>
       </section>
 
-      {/* 2. TRUST BAR */}
-      <section className="bg-gray-50 border-y border-gray-100 py-5 px-4 sm:px-6">
-        <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-center lg:justify-start gap-4 lg:gap-8">
-          <span className="text-xs font-semibold tracking-widest text-gray-400 uppercase">Serving</span>
-          <div className="hidden lg:block w-px h-5 bg-gray-200"></div>
-          <div className="flex flex-wrap items-center gap-6 text-sm font-medium text-gray-600">
-            <span className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-cyan-500"></span>Diagnostic Laboratories</span>
-            <span className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-cyan-500"></span>Hospital Networks</span>
-            <span className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-cyan-500"></span>Academic Research</span>
-            <span className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-cyan-500"></span>Govt. Health Programmes</span>
-            <span className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-cyan-500"></span>Molecular Research Centres</span>
-          </div>
-        </div>
-      </section>
+
 
       {/* 3. ABOUT */}
       <section id="about" className="py-20 px-4 sm:px-6 bg-white">
@@ -160,6 +190,40 @@ export default function Home() {
               ))}
             </ul>
           </FadeUp>
+        </div>
+      </section>
+
+      {/* 7. PRODUCTS */}
+      <section id="products" className="py-20 px-4 sm:px-6 bg-gray-50 border-b border-gray-100">
+        <div className="max-w-7xl mx-auto">
+          <FadeUp className="text-center mb-12">
+            <span className="text-xs font-semibold tracking-widest uppercase text-cyan-600 mb-4 block">Featured Products</span>
+            <h2 className="font-serif text-4xl md:text-5xl font-medium text-black leading-tight">Diagnostic & Research Kits</h2>
+          </FadeUp>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { icon: <FaFlask />, cat: "Life Care", name: "Culture Media", desc: "Ready-to-use culture media for cytogenetic & molecular biology" },
+              { icon: <FaVial />, cat: "Molecular", name: "RT-PCR Kit", desc: "High-sensitivity kits for nucleic acid detection" },
+              { icon: <FaMicroscope />, cat: "Antibodies", name: "Antibody Panel", desc: "Research-grade antibodies for immunoassay & flow cytometry" },
+              { icon: <FaDumbbell />, cat: "Health Nutrition", name: "Whey Protein Range", desc: "Science-backed nutritional supplements" },
+              { icon: <FaPills />, cat: "Pharma & Cosmetics", name: "Pharmaceutical Range", desc: "Formulations with rigorous quality standards" },
+              { icon: <FaDna />, cat: "Molecular", name: "Sanger Sequencing Kit", desc: "PCR & sequencing kits for clinical applications" }
+            ].map((prod, i) => (
+              <FadeUp key={i} delay={i * 100} className="bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-md hover:-translate-y-1 transition-all duration-200 group">
+                <div className="h-28 bg-gray-50 flex items-center justify-center text-[40px] text-gray-400 group-hover:text-cyan-600 group-hover:bg-cyan-pale transition-colors">
+                  {prod.icon}
+                </div>
+                <div className="p-5">
+                  <span className="inline-block text-xs px-2 py-1 rounded bg-gray-100 text-gray-500 mb-2">
+                    {prod.cat}
+                  </span>
+                  <h3 className="text-sm font-semibold text-black mb-1">{prod.name}</h3>
+                  <p className="text-xs text-gray-400 leading-relaxed">{prod.desc}</p>
+                </div>
+              </FadeUp>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -255,40 +319,22 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 7. PRODUCTS */}
-      <section id="products" className="py-20 px-4 sm:px-6 bg-gray-50 border-b border-gray-100">
-        <div className="max-w-7xl mx-auto">
-          <FadeUp className="text-center mb-12">
-            <span className="text-xs font-semibold tracking-widest uppercase text-cyan-600 mb-4 block">Featured Products</span>
-            <h2 className="font-serif text-4xl md:text-5xl font-medium text-black leading-tight">Diagnostic & Research Kits</h2>
-          </FadeUp>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              { icon: <FaFlask />, cat: "Life Care", name: "Culture Media", desc: "Ready-to-use culture media for cytogenetic & molecular biology" },
-              { icon: <FaVial />, cat: "Molecular", name: "RT-PCR Kit", desc: "High-sensitivity kits for nucleic acid detection" },
-              { icon: <FaMicroscope />, cat: "Antibodies", name: "Antibody Panel", desc: "Research-grade antibodies for immunoassay & flow cytometry" },
-              { icon: <FaDumbbell />, cat: "Health Nutrition", name: "Whey Protein Range", desc: "Science-backed nutritional supplements" },
-              { icon: <FaPills />, cat: "Pharma & Cosmetics", name: "Pharmaceutical Range", desc: "Formulations with rigorous quality standards" },
-              { icon: <FaDna />, cat: "Molecular", name: "Sanger Sequencing Kit", desc: "PCR & sequencing kits for clinical applications" }
-            ].map((prod, i) => (
-              <FadeUp key={i} delay={i * 100} className="bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-md hover:-translate-y-1 transition-all duration-200 group">
-                <div className="h-28 bg-gray-50 flex items-center justify-center text-[40px] text-gray-400 group-hover:text-cyan-600 group-hover:bg-cyan-pale transition-colors">
-                  {prod.icon}
-                </div>
-                <div className="p-5">
-                  <span className="inline-block text-xs px-2 py-1 rounded bg-gray-100 text-gray-500 mb-2">
-                    {prod.cat}
-                  </span>
-                  <h3 className="text-sm font-semibold text-black mb-1">{prod.name}</h3>
-                  <p className="text-xs text-gray-400 leading-relaxed">{prod.desc}</p>
-                </div>
-              </FadeUp>
-            ))}
+      {/* 2. TRUST BAR */}
+      <section className="bg-cyan-pale border-y border-gray-100 py-5 px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-center lg:justify-start gap-4 lg:gap-8">
+          <span className="text-xs font-semibold tracking-widest text-gray-400 uppercase">Products</span>
+          <div className="hidden lg:block w-px h-5 bg-gray-200"></div>
+          <div className="flex flex-wrap items-center gap-6 text-sm font-medium text-gray-600">
+            <span className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-cyan-500"></span>Microscope & Hub</span>
+            <span className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-cyan-500"></span>FISH Probes</span>
+            <span className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-cyan-500"></span>Media Culture</span>
+            <span className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-cyan-500"></span>Review Scanning</span>
+            <span className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-cyan-500"></span>RT-PCR Kit</span>
+            <span className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-cyan-500"></span>NGS + Sanger Kit</span>
+            <span className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-cyan-500"></span>HLA Typing</span>
           </div>
         </div>
       </section>
-
       {/* 8. HEALTH & NUTRITION */}
       <section id="health-nutrition" className="py-20 px-4 sm:px-6 bg-white relative">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-12 text-left">

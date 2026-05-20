@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { FaMicroscope, FaVial, FaDna, FaPills, FaLaptopMedical, FaChartBar, FaFlask, FaSyringe, FaStethoscope, FaBacteria, } from "react-icons/fa6";
+import { FaMicroscope, FaVial, FaDna, FaPills, FaLaptopMedical, FaChartBar, FaFlask, FaStethoscope, } from "react-icons/fa6";
 import Image from "next/image";
 
 export default function Navbar() {
@@ -30,34 +30,30 @@ export default function Navbar() {
             <button className="text-gray-600 group-hover:text-cyan-600 font-medium text-sm transition-colors flex items-center gap-1">
               Products
             </button>
-            <div className="absolute top-16 left-1/2 -translate-x-1/2 w-[280px] bg-white rounded-xl shadow-lg border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-2 pointer-events-none group-hover:pointer-events-auto flex flex-col">
-              <Link href="/products/fish-and-sanger-sequencing" className="px-5 py-2.5 hover:bg-cyan-pale group/link flex items-start gap-3">
+            <div className="absolute top-16 left-1/2 -translate-x-1/2 w-[310px] bg-white rounded-xl shadow-lg border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-2 pointer-events-none group-hover:pointer-events-auto flex flex-col">
+              <Link href="/products/cytogenetics" className="px-5 py-2.5 hover:bg-cyan-pale group/link flex items-start gap-3">
                 <span className="text-xl text-cyan-500 w-5 flex justify-center mt-0.5"><FaDna /></span>
-                <div className="flex flex-col"><span className="text-sm font-medium text-black">FISH & Sanger Sequencing</span></div>
+                <div className="flex flex-col"><span className="text-sm font-medium text-black">Cytogenetics</span><span className="text-xs text-gray-400">FISH Probes · Glass Slides · Media Culture</span></div>
               </Link>
-              <Link href="/products/rt-pcr-kit" className="px-5 py-2.5 hover:bg-cyan-pale group/link flex items-start gap-3">
+              <Link href="/products/molecular" className="px-5 py-2.5 hover:bg-cyan-pale group/link flex items-start gap-3">
                 <span className="text-xl text-cyan-500 w-5 flex justify-center mt-0.5"><FaVial /></span>
-                <div className="flex flex-col"><span className="text-sm font-medium text-black">RT-PCR Kit</span></div>
+                <div className="flex flex-col"><span className="text-sm font-medium text-black">Molecular</span><span className="text-xs text-gray-400">RT-PCR Kit · Extraction · Oncology · Infection</span></div>
               </Link>
-              <Link href="/products/extraction-kit" className="px-5 py-2.5 hover:bg-cyan-pale group/link flex items-start gap-3">
-                <span className="text-xl text-cyan-500 w-5 flex justify-center mt-0.5"><FaFlask /></span>
-                <div className="flex flex-col"><span className="text-sm font-medium text-black">Extraction Kit</span></div>
-              </Link>
-              <Link href="/products/equipment" className="px-5 py-2.5 hover:bg-cyan-pale group/link flex items-start gap-3">
+              <Link href="/products/ihc-antibody" className="px-5 py-2.5 hover:bg-cyan-pale group/link flex items-start gap-3">
                 <span className="text-xl text-cyan-500 w-5 flex justify-center mt-0.5"><FaMicroscope /></span>
-                <div className="flex flex-col"><span className="text-sm font-medium text-black">Equipment</span></div>
+                <div className="flex flex-col"><span className="text-sm font-medium text-black">IHC Antibody</span><span className="text-xs text-gray-400">+ve Glass Slides · NGS · Sanger · HLA Typing</span></div>
               </Link>
-              <Link href="/products/consumable" className="px-5 py-2.5 hover:bg-cyan-pale group/link flex items-start gap-3">
-                <span className="text-xl text-cyan-500 w-5 flex justify-center mt-0.5"><FaSyringe /></span>
-                <div className="flex flex-col"><span className="text-sm font-medium text-black">Consumables</span></div>
+              <Link href="/products/lab-equipment" className="px-5 py-2.5 hover:bg-cyan-pale group/link flex items-start gap-3">
+                <span className="text-xl text-cyan-500 w-5 flex justify-center mt-0.5"><FaLaptopMedical /></span>
+                <div className="flex flex-col"><span className="text-sm font-medium text-black">Lab Eq, Software & Consumable</span><span className="text-xs text-gray-400">Microscope · Hub · Review Scanning</span></div>
               </Link>
-              <Link href="/products/surgical" className="px-5 py-2.5 hover:bg-cyan-pale group/link flex items-start gap-3">
+              <Link href="/products/hospital-healthcare" className="px-5 py-2.5 hover:bg-cyan-pale group/link flex items-start gap-3">
                 <span className="text-xl text-cyan-500 w-5 flex justify-center mt-0.5"><FaStethoscope /></span>
-                <div className="flex flex-col"><span className="text-sm font-medium text-black">Surgicals</span></div>
+                <div className="flex flex-col"><span className="text-sm font-medium text-black">Hospital Healthcare</span></div>
               </Link>
-              <Link href="/products/culture-media" className="px-5 py-2.5 hover:bg-cyan-pale group/link flex items-start gap-3">
-                <span className="text-xl text-cyan-500 w-5 flex justify-center mt-0.5"><FaBacteria /></span>
-                <div className="flex flex-col"><span className="text-sm font-medium text-black">Culture Media</span></div>
+              <Link href="/products/turn-key" className="px-5 py-2.5 hover:bg-cyan-pale group/link flex items-start gap-3">
+                <span className="text-xl text-cyan-500 w-5 flex justify-center mt-0.5"><FaFlask /></span>
+                <div className="flex flex-col"><span className="text-sm font-medium text-black">Turn Key</span><span className="text-xs text-gray-400">Surgical · Non-Surgical · Consumable Items</span></div>
               </Link>
             </div>
           </div>
@@ -126,13 +122,12 @@ export default function Navbar() {
             </button>
             {activeDropdown === 'products' && (
               <div className="flex flex-col gap-2 pb-4 pl-4">
-                <Link href="/products/fish-and-sanger-sequencing" onClick={() => setIsOpen(false)} className="text-gray-600 py-1">FISH & Sanger Sequencing</Link>
-                <Link href="/products/rt-pcr-kit" onClick={() => setIsOpen(false)} className="text-gray-600 py-1">RT-PCR Kit</Link>
-                <Link href="/products/extraction-kit" onClick={() => setIsOpen(false)} className="text-gray-600 py-1">Extraction Kit</Link>
-                <Link href="/products/equipment" onClick={() => setIsOpen(false)} className="text-gray-600 py-1">Equipment</Link>
-                <Link href="/products/consumable" onClick={() => setIsOpen(false)} className="text-gray-600 py-1">Consumables</Link>
-                <Link href="/products/surgical" onClick={() => setIsOpen(false)} className="text-gray-600 py-1">Surgicals</Link>
-                <Link href="/products/culture-media" onClick={() => setIsOpen(false)} className="text-gray-600 py-1">Culture Media</Link>
+                <Link href="/products/cytogenetics" onClick={() => setIsOpen(false)} className="text-gray-600 py-1">Cytogenetics</Link>
+                <Link href="/products/molecular" onClick={() => setIsOpen(false)} className="text-gray-600 py-1">Molecular</Link>
+                <Link href="/products/ihc-antibody" onClick={() => setIsOpen(false)} className="text-gray-600 py-1">IHC Antibody</Link>
+                <Link href="/products/lab-equipment" onClick={() => setIsOpen(false)} className="text-gray-600 py-1">Lab Eq, Software and Consumable</Link>
+                <Link href="/products/hospital-healthcare" onClick={() => setIsOpen(false)} className="text-gray-600 py-1">Hospital Healthcare</Link>
+                <Link href="/products/turn-key" onClick={() => setIsOpen(false)} className="text-gray-600 py-1">Turn Key</Link>
               </div>
             )}
           </div>
