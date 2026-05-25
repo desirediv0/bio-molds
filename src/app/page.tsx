@@ -25,16 +25,11 @@ import {
 } from "react-icons/fa6";
 
 const cardSlides = [
-  // Card 1 - Molecular (top left)
-  ["/home-1.png", "/Cytogenetics-2.png", "/home-3.png"],
-  // Card 2 - Cytogenetics (top right)
-  ["/Cytogenetics.png", "/Cytogenetics-3.png", "/home-4.png"],
-  // Card 3 - Bioinformatics & Services (center)
-  ["/home-2.png", "/Cytogenetics-4.png", "/Cytogenetics.png"],
-  // Card 4 - Hospital Healthcare (bottom left)
-  ["/home-4.png", "/home-1.png", "/Cytogenetics-3.png"],
-  // Card 5 - Turnkey (bottom right)
-  ["/Cytogenetics-2.png", "/home-3.png", "/Cytogenetics-4.png"],
+  ["/lab-tech.jpg", "/dna-research.jpg", "/lab-scientist.jpg"],
+  ["/lab-scientist.jpg", "/lab-safety.jpg", "/dna-research.jpg"],
+  ["/dna-research.jpg", "/lab-tech.jpg", "/surgical-tools.jpg"],
+  ["/lab-safety.jpg", "/lab-scientist.jpg", "/lab-tech.jpg"],
+  ["/surgical-tools.jpg", "/dna-research.jpg", "/lab-safety.jpg"],
 ];
 
 function CardCarousel({ images, interval = 3000 }: { images: string[]; interval?: number }) {
@@ -58,13 +53,14 @@ export default function Home() {
   return (
     <>
       {/* 1. HERO */}
-      <section className="min-h-screen pt-20 pb-16 px-4 sm:px-6 bg-white relative overflow-hidden flex items-center">
+      <section className="min-h-screen pt-20 pb-16 px-4 sm:px-6 bg-white relative flex items-center">
         <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
 
           <FadeUp className="max-w-xl z-10">
             <div className="inline-flex items-center gap-2 bg-pink-pale text-pink px-4 py-1.5 rounded-full text-sm font-semibold mb-8">
               <span className="w-1.5 h-1.5 rounded-full bg-pink"></span>
-              Startup India Registered · New Delhi
+
+              New Delhi
             </div>
 
             <h1 className="font-serif text-[56px] lg:text-[72px] text-black font-medium leading-tight mb-6">
@@ -74,7 +70,7 @@ export default function Home() {
             </h1>
 
             <p className="text-lg text-gray-500 leading-relaxed mb-8">
-              BioMolds delivers diagnostic kits, molecular research tools, and drug-discovery solutions — focused on rare diseases and multi-analyte detection across India.
+              BioMolds delivers diagnostic kits, research tools, and health care solutions — focused on rare diseases and multi-analyte detection across India.
             </p>
 
             <div className="flex flex-wrap gap-4 items-center mb-8">
@@ -86,19 +82,10 @@ export default function Home() {
               </Link>
             </div>
 
-            <div className="flex items-center gap-3 text-sm text-gray-500">
-              <span className="font-medium text-gray-400">Trusted by:</span>
-              <span className="w-1 h-1 rounded-full bg-gray-300"></span>
-              <span>Diagnostic Labs</span>
-              <span className="w-1 h-1 rounded-full bg-gray-300"></span>
-              <span>Hospitals</span>
-              <span className="w-1 h-1 rounded-full bg-gray-300"></span>
-              <span>Research Institutions</span>
-            </div>
           </FadeUp>
 
           {/* Desktop: 5-card collage, each with its own carousel */}
-          <FadeUp delay={200} className="relative h-[560px] hidden lg:block">
+          <FadeUp delay={200} className="relative h-[560px] hidden lg:block overflow-hidden">
 
             {/* Card 1 - top left */}
             <div className="absolute top-[0%] left-[0%] w-[260px] h-[185px] rounded-2xl overflow-hidden shadow-lg border-2 border-white z-10 bg-white">
@@ -106,27 +93,27 @@ export default function Home() {
             </div>
 
             {/* Card 2 - top right */}
-            <div className="absolute top-[2%] right-[0%] w-[210px] h-[165px] rounded-2xl overflow-hidden shadow-lg border-2 border-white z-20 bg-white">
+            <div className="absolute top-[2%] right-[0%] w-[260px] h-[185px] rounded-2xl overflow-hidden shadow-lg border-2 border-white z-20 bg-white">
               <CardCarousel images={cardSlides[1]} interval={2800} />
             </div>
 
             {/* Card 3 - center (perfectly centered) */}
-            <div className="absolute top-[30%] left-1/2 -translate-x-1/2 w-[240px] h-[175px] rounded-2xl overflow-hidden shadow-lg border-2 border-white z-30 bg-white">
+            <div className="absolute top-[30%] left-1/2 -translate-x-1/2 w-[260px] h-[185px] rounded-2xl overflow-hidden shadow-lg border-2 border-white z-30 bg-white">
               <CardCarousel images={cardSlides[2]} interval={3500} />
             </div>
 
             {/* Card 4 - bottom left */}
-            <div className="absolute bottom-[3%] left-[0%] w-[220px] h-[170px] rounded-2xl overflow-hidden shadow-lg border-2 border-white z-20 bg-white">
+            <div className="absolute bottom-[10%] left-[0%] w-[260px] h-[185px] rounded-2xl overflow-hidden shadow-lg border-2 border-white z-20 bg-white">
               <CardCarousel images={cardSlides[3]} interval={4000} />
             </div>
 
             {/* Card 5 - bottom right */}
-            <div className="absolute bottom-[5%] right-[0%] w-[200px] h-[155px] rounded-2xl overflow-hidden shadow-lg border-2 border-white z-20 bg-white">
+            <div className="absolute bottom-[12%] right-[0%] w-[260px] h-[185px] rounded-2xl overflow-hidden shadow-lg border-2 border-white z-20 bg-white">
               <CardCarousel images={cardSlides[4]} interval={2600} />
             </div>
 
             {/* Floating Badge */}
-            <div className="absolute bottom-[2%] left-1/2 -translate-x-1/2 bg-white p-4 rounded-xl shadow-lg border border-gray-100 z-50 flex items-center gap-4 w-[260px]">
+            <div className="absolute bottom-[0%] left-1/2 -translate-x-1/2 bg-white p-4 rounded-xl shadow-lg border border-gray-100 z-50 flex items-center gap-4 w-[260px]">
               <div className="relative flex h-4 w-4">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-4 w-4 bg-cyan-500"></span>
@@ -145,7 +132,19 @@ export default function Home() {
         </div>
       </section>
 
-
+      {/* TRUSTED BY BAR */}
+      <section className="bg-cyan-pale border-y border-cyan-border py-3 px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto flex flex-wrap items-center gap-x-6 gap-y-3">
+          <span className="text-xs font-bold tracking-widest text-gray-400 uppercase">Trusted by</span>
+          <div className="hidden lg:block w-px h-5 bg-gray-300"></div>
+          {["Diagnostic Labs", "Hospitals", "Research Institutions", "Pathology Centers", "Pharmaceutical Companies", "Academic Institutions", "Clinical Research Organizations", "IVF & Fertility Centers"].map((item, i) => (
+            <span key={i} className="inline-flex items-center gap-2 text-sm font-semibold text-gray-700">
+              <span className="w-2 h-2 rounded-full bg-cyan-500 flex-shrink-0"></span>
+              {item}
+            </span>
+          ))}
+        </div>
+      </section>
 
       {/* 3. ABOUT */}
       <section id="about" className="py-20 px-4 sm:px-6 bg-white">
@@ -154,7 +153,7 @@ export default function Home() {
           <FadeUp className="relative h-[450px]">
             <div className="absolute top-0 right-0 w-24 h-24 rounded-full bg-pink-100 -z-10 blur-2xl"></div>
             <div className="w-full h-full rounded-3xl overflow-hidden shadow-2xl relative bg-cyan-pale border-8 border-white group">
-              <Image src="/about.png" alt="Lab Testing" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+              <Image src="/lab-scientist.jpg" alt="Lab Testing" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
             </div>
 
             <div className="absolute -bottom-6 -right-6 w-48 h-32 rounded-2xl overflow-hidden border-8 border-white shadow-xl z-20 bg-black flex items-center justify-center">
@@ -211,7 +210,7 @@ export default function Home() {
               { icon: <FaDna />, cat: "Molecular", name: "Sanger Sequencing Kit", desc: "PCR & sequencing kits for clinical applications" }
             ].map((prod, i) => (
               <FadeUp key={i} delay={i * 100} className="bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-md hover:-translate-y-1 transition-all duration-200 group">
-                <div className="h-28 bg-gray-50 flex items-center justify-center text-[40px] text-gray-400 group-hover:text-cyan-600 group-hover:bg-cyan-pale transition-colors">
+                <div className="h-28  flex items-center justify-center text-[40px]  text-cyan-600 bg-cyan-pale transition-colors">
                   {prod.icon}
                 </div>
                 <div className="p-5">
@@ -242,12 +241,12 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { id: "turn-key", icon: <FaServer />, name: "Turn Key", desc: "End-to-end lab solutions & setup" },
+              { id: "genetic-test", icon: <FaDna />, name: "Genetic Test", desc: "DNA, chromosomes & hereditary disease analysis" },
               { id: "sequencing", icon: <FaVial />, name: "Sequencing", desc: "NGS & Sanger sequencing services" },
               { id: "bioinformatics", icon: <FaLaptopMedical />, name: "Bioinformatics", desc: "Genomic & computational data analysis" },
               { id: "biostatistics", icon: <FaChartBar />, name: "Biostatistics", desc: "Statistical design & clinical analysis" },
               { id: "drug-discovery-analysis", icon: <FaPills />, name: "Drug Discovery Analysis", desc: "Target identification & validation" },
-              { id: "cytogenetic-analysis", icon: <FaDna />, name: "Cytogenetic Analysis", desc: "Chromosomal studies & FISH" }
+              { id: "turn-key", icon: <FaServer />, name: "Turn Key", desc: "End-to-end lab solutions & setup" }
             ].map((service, i) => (
               <FadeUp key={i} delay={i * 100}>
                 <Link href={`/services/${service.id}`} className="block card-base p-7 group h-full cursor-pointer bg-white">
@@ -275,10 +274,10 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {[
-              { type: "Cytogenetics", img: "/Cytogenetics.png", title: "DNA FISH", desc: "Fluorescence In Situ Hybridisation — detection of chromosomal aberrations in oncological and prenatal patients." },
-              { type: "Molecular", img: "/Cytogenetics-2.png", title: "RT-PCR & Detection Kits", desc: "High-sensitivity nucleic acid detection for clinical labs, hospitals, and field diagnostics." },
-              { type: "Cytogenetics", img: "/Cytogenetics-3.png", title: "Chromosome Analysis & Culture Media", desc: "Karyotyping and culture media for chromosomal abnormality detection." },
-              { type: "Antibodies", img: "/Cytogenetics-4.png", title: "Antibody Panel & Immunodiagnostics", desc: "Research-grade antibodies for immunoassay, western blot, IHC, flow cytometry." }
+              { type: "Cytogenetics", img: "/dna-research.jpg", title: "DNA FISH", desc: "Fluorescence In Situ Hybridisation — detection of chromosomal aberrations in oncological and prenatal patients." },
+              { type: "Molecular", img: "/lab-tech.jpg", title: "RT-PCR & Detection Kits", desc: "High-sensitivity nucleic acid detection for clinical labs, hospitals, and field diagnostics." },
+              { type: "Cytogenetics", img: "/lab-scientist.jpg", title: "Chromosome Analysis & Culture Media", desc: "Karyotyping and culture media for chromosomal abnormality detection." },
+              { type: "Antibodies", img: "/lab-safety.jpg", title: "Antibody Panel & Immunodiagnostics", desc: "Research-grade antibodies for immunoassay, western blot, IHC, flow cytometry." }
             ].map((card, i) => (
               <FadeUp key={i} delay={i * 100} className="rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group flex flex-col bg-white">
                 <div className="h-64 w-full bg-gray-50 overflow-hidden relative">
@@ -636,7 +635,7 @@ export default function Home() {
 
               <FadeUp delay={200} className="h-[300px] rounded-2xl overflow-hidden card-base">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.97371991789!2d77.06583907615024!3d28.59868498555816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d1b3ca878074b%3A0xc6822c91cff356f9!2sVardhman%20City%20Mall!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3503.5495916780837!2d77.06927807495492!3d28.583284886316406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d1b6c5128528b%3A0x5bfca20689de7fcf!2sBioMolecular%20Discovery%20%26%20Solutions%20Private%20Limited!5e0!3m2!1sen!2sin!4v1779700467699!5m2!1sen!2sin"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}

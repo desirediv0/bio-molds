@@ -13,7 +13,8 @@ import {
   FaFlask,
   FaSyringe,
   FaStethoscope,
-  FaBacteria
+  FaBacteria,
+  FaFilePdf
 } from "react-icons/fa6";
 
 interface ProductTableItem {
@@ -41,9 +42,66 @@ interface MedicalProduct {
   sections?: ProductSection[];
   tableCategories?: ProductCategory[];
   images?: string[];
+  catalogueUrl?: string;
 }
 
 const medicalProductData: Record<string, MedicalProduct> = {
+  "adhesion-microscope-slides": {
+    name: "Adhesion Microscope Slides",
+    category: "Lab Instruments",
+    overview: [
+      "IVD Compliant",
+      "CE Marked",
+      "Super White Glass",
+      "Positive Charged · PCL / PCI",
+      "Ideal for Histopathology · Cytology · IHC",
+      "Auto-Stainer Compatible"
+    ],
+    description: "BioMolds Adhesion Microscope Slides are engineered for superior tissue adherence, optical clarity and consistency — purpose-built for advanced diagnostic and research laboratories. Each slide features a uniform positive-charge coating for reliable specimen retention throughout the complete staining workflow.",
+    sections: [
+      {
+        title: "Premium Quality · Laboratory Tested · IVD Compliant · CE Marked",
+        content: "Available in two variants — PCL Slides (45° Beveled Corners) and PCI Slides (90° Ground Corners). Both variants feature Super White Glass, 25×75mm dimensions, 1.0–1.2mm thickness, Positive Charged surface, Pre-cleaned, Thermal Transfer printing, 50 pcs/pack."
+      },
+      {
+        title: "Why Choose BioMolds?",
+        content: "ADH — Superior Adhesion: Uniform +charge coating for reliable retention. OPT — Optical Clarity: Super white glass for transparency & true colour. LAB — Lab Ready: Pre-cleaned, compatible with auto-staining systems. 25×75 — Precise Dimensions: 25×75mm ±0.2mm, ground edges, safe grip."
+      },
+      {
+        title: "Company",
+        content: "Biomolecular Discovery and Solution Pvt. Ltd. | 313, 3rd Floor, Vardhman Mall, Dwarka Sector-7, New Delhi – 110075 | www.biomolds.com"
+      }
+    ],
+    catalogueUrl: "https://desirediv-storage.blr1.cdn.digitaloceanspaces.com/bio-molds/BioMolds_%20slides%20Brochure_final.pdf",
+    tableCategories: [
+      {
+        name: "PCL Slides — 45° Corners · Positive Charged",
+        items: [
+          { refNo: "Glass Type", description: "Super White Glass", specification: "—", certificate: "—" },
+          { refNo: "Dimensions", description: "25 × 75 mm", specification: "—", certificate: "—" },
+          { refNo: "Thickness", description: "1.0 – 1.2 mm", specification: "—", certificate: "—" },
+          { refNo: "Corners", description: "45°", specification: "—", certificate: "—" },
+          { refNo: "Surface", description: "Positive Charged", specification: "—", certificate: "—" },
+          { refNo: "Cleaning", description: "Pre-cleaned", specification: "—", certificate: "—" },
+          { refNo: "Printing", description: "Thermal Transfer", specification: "—", certificate: "—" },
+          { refNo: "Quantity", description: "50 pcs / pack", specification: "—", certificate: "—" }
+        ]
+      },
+      {
+        name: "PCI Slides — 90° Corners · Positive Charged",
+        items: [
+          { refNo: "Glass Type", description: "Super White Glass", specification: "—", certificate: "—" },
+          { refNo: "Dimensions", description: "25 × 75 mm", specification: "—", certificate: "—" },
+          { refNo: "Thickness", description: "1.0 – 1.2 mm", specification: "—", certificate: "—" },
+          { refNo: "Corners", description: "90°", specification: "—", certificate: "—" },
+          { refNo: "Surface", description: "Positive Charged", specification: "—", certificate: "—" },
+          { refNo: "Cleaning", description: "Pre-cleaned", specification: "—", certificate: "—" },
+          { refNo: "Printing", description: "Thermal Transfer", specification: "—", certificate: "—" },
+          { refNo: "Quantity", description: "50 pcs / pack", specification: "—", certificate: "—" }
+        ]
+      }
+    ]
+  },
   "fish-and-sanger-sequencing": {
     name: "FISH & Sanger Sequencing",
     category: "Diagnostics",
@@ -68,7 +126,8 @@ const medicalProductData: Record<string, MedicalProduct> = {
         content: "Our FISH probes are designed with high specificity and brightness, ensuring clear signals and low background noise. They are validated for use with various sample types including blood, bone marrow, and solid tumor tissues."
       }
     ],
-    images: ["/placeholder-fish.png"] // Placeholder since we don't have actual images
+    images: ["/placeholder-fish.png"],
+    catalogueUrl: "https://desirediv-storage.blr1.cdn.digitaloceanspaces.com/bio-molds/Biomolds_catalogue_DNA%20Fast%20Fish%20Probe.pdf"
   },
   "rt-pcr-kit": {
     name: "RT-PCR Kits",
@@ -181,19 +240,44 @@ const medicalProductData: Record<string, MedicalProduct> = {
     ]
   },
   "culture-media": {
-    name: "Culture Media",
-    category: "Microbiology",
+    name: "Cytogenetics Culture Media",
+    category: "Cytogenetics",
     overview: [
-      "Optimal Growth Formulations",
-      "Stringent QC Testing",
-      "Ready-to-Use Plates",
-      "Dehydrated Powders"
+      "Chromosome Analysis",
+      "Karyotyping Support",
+      "Peripheral Blood Culture",
+      "Bone Marrow & Amniotic Fluid",
+      "Pre-natal Diagnostics",
+      "Optimized Growth Formulations"
     ],
-    description: "High-performance culture media for the isolation, cultivation, and identification of microorganisms and cell lines.",
+    description: "Specialized cytogenetics culture media optimized for chromosome analysis, karyotyping, and cell culture workflows in clinical diagnostics and research laboratories.",
     sections: [
       {
-        title: "Cell & Bacterial Culture Media",
-        content: "BioMolds provides a wide array of culture media tailored for clinical microbiology, industrial testing, and cell culture applications. Our media are formulated to promote robust growth and maintain cellular viability."
+        title: "Cytogenetics Culture Media",
+        content: "BioMolds provides a comprehensive range of cytogenetics culture media specifically formulated for chromosomal analysis. Our media support peripheral blood lymphocyte culture, bone marrow culture, amniotic fluid culture, and chorionic villus sampling — enabling reliable karyotype preparation for congenital disease diagnosis, prenatal diagnostics, and hematological malignancy assessment."
+      },
+      {
+        title: "Applications",
+        content: "Peripheral blood karyotyping · Bone marrow cytogenetics for haematological disorders · Prenatal diagnosis from amniotic fluid and CVS · Solid tumor chromosome analysis · Constitutional chromosome disorders · Oncological cytogenetics for treatment monitoring."
+      },
+      {
+        title: "Quality & Compliance",
+        content: "All culture media are manufactured under stringent quality control standards. Formulations are optimized for maximum mitotic index, clear banding, and consistent chromosome morphology — critical for accurate G-banding and FISH analysis."
+      }
+    ],
+    tableCategories: [
+      {
+        name: "Culture Media Range",
+        items: [
+          { refNo: "CM-001", description: "Peripheral Blood Lymphocyte Culture Medium", specification: "500 mL", certificate: "RUO" },
+          { refNo: "CM-002", description: "Bone Marrow Culture Medium", specification: "500 mL", certificate: "RUO" },
+          { refNo: "CM-003", description: "Amniotic Fluid Culture Medium", specification: "500 mL", certificate: "RUO" },
+          { refNo: "CM-004", description: "Chorionic Villus Sampling (CVS) Medium", specification: "500 mL", certificate: "RUO" },
+          { refNo: "CM-005", description: "Solid Tumor Disaggregation & Culture Medium", specification: "500 mL", certificate: "RUO" },
+          { refNo: "CM-006", description: "Colcemid Solution (10 µg/mL)", specification: "10 mL", certificate: "RUO" },
+          { refNo: "CM-007", description: "Hypotonic Solution (KCl 0.075M)", specification: "500 mL", certificate: "RUO" },
+          { refNo: "CM-008", description: "Carnoy's Fixative (3:1 Methanol:Acetic Acid)", specification: "500 mL", certificate: "RUO" }
+        ]
       }
     ]
   }
@@ -283,6 +367,11 @@ export default function ProductDetailPage() {
                   Call Us
                 </a>
               </div>
+              {product.catalogueUrl && (
+                <a href={product.catalogueUrl} target="_blank" rel="noopener noreferrer" className="w-full mt-3 flex items-center justify-center gap-3 border-2 border-red-100 text-red-500 bg-red-50 py-4 rounded-2xl font-bold hover:bg-red-100 hover:border-red-300 transition-all">
+                  <FaFilePdf className="text-xl" /> Download Full Catalogue (PDF)
+                </a>
+              )}
             </FadeUp>
           </div>
         </div>

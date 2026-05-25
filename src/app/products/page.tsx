@@ -7,6 +7,7 @@ import {
   FaSuitcaseMedical,
   FaDumbbell,
   FaArrowRight,
+  FaDna,
 } from "react-icons/fa6";
 
 interface ProductItem {
@@ -28,6 +29,21 @@ interface ProductCategory {
 
 export default function ProductsPage() {
   const productCategories: ProductCategory[] = [
+    {
+      id: "cytogenetics",
+      title: "CYTOGENETICS",
+      desc: "Chromosomal analysis kits, FISH probes, culture media, and karyotyping solutions.",
+      icon: <FaDna />,
+      items: [
+        { name: "Adhesion Microscope Slides", slug: "adhesion-microscope-slides", type: "IVD · CE Marked", desc: "Super White Glass, Positive Charged slides (PCL/PCI) for Histopathology, Cytology & IHC. Auto-stainer compatible.", icon: <FaDna /> },
+        { name: "FISH Probes", slug: "fish-and-sanger-sequencing", type: "Cytogenetics", desc: "Fluorescence In Situ Hybridisation probes for chromosomal aberration detection in oncological and prenatal patients.", icon: <FaDna /> },
+        { name: "RT-PCR Detection Kits", slug: "rt-pcr-kit", type: "Molecular Kits", desc: "High-sensitivity nucleic acid detection kits for respiratory, hepatitis, STD, enterovirus, and tumor diseases.", icon: <FaDna /> },
+        { name: "Extraction Kits", slug: "extraction-kit", type: "Molecular Kits", desc: "High-yield DNA/RNA extraction kits using magnetic bead and spin column technology.", icon: <FaDna /> },
+        { name: "Culture Media", slug: "culture-media", type: "Cytogenetics", desc: "Chromosome analysis and culture media for karyotyping and chromosomal abnormality detection.", icon: <FaDna /> },
+        { name: "Equipment", slug: "equipment", type: "Lab Instruments", desc: "Thermal cyclers, centrifuges, automated nucleic acid extractors, and biosafety cabinets.", icon: <FaDna /> },
+        { name: "Consumables", slug: "consumable", type: "Lab Essentials", desc: "Sterile pipette tips, PCR tubes, plates, and microcentrifuge tubes for molecular applications.", icon: <FaDna /> }
+      ]
+    },
     {
       id: "protein",
       title: "PROTEIN",
@@ -108,6 +124,28 @@ export default function ProductsPage() {
                       <h2 className="font-serif text-3xl text-black font-medium">{category.title}</h2>
                     </div>
                     <p className="text-gray-500 mb-8">{category.desc}</p>
+
+                    {category.id === "cytogenetics" && (
+                      <div className="mb-10">
+                        <p className="text-gray-600 leading-relaxed text-base mb-8 max-w-4xl">
+                          Our Cytogenetics division provides advanced solutions for chromosome analysis, diagnostics, and genomic research. We offer a comprehensive range of high-quality products including DNA FISH probes, cytogenetics culture media, plain and positively charged adhesive microscope glass slides, and advanced BioView scanning systems for automated imaging and analysis. Designed to support diagnostic laboratories, hospitals, research institutions, and pathology centers, our solutions ensure precision, reliability, and efficiency in cytogenetic testing and workflow management.
+                        </p>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
+                          {[
+                            { title: "DNA FISH Probes", desc: "332+ probes for chromosomal & gene anomaly detection. Dual-color, tri-color, and single-color options.", icon: "🧬" },
+                            { title: "Culture Media", desc: "Cytogenetics culture media optimized for chromosome analysis, karyotyping, and cell culture workflows.", icon: "🔬" },
+                            { title: "Microscope Glass Slides", desc: "Plain and positively charged adhesive slides (PCL/PCI) for Histopathology, Cytology & IHC.", icon: "🧪" },
+                            { title: "BioView Scanning Systems", desc: "Advanced automated imaging and analysis systems for cytogenetic scanning and review workflows.", icon: "💻" },
+                          ].map((card, i) => (
+                            <div key={i} className="bg-cyan-pale border border-cyan-border rounded-2xl p-5 flex flex-col gap-3">
+                              <span className="text-3xl">{card.icon}</span>
+                              <h4 className="font-semibold text-black text-base">{card.title}</h4>
+                              <p className="text-sm text-gray-500 leading-relaxed">{card.desc}</p>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                       {category.items.map((item, i) => (

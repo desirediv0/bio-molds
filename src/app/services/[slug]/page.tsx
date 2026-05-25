@@ -23,7 +23,7 @@ const getIconForService = (id: string) => {
     case "bioinformatics": return <FaLaptopMedical />;
     case "biostatistics": return <FaChartPie />;
     case "drug-discovery-analysis": return <FaMicroscope />;
-    case "cytogenetic-analysis": return <FaDna />;
+    case "genetic-test": return <FaDna />;
     default: return <FaDna />;
   }
 };
@@ -31,81 +31,96 @@ const getIconForService = (id: string) => {
 const serviceData: Record<string, ServiceInfo> = {
   "turn-key": {
     id: "turn-key",
-    title: "Turn Key",
-    shortDesc: "Complete end-to-end laboratory and research solutions from setup to operational support.",
+    title: "Turn-Key Laboratories",
+    shortDesc: "Experience hassle-free laboratory construction — comprehensive infrastructure consultancy for life science research and pharma manufacturing.",
     icon: <FaServer />,
-    overview: "Our turn-key solutions provide a comprehensive approach to setting up and managing advanced diagnostic and research laboratories, ensuring compliance, efficiency, and state-of-the-art capabilities.",
+    overview: "BioMolds is your partner in providing comprehensive infrastructure consultancy services for the life science, research, and diagnostics industry. We offer turnkey infrastructure design and delivery for high-end specialties such as molecular diagnostics, virus culture labs, NGS and WGS, stem cell labs, IVF labs, and more. We employ design/build/operate and transfer models to ensure efficient and effective implementation of infrastructure projects.",
     features: [
-      { title: "Lab Setup", desc: "Design and deployment of specialized medical and research facilities." },
-      { title: "Equipment Procurement", desc: "Sourcing high-quality instruments tailored to your specific workflows." },
-      { title: "Operational Training", desc: "Comprehensive staff training on protocols and equipment handling." }
+      { title: "Advisory Services", desc: "Expert advisory for biosafety laboratory setup — guiding clients through the entire construction process with insights on safety, environmental, and quality compliance." },
+      { title: "Managed Operations", desc: "Full-fledged managed operations from concept to commissioning — design, construction, procurement, and installation handled end-to-end." },
+      { title: "High-End Specialty Infrastructure", desc: "End-to-end solutions for molecular diagnostics labs, virus culture facilities, NGS/WGS labs, stem cell labs, and IVF centers." },
+      { title: "Biocontainment Clean Room", desc: "BSL-2, BSL-3, BSL-4 biocontainment solutions adhering to CDSCO Schedule V and WHO GMP international standards." },
+      { title: "Regulatory Compliance", desc: "CDSCO & WHO-GMP compliant infrastructure with deep understanding of regulatory requirements for the life science industry." },
+      { title: "Budget-Friendly Fixed Price", desc: "Tailored solutions for all budgets — fixed price delivery so clients can plan with certainty." },
     ],
-    details: "Whether you're establishing a new cytogenetics lab or upgrading your molecular diagnostics capabilities, our turn-key service manages every detail. From regulatory compliance and equipment installation to final workflow validation, we ensure your facility is ready to deliver precise and reliable results."
+    details: "BioMolds understands the complexities and challenges involved in laboratory renovation or construction projects. From design considerations to compliance with safety, environmental, and quality guidelines, numerous factors need to be meticulously managed. As a trusted provider of turnkey services, BioMolds offers a comprehensive solution for laboratory construction projects — ensuring a fully functional laboratory delivered within a fixed timeframe and at a fixed price.\n\nWe also offer Green Building Planning and Engineering Solutions (LEED), Design/Build/Operate and Transfer Models, and Timely Delivery through value engineering and efficient project management. Our clients include diagnostic labs, hospitals, research institutions, pharmaceutical manufacturers, and IVF centers across India."
   },
   "sequencing": {
     id: "sequencing",
     title: "Sequencing",
-    shortDesc: "Next-Generation and Sanger Sequencing services for in-depth genomic analysis.",
+    shortDesc: "Next-Generation Sequencing (NGS), Sanger Sequencing, and whole-genome sequencing services for clinical and research applications.",
     icon: <FaVial />,
-    overview: "We offer robust sequencing services to identify genetic mutations, analyze gene expression, and support comprehensive genomic research.",
+    overview: "BioMolds offers comprehensive sequencing services spanning Sanger Sequencing, Next-Generation Sequencing (NGS), and Whole Genome Sequencing (WGS). Our sequencing solutions support clinical diagnostics, oncology profiling, infectious disease identification, pharmacogenomics, and advanced genomic research across India.",
     features: [
-      { title: "Sanger Sequencing", desc: "Gold-standard method for targeted mutation analysis and confirmation." },
-      { title: "NGS Solutions", desc: "High-throughput sequencing for whole-genome, exome, and targeted panels." },
-      { title: "Data Accuracy", desc: "Stringent quality control measures ensuring high-fidelity readouts." }
+      { title: "Sanger Sequencing", desc: "Gold-standard targeted sequencing for mutation confirmation, plasmid verification, and clinical diagnostics." },
+      { title: "Next-Generation Sequencing (NGS)", desc: "High-throughput sequencing for whole-genome, whole-exome, targeted panels, RNA-Seq, and amplicon sequencing." },
+      { title: "Whole Genome Sequencing (WGS)", desc: "Complete genome coverage for pathogen identification, rare disease diagnosis, and population genomics." },
+      { title: "Oncology Sequencing Panels", desc: "Custom and pre-designed panels for somatic mutation profiling, tumor mutational burden, and MSI analysis." },
+      { title: "Viral & Microbial Genotyping", desc: "HIV-1, HBV, SARS-CoV-2, HPV genotyping, 16S/18S rRNA amplicon sequencing for microbiome studies." },
+      { title: "Drug Resistance Sequencing", desc: "CMV UL54/UL97, HSV TK/POL, HCV NS5A resistance panels for antiviral therapy guidance." }
     ],
-    details: "Our sequencing facility is equipped to handle everything from basic plasmid sequencing to complex tumor profiling. We provide high-quality data with fast turnaround times to accelerate your clinical and research discoveries."
+    details: "Our sequencing facility is equipped to handle everything from basic plasmid sequencing to complex tumor profiling and whole-genome studies. We provide high-quality data with fast turnaround times and expert bioinformatics support to accelerate your clinical and research discoveries.\n\nAll sequencing runs are performed under strict QC protocols with comprehensive data reporting. We support downstream analysis including variant calling, annotation, pathway enrichment, and clinical interpretation for both research and diagnostic use."
   },
   "bioinformatics": {
     id: "bioinformatics",
-    title: "Bioinformatics",
-    shortDesc: "Advanced computational analysis of complex biological and genomic data.",
+    title: "BioInformatics",
+    shortDesc: "Advanced computational analysis of biological and genomic data — from NGS pipelines to protein interaction networks.",
     icon: <FaLaptopMedical />,
-    overview: "Transforming massive datasets into actionable biological insights through cutting-edge algorithms and expert data analysis.",
+    overview: "In the biological sciences, gathering and analysing data are crucial aspects of the research process. Data analysis does not have to cease when a laboratory is closed. BioMolds bioinformatics services cover gene expression profiling, genotyping, epigenetic data analysis, proteomics, metagenomics, and custom pipeline development across Illumina, Ion TorrentTM, Affymetrix, and Agilent platforms.",
     features: [
-      { title: "Genomic Data Analysis", desc: "Variant calling, annotation, and interpretation from sequencing data." },
-      { title: "Pipeline Development", desc: "Custom bioinformatic pipelines tailored to specific research needs." },
-      { title: "Transcriptomics", desc: "Differential gene expression analysis and pathway mapping." }
+      { title: "NGS Data Analysis", desc: "Variant calling, annotation, whole-genome/exome/targeted panel analysis, mRNA expression, and gene interaction mapping." },
+      { title: "Microarray & Epigenomics", desc: "Gene expression profiling, genotyping, methylation analysis, and epigenetic data interpretation across major platforms." },
+      { title: "Proteomics & Metabolomics", desc: "Comprehensive protein and metabolite profiling, pathway enrichment, functional and structural characterization." },
+      { title: "Metagenomics & 16S/18S rRNA", desc: "Microbiome community profiling, taxonomic classification, diversity analysis, and comparative metagenomics." },
+      { title: "CRISPR & siRNA Analysis", desc: "CRISPR off-target prediction, siRNA sequence analysis, target prediction, and restriction enzyme selection." },
+      { title: "Phylogenetics & Protein Networks", desc: "Evolutionary and phylogenetic analysis, protein motifs & domain analysis, protein interaction network analysis." }
     ],
-    details: "Our bioinformatics team bridges the gap between biological data and computational science. We help researchers and clinicians interpret complex genomic, transcriptomic, and proteomic data to drive personalized medicine and innovative discoveries."
+    details: "Our bioinformatics services cover the full spectrum: NGS data analysis, Proteomics, Metagenomics, Gene and Nucleotide sequence analysis, mRNA expression analysis, Gene interaction and pathway enrichment, functional & structural characterization, siRNA sequence analysis and target prediction, Protein sequence analysis, Evolutionary and Phylogenetic analysis, Protein motifs & Domain analysis, and Protein interaction network analysis.\n\nAll analyses are delivered with comprehensive reports, visualizations, and interpretations suitable for publication and regulatory submission."
   },
   "biostatistics": {
     id: "biostatistics",
     title: "Biostatistics",
-    shortDesc: "Rigorous statistical analysis and experimental design for clinical and biological studies.",
+    shortDesc: "Rigorous statistical design and analysis for clinical research, trials, and genomic studies using SPSS and MED CALC.",
     icon: <FaChartPie />,
-    overview: "Providing the statistical backbone necessary for valid, reproducible, and impactful scientific research and clinical trials.",
+    overview: "BioMolds provides comprehensive biostatistics services using SPSS and MED CALC Software — covering sample size and power calculation, parametric and non-parametric tests, regression & correlation, survival and hazards models, ROC analysis, multivariate analysis, PCA, and meta-analysis for clinical and research applications.",
     features: [
-      { title: "Study Design", desc: "Sample size calculation and protocol development." },
-      { title: "Clinical Trial Analysis", desc: "Efficacy and safety data analysis meeting regulatory standards." },
-      { title: "Data Modeling", desc: "Advanced predictive modeling and survival analysis." }
+      { title: "Sample Size & Study Design", desc: "Sample size calculation, power analysis, and study protocol design for clinical trials and research projects." },
+      { title: "Parametric & Non-Parametric Tests", desc: "T-tests, ANOVA, Mann-Whitney, Kruskal-Wallis, Chi-square, Fisher's exact test using SPSS and MED CALC." },
+      { title: "Regression & Survival Analysis", desc: "Linear, logistic, Cox regression, Kaplan-Meier survival curves, and Hazards models for clinical outcome studies." },
+      { title: "ROC & Multivariate Analysis", desc: "Receiver Operating Characteristic (ROC) curves, AUC, Population Attributed Risk (PAR%), multivariate and PCA analysis." },
+      { title: "Meta-Analysis", desc: "Systematic review and meta-analysis with forest plots, funnel plots, and heterogeneity assessment." },
+      { title: "Genomic & NGS Statistics", desc: "Statistical analysis for NGS data, differential expression, proteomics, metagenomics, and gene interaction studies." }
     ],
-    details: "We ensure your research is built on a solid statistical foundation. From the initial design phase to final data interpretation, our biostatisticians apply appropriate methodologies to maximize the reliability and significance of your findings."
+    details: "Our biostatistics services are built on industry-standard tools (SPSS, MED CALC) and cover the complete analytical workflow from study design to final interpretation.\n\nServices include: Sample size & power calculation, Parametric and Non-Parametric tests, Regression & correlation, Survival and Hazards models, ROC analysis, PAR%, Multivariate analysis, PCA, Meta-analysis, NGS data statistical analysis, Proteomics and Metagenomics data analysis, mRNA expression analysis, Gene interaction and pathway enrichment, and Protein interaction network analysis."
   },
   "drug-discovery-analysis": {
     id: "drug-discovery-analysis",
     title: "Drug Discovery Analysis",
-    shortDesc: "Accelerating the identification and validation of novel therapeutic compounds.",
+    shortDesc: "Innovative and trustworthy science for discovery and characterization of potential drug candidates for preclinical development.",
     icon: <FaMicroscope />,
-    overview: "Comprehensive analytical support to streamline the complex pipeline of modern drug discovery and development.",
+    overview: "Innovative and trustworthy science is required for the discovery and characterization of potential drug candidates for preclinical development. BioMolds delivers depth and breadth in science with data and insight you can rely on — thanks to our unique combination of integrated, interdisciplinary drug discovery experience and unprecedented scope of capabilities in targets, platforms, and therapeutic areas.",
     features: [
-      { title: "Target Identification", desc: "Genomic and proteomic screening for viable drug targets." },
-      { title: "Compound Screening", desc: "High-throughput assays to evaluate efficacy and toxicity." },
-      { title: "Lead Optimization", desc: "In-depth molecular analysis to refine therapeutic candidates." }
+      { title: "Integrated Drug Discovery", desc: "End-to-end integrated approach combining target validation, hit identification, and lead optimization in a single workflow." },
+      { title: "Combinatorial Chemistry", desc: "Synthesis and screening of large compound libraries to identify potent, selective drug candidates rapidly." },
+      { title: "Virtual Screening & Profiling Assays", desc: "In silico screening, molecular docking, and ADMET profiling to prioritize compounds before wet lab validation." },
+      { title: "DMPK / ADME Analysis", desc: "Drug metabolism and pharmacokinetics studies including absorption, distribution, metabolism, excretion, and toxicity profiling." },
+      { title: "Pharmaceutical Formulation & QSPR", desc: "Quantitative structure-property relationship modeling and formulation development for lead compounds." },
+      { title: "Vaccine Development", desc: "End-to-end support for antigen identification, adjuvant selection, and vaccine candidate development and characterization." }
     ],
-    details: "Our drug discovery services provide critical insights at every stage, helping pharmaceutical and biotech researchers identify promising compounds faster, reduce development risks, and bring effective therapies to market."
+    details: "Our drug discovery services provide critical insights at every stage — from target identification through Integrated Drug Discovery, Combinatorial Chemistry, Virtual Screening and Profiling Assays, DMPK/ADME Analysis, Pharmaceutical Formulation & QSPR, and Target to Lead Discovery, through to Vaccine Development.\n\nWe help pharmaceutical and biotech researchers identify promising compounds faster, reduce development risks, and bring effective therapies to market. Our interdisciplinary team brings expertise across oncology, infectious disease, rare disease, and CNS therapeutic areas."
   },
-  "cytogenetic-analysis": {
-    id: "cytogenetic-analysis",
-    title: "Cytogenetic Analysis",
-    shortDesc: "Detailed chromosomal studies to detect abnormalities and genetic disorders.",
+  "genetic-test": {
+    id: "genetic-test",
+    title: "Genetic Test",
+    shortDesc: "Analysis of DNA, chromosomes, proteins, and metabolic processes to detect hereditary diseases.",
     icon: <FaDna />,
-    overview: "State-of-the-art cytogenetic testing including Karyotyping and FISH to diagnose congenital diseases and hematological malignancies.",
+    overview: "Genetic test aims at the analysis of DNA, chromosomes, proteins, and metabolic processes to detect hereditary diseases, being related to the genotype, mutations, the phenotype or karyotype, with clinical purposes.",
     features: [
-      { title: "Karyotyping", desc: "High-resolution G-banding to detect structural and numerical chromosomal abnormalities." },
-      { title: "FISH Analysis", desc: "Targeted detection of specific genetic deletions, duplications, and translocations." },
-      { title: "Prenatal Diagnostics", desc: "Accurate analysis of amniotic fluid and chorionic villus samples." }
+      { title: "Predictive Test", desc: "Identify genetic predisposition to hereditary diseases before symptoms appear." },
+      { title: "Carrier Test", desc: "Determine if an individual carries one copy of a gene mutation that could be passed to offspring." },
+      { title: "Pharmacogenetic Test", desc: "Analyze how genes affect an individual's response to drugs for personalized treatment." }
     ],
-    details: "We provide comprehensive cytogenetic evaluation essential for accurate clinical diagnosis, prognosis determination, and treatment planning in oncology, pediatrics, and reproductive medicine."
+    details: "In oncological patients, FISH method is used to detect or confirm aberrations that cannot be identified by standard karyotyping. The FISH method is generally quite sensitive and it is also commonly used to monitor the treatment of patients with onco-hematological diseases. In non-oncological patients such as prenatal diagnostics, FISH analysis complements and in certain cases replaces cytogenetic analysis of peripheral blood, amniotic fluid, and chorionic villus samples. FISH is used to confirm the cytogenetic findings and also to detect various aberrations that cannot be detected by karyotyping due to its low sensitivity, e.g., microdeletion syndromes."
   }
 };
 
@@ -164,9 +179,11 @@ export default function ServiceDetailPage() {
 
             <FadeUp delay={200} className="card-base p-8 md:p-10 bg-gray-50 rounded-3xl border border-gray-100">
               <h3 className="font-serif text-3xl text-black font-medium mb-6">Detailed Description</h3>
-              <p className="text-gray-600 leading-relaxed text-lg">
-                {service.details}
-              </p>
+              <div className="flex flex-col gap-4">
+                {service.details.split("\n\n").map((para, i) => (
+                  <p key={i} className="text-gray-600 leading-relaxed text-lg">{para}</p>
+                ))}
+              </div>
             </FadeUp>
           </div>
 
@@ -200,8 +217,8 @@ export default function ServiceDetailPage() {
               <a href="tel:+919315465339" className="block bg-white text-cyan-600 font-bold py-3 px-4 rounded-xl mb-3 shadow-sm hover:bg-gray-50 transition-colors">
                 Call: 9315465339
               </a>
-              <a href="mailto:services@biomolds.com" className="text-sm text-white/90 hover:text-white block break-all font-medium underline underline-offset-4">
-                services@biomolds.com
+              <a href="mailto:biomolediscsol@biomolds.com" className="text-sm text-white/90 hover:text-white block break-all font-medium underline underline-offset-4">
+                biomolediscsol@biomolds.com
               </a>
             </FadeUp>
           </div>

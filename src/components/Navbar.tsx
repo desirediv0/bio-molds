@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { FaMicroscope, FaVial, FaDna, FaPills, FaLaptopMedical, FaChartBar, FaFlask, FaStethoscope, } from "react-icons/fa6";
+import { FaMicroscope, FaVial, FaDna, FaPills, FaLaptopMedical, FaChartBar, FaStethoscope } from "react-icons/fa6";
 import Image from "next/image";
 
 export default function Navbar() {
@@ -18,7 +18,7 @@ export default function Navbar() {
     <>
       <nav className="sticky top-0 left-0 right-0 h-16 backdrop-blur-md bg-white/90 border-b border-gray-100 z-50 px-4 sm:px-6 flex items-center justify-between">
         <Link href="/" className="z-50 relative">
-          <Image src="/logo.png" alt="Logo" width={150} height={150} />
+          <Image src="/logo.png" alt="Logo" width={200} height={200} />
         </Link>
 
         {/* Desktop Nav */}
@@ -50,10 +50,6 @@ export default function Navbar() {
               <Link href="/products/hospital-healthcare" className="px-5 py-2.5 hover:bg-cyan-pale group/link flex items-start gap-3">
                 <span className="text-xl text-cyan-500 w-5 flex justify-center mt-0.5"><FaStethoscope /></span>
                 <div className="flex flex-col"><span className="text-sm font-medium text-black">Hospital Healthcare</span></div>
-              </Link>
-              <Link href="/products/turn-key" className="px-5 py-2.5 hover:bg-cyan-pale group/link flex items-start gap-3">
-                <span className="text-xl text-cyan-500 w-5 flex justify-center mt-0.5"><FaFlask /></span>
-                <div className="flex flex-col"><span className="text-sm font-medium text-black">Turn Key</span><span className="text-xs text-gray-400">Surgical · Non-Surgical · Consumable Items</span></div>
               </Link>
             </div>
           </div>
@@ -90,6 +86,7 @@ export default function Navbar() {
               </Link>
             </div>
           </div>
+
 
           <Link href="/#health-nutrition" className="text-gray-600 hover:text-cyan-600 font-medium text-sm transition-colors">Health Nutrition</Link>
           <Link href="/#learn" className="text-gray-600 hover:text-cyan-600 font-medium text-sm transition-colors">Learn With Us</Link>
@@ -148,6 +145,7 @@ export default function Navbar() {
             )}
           </div>
 
+          <Link href="/products/molecular" onClick={() => setIsOpen(false)} className="text-lg font-medium text-black py-3 border-b border-gray-100">Molecular</Link>
           <Link href="/#health-nutrition" onClick={() => setIsOpen(false)} className="text-lg font-medium text-black py-3 border-b border-gray-100">Health Nutrition</Link>
           <Link href="/#learn" onClick={() => setIsOpen(false)} className="text-lg font-medium text-black py-3 border-b border-gray-100">Learn With Us</Link>
           <Link href="/#news" onClick={() => setIsOpen(false)} className="text-lg font-medium text-black py-3 border-b border-gray-100">News & Media</Link>
