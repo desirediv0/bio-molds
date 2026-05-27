@@ -225,12 +225,16 @@ export default function MolecularPage() {
     <div className="min-h-screen font-[var(--font-dm-sans)]">
 
       {/* ── 1. HERO ── */}
-      <section className="bg-[#0f1e2e] text-white relative overflow-hidden">
+      <section
+        className="bg-[#0f1e2e] text-white relative overflow-hidden"
+        style={{ backgroundImage: "url(/Molecular.jpg)", backgroundSize: "cover", backgroundPosition: "center" }}
+      >
+        <div className="absolute inset-0 bg-[#0f1e2e]/75" />
         {/* Decorative blobs */}
         <div className="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-cyan-500/10 blur-3xl pointer-events-none" />
         <div className="absolute -bottom-20 right-0 w-80 h-80 rounded-full bg-pink-DEFAULT/10 blur-3xl pointer-events-none" />
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 pt-20 pb-24">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-20 pb-24">
           <FadeUp>
             <div className="inline-flex items-center gap-2 bg-cyan-500/10 border border-cyan-500/25 rounded-full px-4 py-1.5 mb-6">
               <FaDna className="text-cyan-400 w-4 h-4" />

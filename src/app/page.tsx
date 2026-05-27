@@ -202,24 +202,26 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { icon: <FaFlask />, cat: "Life Care", name: "Culture Media", desc: "Ready-to-use culture media for cytogenetic & molecular biology" },
-              { icon: <FaVial />, cat: "Molecular", name: "RT-PCR Kit", desc: "High-sensitivity kits for nucleic acid detection" },
-              { icon: <FaMicroscope />, cat: "Antibodies", name: "Antibody Panel", desc: "Research-grade antibodies for immunoassay & flow cytometry" },
-              { icon: <FaDumbbell />, cat: "Health Nutrition", name: "Whey Protein Range", desc: "Science-backed nutritional supplements" },
-              { icon: <FaPills />, cat: "Pharma & Cosmetics", name: "Pharmaceutical Range", desc: "Formulations with rigorous quality standards" },
-              { icon: <FaDna />, cat: "Molecular", name: "Sanger Sequencing Kit", desc: "PCR & sequencing kits for clinical applications" }
+              { id: "diagnostic-kits", icon: <FaVial />, cat: "Diagnostic", name: "Diagnostic & Research Kits", desc: "RT-PCR · Sanger · FISH · Antibodies" },
+              { id: "cytogenetics", icon: <FaDna />, cat: "Cytogenetics", name: "Cytogenetics", desc: "FISH Probes · Glass Slides · Media Culture" },
+              { id: "molecular", icon: <FaFlask />, cat: "Molecular", name: "Molecular", desc: "RT-PCR Kit · Extraction · Oncology · Infection" },
+              { id: "ihc-antibody", icon: <FaMicroscope />, cat: "IHC Antibody", name: "IHC Antibody", desc: "+ve Glass Slides · NGS · Sanger · HLA Typing" },
+              { id: "lab-equipment", icon: <FaServer />, cat: "Lab Eq", name: "Lab Eq, Software & Consumable", desc: "Microscope · Hub · Review Scanning" },
+              { id: "hospital-healthcare", icon: <FaSuitcaseMedical />, cat: "Hospital Healthcare", name: "Hospital Healthcare", desc: "Clinical diagnostic supplies & consumables" }
             ].map((prod, i) => (
-              <FadeUp key={i} delay={i * 100} className="bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-md hover:-translate-y-1 transition-all duration-200 group">
-                <div className="h-28  flex items-center justify-center text-[40px]  text-cyan-600 bg-cyan-pale transition-colors">
-                  {prod.icon}
-                </div>
-                <div className="p-5">
-                  <span className="inline-block text-xs px-2 py-1 rounded bg-gray-100 text-gray-500 mb-2">
-                    {prod.cat}
-                  </span>
-                  <h3 className="text-sm font-semibold text-black mb-1">{prod.name}</h3>
-                  <p className="text-xs text-gray-400 leading-relaxed">{prod.desc}</p>
-                </div>
+              <FadeUp key={i} delay={i * 100}>
+                <Link href={`/products#${prod.id}`} className="block bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-md hover:-translate-y-1 transition-all duration-200 group">
+                  <div className="h-28 flex items-center justify-center text-[40px] text-cyan-600 bg-cyan-pale transition-colors">
+                    {prod.icon}
+                  </div>
+                  <div className="p-5">
+                    <span className="inline-block text-xs px-2 py-1 rounded bg-gray-100 text-gray-500 mb-2">
+                      {prod.cat}
+                    </span>
+                    <h3 className="text-sm font-semibold text-black mb-1">{prod.name}</h3>
+                    <p className="text-xs text-gray-400 leading-relaxed">{prod.desc}</p>
+                  </div>
+                </Link>
               </FadeUp>
             ))}
           </div>

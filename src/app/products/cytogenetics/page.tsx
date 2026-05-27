@@ -47,6 +47,7 @@ export default function CytogeneticsPage() {
       <PageHero
         title="Cytogenetics"
         sub="Advanced chromosome analysis, FISH probes, culture media & imaging systems for diagnostic and research laboratories."
+        bgImage="/Cytogenetics.jpg"
       />
 
       {/* INTRO */}

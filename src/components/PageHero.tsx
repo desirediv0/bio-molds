@@ -1,9 +1,13 @@
 import Link from "next/link";
 
-export default function PageHero({ title, sub }: { title: string, sub?: string }) {
+export default function PageHero({ title, sub, bgImage }: { title: string, sub?: string, bgImage?: string }) {
   return (
-    <section className="bg-black py-20 px-4 sm:px-6">
-      <div className="max-w-7xl mx-auto">
+    <section
+      className="relative bg-black py-20 px-4 sm:px-6 overflow-hidden"
+      style={bgImage ? { backgroundImage: `url(${bgImage})`, backgroundSize: "cover", backgroundPosition: "center" } : undefined}
+    >
+      {bgImage && <div className="absolute inset-0 bg-black/65" />}
+      <div className="relative z-10 max-w-7xl mx-auto">
         <div className="text-gray-500 text-sm mb-6">
           <Link href="/" className="hover:text-cyan-400 transition-colors">Home</Link>
           <span className="mx-2">/</span>
