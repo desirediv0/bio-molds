@@ -1,7 +1,7 @@
 import Link from "next/link";
 import FadeUp from "@/components/FadeUp";
 import PageHero from "@/components/PageHero";
-import { FaDna, FaFlask, FaMicroscope, FaDesktop, FaArrowRight, FaFilePdf, FaVial, FaBox } from "react-icons/fa6";
+import { FaDna, FaFlask, FaMicroscope, FaDesktop, FaArrowRight, FaFilePdf } from "react-icons/fa6";
 
 const highlights = [
   {
@@ -32,14 +32,14 @@ const highlights = [
   },
 ];
 
-const products = [
-  { slug: "fish-and-sanger-sequencing", icon: <FaDna />, name: "DNA Fast FISH Probes", type: "Cytogenetics", desc: "332+ probes — HER2, ALK, BCR/ABL, PML/RARA, MYC, PD-L1, Prenatal & more. Dual/Tri/Single color.", pdf: "https://desirediv-storage.blr1.cdn.digitaloceanspaces.com/bio-molds/Biomolds_catalogue_DNA%20Fast%20Fish%20Probe.pdf" },
-  { slug: "culture-media", icon: <FaFlask />, name: "Cytogenetics Culture Media", type: "Cytogenetics", desc: "Peripheral blood, bone marrow, amniotic fluid & CVS culture media for karyotyping and chromosomal analysis." },
-  { slug: "adhesion-microscope-slides", icon: <FaMicroscope />, name: "Adhesion Microscope Slides", type: "IVD · CE Marked", desc: "PCL (45°) & PCI (90°) positive charged slides. Super White Glass, 25×75mm, auto-stainer compatible.", pdf: "https://desirediv-storage.blr1.cdn.digitaloceanspaces.com/bio-molds/BioMolds_%20slides%20Brochure_final.pdf" },
-  { slug: "equipment", icon: <FaDesktop />, name: "BioView Imaging System", type: "Lab Instruments", desc: "Automated fluorescence scanning for FISH, karyotyping, IHC scoring, and digital pathology." },
-  { slug: "extraction-kit", icon: <FaVial />, name: "Extraction Kits", type: "Molecular Kits", desc: "High-yield DNA/RNA extraction using magnetic bead and spin column technology." },
-  { slug: "consumable", icon: <FaBox />, name: "Consumables", type: "Lab Essentials", desc: "Sterile pipette tips, PCR tubes, plates, and microcentrifuge tubes for molecular applications." },
-];
+// const products = [
+//   { slug: "fish-and-sanger-sequencing", icon: <FaDna />, name: "DNA Fast FISH Probes", type: "Cytogenetics", desc: "332+ probes — HER2, ALK, BCR/ABL, PML/RARA, MYC, PD-L1, Prenatal & more. Dual/Tri/Single color.", pdf: "https://desirediv-storage.blr1.cdn.digitaloceanspaces.com/bio-molds/Biomolds_catalogue_DNA%20Fast%20Fish%20Probe.pdf" },
+//   { slug: "culture-media", icon: <FaFlask />, name: "Cytogenetics Culture Media", type: "Cytogenetics", desc: "Peripheral blood, bone marrow, amniotic fluid & CVS culture media for karyotyping and chromosomal analysis." },
+//   { slug: "adhesion-microscope-slides", icon: <FaMicroscope />, name: "Adhesion Microscope Slides", type: "IVD · CE Marked", desc: "PCL (45°) & PCI (90°) positive charged slides. Super White Glass, 25×75mm, auto-stainer compatible.", pdf: "https://desirediv-storage.blr1.cdn.digitaloceanspaces.com/bio-molds/BioMolds_%20slides%20Brochure_final.pdf" },
+//   { slug: "equipment", icon: <FaDesktop />, name: "BioView Imaging System", type: "Lab Instruments", desc: "Automated fluorescence scanning for FISH, karyotyping, IHC scoring, and digital pathology." },
+//   { slug: "extraction-kit", icon: <FaVial />, name: "Extraction Kits", type: "Molecular Kits", desc: "High-yield DNA/RNA extraction using magnetic bead and spin column technology." },
+//   { slug: "consumable", icon: <FaBox />, name: "Consumables", type: "Lab Essentials", desc: "Sterile pipette tips, PCR tubes, plates, and microcentrifuge tubes for molecular applications." },
+// ];
 
 export default function CytogeneticsPage() {
   return (
@@ -87,7 +87,7 @@ export default function CytogeneticsPage() {
           </div>
 
           {/* PRODUCT GRID */}
-          <FadeUp>
+          {/* <FadeUp>
             <h2 className="font-serif text-3xl text-black font-medium mb-8">All Products</h2>
           </FadeUp>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -115,7 +115,7 @@ export default function CytogeneticsPage() {
                 </div>
               </FadeUp>
             ))}
-          </div>
+          </div> */}
         </div>
       </section>
 

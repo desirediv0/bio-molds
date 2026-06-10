@@ -32,6 +32,85 @@ const cardSlides = [
   ["/surgical-tools.jpg", "/dna-research.jpg", "/lab-safety.jpg"],
 ];
 
+const nutritionCategories = [
+  {
+    title: "PROTEIN",
+    icon: <FaDumbbell />,
+    borderClass: "border-l-4 border-l-cyan-500",
+    iconBg: "bg-cyan-pale text-cyan-600",
+    items: [
+      {
+        name: "Concentrate",
+        desc: "Constitute Glutamine Precursor & BCAA.\n\n100% Protein From Whey.\n\nRepair Muscle Tissues.\n\nEnhance Muscle Growth."
+      },
+      {
+        name: "Pro-Concentrate",
+        desc: "Mix one scoop (35gm) with 250-300ml of water or milk. Diabetic, pregnant and breastfeeding women should only use this product upon the advice of a qualified licensed physician or dietician."
+      },
+      {
+        name: "Absolute whey protein",
+        desc: "Lean Muscle Building.\n\n30g Whey Protein & 6.9g BCAA.\n\nZero Carbs & Zero Fat.\n\nBuild Lean & Ripped Muscles."
+      },
+      {
+        name: "Turbo whey protein",
+        desc: "23g Protein & 5g EAA.\n\n4g of Glutamine Precursor.\n\nGluten & Hormone Free.\n\nFaster Muscle Gain.\n\nPrevent Muscle Breakdown."
+      },
+      {
+        name: "Power Whey protein",
+        desc: "Unbeatable Strength.\n\nBoost High Energy.\n\nBuild Lean Muscle Mass.\n\nBoost Athletic Performance."
+      },
+      {
+        name: "Nitra Whey",
+        desc: "Supports Testosterone Level.\n\nEnhanced Strength and Muscle Gain.\n\nRosehip Extract for Joint Health.\n\nImproved Recovery Time.\n\nAshwagandha, Safed Musli & Tribulus Terrestris."
+      }
+    ]
+  },
+  {
+    title: "GAINER",
+    icon: <FaFlask />,
+    borderClass: "border-l-4 border-l-pink",
+    iconBg: "bg-pink-pale text-pink",
+    items: [
+      {
+        name: "Advanced weight gainer",
+        desc: "Per 100g Delivers 376 kcal Energy, 23g of Protein.\n\n2g Dietary fiber, 4g Creatine.\n\nSupports Muscle Mass Gain.\n\nSpeed Up Muscle Growth."
+      },
+      {
+        name: "Anabolic mass gainer",
+        desc: "For Lean Muscle Building.\n\n30% Protein | Creapure® | Dietary Fibers.\n\nHMB | DAA | Taurine | Ashwagandha.\n\nEnhances Natural Testosterone.\n\nRecovery & Strength."
+      }
+    ]
+  },
+  {
+    title: "PRE WORKOUT",
+    icon: <FaVial />,
+    borderClass: "border-l-4 border-l-cyan-500",
+    iconBg: "bg-cyan-pale text-cyan-600",
+    items: [
+      {
+        name: "LSteam",
+        desc: "2000 mg L-Citrulline.\n\nProvides Adaptogenic Energy.\n\nExtreme Mental Focus.\n\nBeta-Alanine | L-Citrulline | Betaine Anhydrous.\n\nVitamin C & Grape Seed Extract for Antioxidant Support.\n\nNo Caffeine Crash."
+      },
+      {
+        name: "HSteam",
+        desc: "Boost Muscular Endurance.\n\nMaximize Training Capacity.\n\nImprove Blood Circulation.\n\nProvide Extreme Mental Focus."
+      }
+    ]
+  },
+  {
+    title: "WORKOUT ESSENTIALS",
+    icon: <FaBox />,
+    borderClass: "border-l-4 border-l-pink",
+    iconBg: "bg-pink-pale text-pink",
+    items: [
+      {
+        name: "Recharging Supplement",
+        desc: "Replenish Electrolytes & Hydration.\n\nBoost Muscle Recovery.\n\nReduce Fatigue & Cramps.\n\nOptimal Intra-Workout Support."
+      }
+    ]
+  }
+];
+
 function CardCarousel({ images, interval = 3000 }: { images: string[]; interval?: number }) {
   const [idx, setIdx] = useState(0);
   useEffect(() => {
@@ -50,20 +129,18 @@ function CardCarousel({ images, interval = 3000 }: { images: string[]; interval?
 }
 
 export default function Home() {
+  const [selectedProduct, setSelectedProduct] = useState<{ name: string; desc: string } | null>(null);
+
   return (
     <>
       {/* 1. HERO */}
-      <section className="min-h-screen pt-20 pb-16 px-4 sm:px-6 bg-white relative flex items-center">
+      <section className="min-h-screen pt-14 pb-16 px-4 sm:px-6 bg-white relative flex items-center">
         <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
 
           <FadeUp className="max-w-xl z-10">
-            <div className="inline-flex items-center gap-2 bg-pink-pale text-pink px-4 py-1.5 rounded-full text-sm font-semibold mb-8">
-              <span className="w-1.5 h-1.5 rounded-full bg-pink"></span>
 
-              New Delhi
-            </div>
 
-            <h1 className="font-serif text-[56px] lg:text-[72px] text-black font-medium leading-tight mb-6">
+            <h1 className="font-serif text-[56px] lg:text-[65px] text-black font-medium leading-tight mb-6">
               Precision <br />
               <span className="text-cyan-500">Diagnostics</span> <br />
               for a Healthier Tomorrow
@@ -135,7 +212,7 @@ export default function Home() {
       {/* TRUSTED BY BAR */}
       <section className="bg-cyan-pale border-y border-cyan-border py-3 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto flex flex-wrap items-center gap-x-6 gap-y-3">
-          <span className="text-xs font-bold tracking-widest text-gray-400 uppercase">Trusted by</span>
+          <span className="text-xs font-bold tracking-widest text-gray-400 uppercase">We are Trusted by</span>
           <div className="hidden lg:block w-px h-5 bg-gray-300"></div>
           {["Diagnostic Labs", "Hospitals", "Research Institutions", "Pathology Centers", "Pharmaceutical Companies", "Academic Institutions", "Clinical Research Organizations", "IVF & Fertility Centers"].map((item, i) => (
             <span key={i} className="inline-flex items-center gap-2 text-sm font-semibold text-gray-700">
@@ -147,7 +224,7 @@ export default function Home() {
       </section>
 
       {/* 3. ABOUT */}
-      <section id="about" className="py-20 px-4 sm:px-6 bg-white">
+      <section id="about" className="py-12 md:py-14 px-4 sm:px-6 bg-white">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-5 items-center">
 
           <FadeUp className="relative h-[450px]">
@@ -164,7 +241,7 @@ export default function Home() {
             </div>
 
             <div className="absolute top-8 -left-6 bg-black text-white rounded-xl px-5 py-3 text-sm font-semibold shadow-2xl z-30">
-              Est. 2022 <span className="block text-xs font-normal text-cyan-400 mt-1 uppercase tracking-tighter">Startup India Registered</span>
+              MSME Registered <span className="block text-xs font-normal text-cyan-400 mt-1 uppercase tracking-tighter">Startup</span>
             </div>
           </FadeUp>
 
@@ -193,21 +270,21 @@ export default function Home() {
       </section>
 
       {/* 7. PRODUCTS */}
-      <section id="products" className="py-20 px-4 sm:px-6 bg-gray-50 border-b border-gray-100">
+      <section id="products" className="py-12 md:py-14 px-4 sm:px-6 bg-gray-50 border-b border-gray-100">
         <div className="max-w-7xl mx-auto">
           <FadeUp className="text-center mb-12">
-            <span className="text-xs font-semibold tracking-widest uppercase text-cyan-600 mb-4 block">Featured Products</span>
-            <h2 className="font-serif text-4xl md:text-5xl font-medium text-black leading-tight">Diagnostic & Research Kits</h2>
+            <span className="text-xs font-semibold tracking-widest uppercase text-cyan-600 mb-4 block">Our Products</span>
+            <h2 className="font-serif text-4xl md:text-5xl font-medium text-black leading-tight">Diagnostic & Research</h2>
           </FadeUp>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { id: "diagnostic-kits", icon: <FaVial />, cat: "Diagnostic", name: "Diagnostic & Research Kits", desc: "RT-PCR · Sanger · FISH · Antibodies" },
               { id: "cytogenetics", icon: <FaDna />, cat: "Cytogenetics", name: "Cytogenetics", desc: "FISH Probes · Glass Slides · Media Culture" },
               { id: "molecular", icon: <FaFlask />, cat: "Molecular", name: "Molecular", desc: "RT-PCR Kit · Extraction · Oncology · Infection" },
               { id: "ihc-antibody", icon: <FaMicroscope />, cat: "IHC Antibody", name: "IHC Antibody", desc: "+ve Glass Slides · NGS · Sanger · HLA Typing" },
               { id: "lab-equipment", icon: <FaServer />, cat: "Lab Eq", name: "Lab Eq, Software & Consumable", desc: "Microscope · Hub · Review Scanning" },
-              { id: "hospital-healthcare", icon: <FaSuitcaseMedical />, cat: "Hospital Healthcare", name: "Hospital Healthcare", desc: "Clinical diagnostic supplies & consumables" }
+              { id: "hospital-healthcare", icon: <FaSuitcaseMedical />, cat: "Hospital Healthcare", name: "Hospital Healthcare", desc: "Clinical diagnostic supplies & consumables" },
+              { id: "diagnostic-kits", icon: <FaVial />, cat: "Diagnostic", name: "Diagnostic & Research Kits", desc: "RT-PCR · Sanger · FISH · Antibodies" }
             ].map((prod, i) => (
               <FadeUp key={i} delay={i * 100}>
                 <Link href={`/products#${prod.id}`} className="block bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-md hover:-translate-y-1 transition-all duration-200 group">
@@ -218,7 +295,7 @@ export default function Home() {
                     <span className="inline-block text-xs px-2 py-1 rounded bg-gray-100 text-gray-500 mb-2">
                       {prod.cat}
                     </span>
-                    <h3 className="text-sm font-semibold text-black mb-1">{prod.name}</h3>
+                    <h3 className="text-base font-semibold text-black mb-1">{prod.name}</h3>
                     <p className="text-xs text-gray-400 leading-relaxed">{prod.desc}</p>
                   </div>
                 </Link>
@@ -229,7 +306,7 @@ export default function Home() {
       </section>
 
       {/* 4. SERVICES */}
-      <section id="services" className="py-20 px-4 sm:px-6 bg-gray-50">
+      <section id="services" className="py-12 md:py-14 px-4 sm:px-6 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <FadeUp className="flex flex-col md:flex-row justify-between items-end gap-6 mb-12">
             <div>
@@ -266,7 +343,7 @@ export default function Home() {
       </section>
 
       {/* 5. SCIENCE SPOTLIGHT */}
-      <section id="science" className="py-20 px-4 sm:px-6 bg-white">
+      <section id="science" className="py-12 md:py-14 px-4 sm:px-6 bg-white">
         <div className="max-w-7xl mx-auto">
           <FadeUp className="mb-12">
             <span className="text-xs font-semibold tracking-widest uppercase text-pink mb-4 block">Our Specialisations</span>
@@ -337,7 +414,7 @@ export default function Home() {
         </div>
       </section>
       {/* 8. HEALTH & NUTRITION */}
-      <section id="health-nutrition" className="py-20 px-4 sm:px-6 bg-white relative">
+      <section id="health-nutrition" className="py-12 md:py-14 px-4 sm:px-6 bg-white relative">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-12 text-left">
 
           <div className="lg:col-span-2">
@@ -351,24 +428,30 @@ export default function Home() {
 
             <FadeUp delay={100} className="mb-12">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="card-base p-6 border-l-4 border-l-cyan-500">
-                  <div className="w-12 h-12 bg-cyan-pale text-cyan-600 rounded-xl flex items-center justify-center mb-4 text-2xl"><FaDumbbell /></div>
-                  <h3 className="font-semibold text-black mb-2">Whey Protein Range</h3>
-                  <ul className="text-sm text-gray-500 space-y-2">
-                    <li className="flex gap-2 items-center"><FaCheck className="text-cyan-500 text-xs" /> Premium Isolate</li>
-                    <li className="flex gap-2 items-center"><FaCheck className="text-cyan-500 text-xs" /> Mass Gainer</li>
-                    <li className="flex gap-2 items-center"><FaCheck className="text-cyan-500 text-xs" /> Recovery Formulas</li>
-                  </ul>
-                </div>
-                <div className="card-base p-6 border-l-4 border-l-pink">
-                  <div className="w-12 h-12 bg-pink-pale text-pink rounded-xl flex items-center justify-center mb-4 text-2xl"><FaPills /></div>
-                  <h3 className="font-semibold text-black mb-2">Vitamins & Minerals</h3>
-                  <ul className="text-sm text-gray-500 space-y-2">
-                    <li className="flex gap-2 items-center"><FaCheck className="text-pink text-xs" /> Daily Multivitamins</li>
-                    <li className="flex gap-2 items-center"><FaCheck className="text-pink text-xs" /> Joint Support</li>
-                    <li className="flex gap-2 items-center"><FaCheck className="text-pink text-xs" /> Immunity Boosters</li>
-                  </ul>
-                </div>
+                {nutritionCategories.map((cat, idx) => (
+                  <div key={idx} className={`bg-white rounded-2xl ${cat.borderClass} shadow-sm p-6 flex flex-col hover:shadow-md transition-shadow`}>
+                    <div className="flex items-center gap-4 mb-4 pb-2 border-b border-gray-100">
+                      <div className={`w-12 h-12 ${cat.iconBg} rounded-xl flex items-center justify-center text-xl flex-shrink-0`}>
+                        {cat.icon}
+                      </div>
+                      <h3 className="font-bold text-gray-900 tracking-wider text-sm uppercase">
+                        {cat.title}
+                      </h3>
+                    </div>
+                    <div className="flex flex-col">
+                      {cat.items.map((item, itemIdx) => (
+                        <button
+                          key={itemIdx}
+                          onClick={() => setSelectedProduct(item)}
+                          className="flex items-center gap-3 py-3 px-1 text-left text-sm text-gray-700 hover:text-cyan-600 transition-colors group/item border-t border-gray-100 first:border-t-0"
+                        >
+                          <span className="text-gray-400 group-hover/item:text-cyan-500 transition-colors font-mono">&gt;</span>
+                          <span className="font-medium">{item.name}</span>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                ))}
               </div>
             </FadeUp>
 
@@ -424,7 +507,7 @@ export default function Home() {
       </section>
 
       {/* 9. LEARN WITH US */}
-      <section id="learn" className="py-20 px-4 sm:px-6 bg-gray-50 border-t border-gray-100">
+      <section id="learn" className="py-12 md:py-14 px-4 sm:px-6 bg-gray-50 border-t border-gray-100">
         <div className="max-w-7xl mx-auto">
           <FadeUp className="mb-12 max-w-3xl">
             <span className="text-xs font-semibold tracking-widest uppercase text-cyan-600 mb-4 block">Education</span>
@@ -467,7 +550,7 @@ export default function Home() {
       </section>
 
       {/* 10. NEWS & MEDIA */}
-      <section id="news" className="py-20 px-4 sm:px-6 bg-white border-t border-gray-100">
+      <section id="news" className="py-12 md:py-14 px-4 sm:px-6 bg-white border-t border-gray-100">
         <div className="max-w-7xl mx-auto">
           <FadeUp className="mb-12">
             <span className="text-xs font-semibold tracking-widest uppercase text-pink mb-4 block">Updates</span>
@@ -537,7 +620,7 @@ export default function Home() {
       </section>
 
       {/* 11. CONTACT */}
-      <section id="contact" className="py-20 px-4 sm:px-6 bg-gray-50 relative border-t border-gray-100">
+      <section id="contact" className="py-12 md:py-14 px-4 sm:px-6 bg-gray-50 relative border-t border-gray-100">
         <div className="max-w-7xl mx-auto">
           <FadeUp className="mb-12">
             <span className="text-xs font-semibold tracking-widest uppercase text-cyan-600 mb-4 block">Get In Touch</span>
@@ -682,6 +765,35 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {selectedProduct && (
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[999] flex items-center justify-center p-4">
+          <div className="bg-white w-full max-w-lg rounded-2xl overflow-hidden shadow-2xl relative border border-gray-100 animate-in fade-in zoom-in duration-200">
+            <div className="bg-gradient-to-r from-cyan-500 to-cyan-600 p-5 text-white flex justify-between items-center">
+              <h3 className="text-base font-bold tracking-wide">{selectedProduct.name}</h3>
+              <button 
+                onClick={() => setSelectedProduct(null)} 
+                className="text-white hover:text-gray-200 bg-white/10 hover:bg-white/20 p-2 rounded-full transition-colors flex items-center justify-center"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
+              </button>
+            </div>
+            <div className="p-6 max-h-[60vh] overflow-y-auto">
+              <div className="text-gray-700 space-y-4 text-sm leading-relaxed whitespace-pre-line">
+                {selectedProduct.desc}
+              </div>
+            </div>
+            <div className="bg-gray-50 px-6 py-4 flex justify-end border-t border-gray-100">
+              <button 
+                onClick={() => setSelectedProduct(null)} 
+                className="bg-cyan-500 hover:bg-cyan-600 text-white px-5 py-2 rounded-xl text-sm font-semibold transition-colors"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
     </>
   );
