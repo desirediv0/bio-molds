@@ -246,25 +246,23 @@ export default function Home() {
           </FadeUp>
 
           <FadeUp delay={100}>
-            <span className="text-xs font-semibold tracking-widest uppercase text-pink mb-4 block">Who we are</span>
-            <h2 className="font-serif text-4xl md:text-5xl font-medium text-black leading-tight mb-6">Science-driven solutions for diagnostics & drug discovery</h2>
+            <span className="text-xs font-semibold tracking-widest uppercase text-pink mb-4 block">About Us</span>
+            <h2 className="font-serif text-4xl md:text-5xl font-medium text-black leading-tight mb-6">Science-driven solutions for diagnostics & life sciences</h2>
+            <p className="text-base text-gray-500 leading-relaxed mb-6 max-w-xl">
+              At Biomolds Pvt. Ltd., we are committed to advancing healthcare, life sciences, diagnostics, and research by delivering innovative, reliable, and high-quality solutions to laboratories, hospitals, blood banks, research institutions, and healthcare organizations across India.
+            </p>
             <p className="text-base text-gray-500 leading-relaxed mb-8 max-w-xl">
-              BioMolds is a New Delhi–based startup focused on developing diagnostic products and druggable molecules targeting orphan and rare diseases — conditions that are curable but chronically underdiagnosed. We also develop multipurpose diagnostic kits for detection of multiple infections from a single blood draw, reducing invasiveness and cost.
+              Founded with a vision to bridge the gap between technology and healthcare needs, Biomolds has grown into a trusted partner providing world-class instruments, laboratory equipment, consumables, and technical support.
             </p>
 
-            <ul className="space-y-3 mb-8">
-              {[
-                "Multiplex diagnostic kits — detect multiple conditions from a single blood draw",
-                "Drug discovery targeting rare & neglected diseases",
-                "Services for labs, molecular research & academic institutions",
-                "MSME & Startup India registered company"
-              ].map((item, i) => (
-                <li key={i} className="flex items-start gap-3">
-                  <div className="w-2 h-2 rounded-full bg-cyan-500 mt-1.5 flex-shrink-0"></div>
-                  <span className="text-black text-sm">{item}</span>
-                </li>
-              ))}
-            </ul>
+            <div className="flex flex-wrap gap-4 items-center">
+              <Link href="/about" className="bg-cyan-500 text-white rounded-xl px-6 py-3 font-semibold hover:bg-cyan-600 transition-colors shadow-sm text-sm">
+                Read Our Story
+              </Link>
+              <Link href="#contact" className="border border-gray-200 text-gray-700 rounded-xl px-6 py-3 hover:border-cyan-400 hover:text-cyan-600 font-semibold transition-colors text-sm">
+                Get in Touch
+              </Link>
+            </div>
           </FadeUp>
         </div>
       </section>
@@ -279,15 +277,15 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { id: "Cytogenetics", icon: <FaDna />, cat: "Cytogenetics", name: "Cytogenetics", desc: "FISH Probes · Glass Slides · Media Culture" },
-              { id: "Molecular Diagnostic", icon: <FaFlask />, cat: "Molecular", name: "Molecular", desc: "RT-PCR Kit · Extraction · Oncology · Infection" },
-              { id: "IHC-antibody", icon: <FaMicroscope />, cat: "IHC Antibody", name: "IHC Antibody", desc: "+ve Glass Slides · NGS · Sanger · HLA Typing" },
-              { id: "LAB-equipment", icon: <FaServer />, cat: "Lab Eq", name: "Lab Eq, Software & Consumable", desc: "Microscope · Hub · Review Scanning" },
-              { id: "Hospital-healthcare", icon: <FaSuitcaseMedical />, cat: "Hospital Healthcare", name: "Hospital Healthcare", desc: "Clinical diagnostic supplies & consumables" },
-              { id: "Diagnostic-kits", icon: <FaVial />, cat: "Diagnostic", name: "Diagnostic & Research Kits", desc: "RT-PCR · Sanger · FISH · Antibodies" }
+              { id: "Cytogenetics", icon: <FaDna />, cat: "Cytogenetics", name: "Cytogenetics", desc: "FISH Probes · Glass Slides · Media Culture", href: "/products/cytogenetics" },
+              { id: "Molecular Diagnostic", icon: <FaFlask />, cat: "Molecular", name: "Molecular Diagnostic", desc: "RT-PCR Kit · Extraction · Oncology · Infection", href: "/products/molecular" },
+              { id: "IHC-antibody", icon: <FaMicroscope />, cat: "IHC Antibody", name: "IHC Antibody", desc: "+ve Glass Slides · NGS · Sanger · HLA Typing", href: "/products/ihc-antibody" },
+              { id: "LAB-equipment", icon: <FaServer />, cat: "Lab Eq", name: "Lab Eq, Software & Consumable", desc: "Microscope · Hub · Review Scanning", href: "/products/lab-equipment" },
+              { id: "Hospital-healthcare", icon: <FaSuitcaseMedical />, cat: "Hospital Healthcare", name: "Hospital Healthcare", desc: "Clinical diagnostic supplies & consumables", href: "/products/hospital-healthcare" },
+              { id: "Diagnostic-kits", icon: <FaVial />, cat: "Diagnostic", name: "Diagnostic & Research Kits", desc: "RT-PCR · Sanger · FISH · Antibodies", href: "/products/molecular" }
             ].map((prod, i) => (
               <FadeUp key={i} delay={i * 100}>
-                <Link href={`/products#${prod.id}`} className="block bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-md hover:-translate-y-1 transition-all duration-200 group">
+                <Link href={prod.href} className="block bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-md hover:-translate-y-1 transition-all duration-200 group">
                   <div className="h-28 flex items-center justify-center text-[40px] text-cyan-600 bg-cyan-pale transition-colors">
                     {prod.icon}
                   </div>
