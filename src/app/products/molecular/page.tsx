@@ -52,9 +52,7 @@ export default function MolecularPage() {
         <div className="max-w-7xl mx-auto">
           <FadeUp>
             <p className="text-gray-600 leading-relaxed text-lg max-w-4xl mb-14 font-sans">
-              Our Molecular Diagnostics division provides advanced, research-grade (RUO) and IVD-compliant tools designed to make genetic testing and disease detection precise, efficient, and cost-effective. We specialize in molecular solutions that bridge technology and clinical diagnostics.
-              <br /><br />
-              With a product range covering magnetic-bead based extraction kits, multiplex RT-PCR assays, and comprehensive Next-Generation Sequencing (NGS) target panels, we support laboratories, hospitals, and clinical research institutions across India in achieving superior diagnostic outcomes.
+              Clinical diagnosis has made extensive use of molecular techniques, including disease diagnosis, disease prognosis, and identification of infectious agents. The concepts of molecular biology laboratory practise, common techniques, and the scientific foundation for molecular diagnostics will all be covered in this fundamental molecular biology course series. This introductory-level eLearning course explains the real-time PCR and PCR concept. Real-time PCR features, PCR product analysis, and PCR processes are some of the subjects discussed.
             </p>
           </FadeUp>
 
