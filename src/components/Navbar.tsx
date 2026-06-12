@@ -26,7 +26,7 @@ export default function Navbar() {
       let observer: IntersectionObserver | null = null;
       if (pathname === "/") {
         const sections = ["about", "products", "services", "health-nutrition", "learn", "news", "contact"];
-        
+
         const observerCallback = (entries: IntersectionObserverEntry[]) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
@@ -109,7 +109,7 @@ export default function Navbar() {
               </Link>
               <Link href="/products/molecular" className={`px-5 py-2.5 hover:bg-cyan-pale group/link flex items-start gap-3 ${pathname === "/products/molecular" ? "bg-cyan-pale text-cyan-600" : ""}`}>
                 <span className="text-xl text-cyan-500 w-5 flex justify-center mt-0.5"><FaVial /></span>
-                <div className="flex flex-col"><span className="text-sm font-medium text-black">Molecular</span><span className="text-xs text-gray-400">RT-PCR Kit · Extraction · Oncology · Infection</span></div>
+                <div className="flex flex-col"><span className="text-sm font-medium text-black">Molecular Diagnostic</span><span className="text-xs text-gray-400">RT-PCR Kit · Extraction · Oncology · Infection</span></div>
               </Link>
               <Link href="/products/ihc-antibody" className={`px-5 py-2.5 hover:bg-cyan-pale group/link flex items-start gap-3 ${pathname === "/products/ihc-antibody" ? "bg-cyan-pale text-cyan-600" : ""}`}>
                 <span className="text-xl text-cyan-500 w-5 flex justify-center mt-0.5"><FaMicroscope /></span>

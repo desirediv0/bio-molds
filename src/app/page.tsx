@@ -279,12 +279,12 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { id: "cytogenetics", icon: <FaDna />, cat: "Cytogenetics", name: "Cytogenetics", desc: "FISH Probes · Glass Slides · Media Culture" },
-              { id: "molecular", icon: <FaFlask />, cat: "Molecular", name: "Molecular", desc: "RT-PCR Kit · Extraction · Oncology · Infection" },
-              { id: "ihc-antibody", icon: <FaMicroscope />, cat: "IHC Antibody", name: "IHC Antibody", desc: "+ve Glass Slides · NGS · Sanger · HLA Typing" },
-              { id: "lab-equipment", icon: <FaServer />, cat: "Lab Eq", name: "Lab Eq, Software & Consumable", desc: "Microscope · Hub · Review Scanning" },
-              { id: "hospital-healthcare", icon: <FaSuitcaseMedical />, cat: "Hospital Healthcare", name: "Hospital Healthcare", desc: "Clinical diagnostic supplies & consumables" },
-              { id: "diagnostic-kits", icon: <FaVial />, cat: "Diagnostic", name: "Diagnostic & Research Kits", desc: "RT-PCR · Sanger · FISH · Antibodies" }
+              { id: "Cytogenetics", icon: <FaDna />, cat: "Cytogenetics", name: "Cytogenetics", desc: "FISH Probes · Glass Slides · Media Culture" },
+              { id: "Molecular Diagnostic", icon: <FaFlask />, cat: "Molecular", name: "Molecular", desc: "RT-PCR Kit · Extraction · Oncology · Infection" },
+              { id: "IHC-antibody", icon: <FaMicroscope />, cat: "IHC Antibody", name: "IHC Antibody", desc: "+ve Glass Slides · NGS · Sanger · HLA Typing" },
+              { id: "LAB-equipment", icon: <FaServer />, cat: "Lab Eq", name: "Lab Eq, Software & Consumable", desc: "Microscope · Hub · Review Scanning" },
+              { id: "Hospital-healthcare", icon: <FaSuitcaseMedical />, cat: "Hospital Healthcare", name: "Hospital Healthcare", desc: "Clinical diagnostic supplies & consumables" },
+              { id: "Diagnostic-kits", icon: <FaVial />, cat: "Diagnostic", name: "Diagnostic & Research Kits", desc: "RT-PCR · Sanger · FISH · Antibodies" }
             ].map((prod, i) => (
               <FadeUp key={i} delay={i * 100}>
                 <Link href={`/products#${prod.id}`} className="block bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-md hover:-translate-y-1 transition-all duration-200 group">
@@ -771,8 +771,8 @@ export default function Home() {
           <div className="bg-white w-full max-w-lg rounded-2xl overflow-hidden shadow-2xl relative border border-gray-100 animate-in fade-in zoom-in duration-200">
             <div className="bg-gradient-to-r from-cyan-500 to-cyan-600 p-5 text-white flex justify-between items-center">
               <h3 className="text-base font-bold tracking-wide">{selectedProduct.name}</h3>
-              <button 
-                onClick={() => setSelectedProduct(null)} 
+              <button
+                onClick={() => setSelectedProduct(null)}
                 className="text-white hover:text-gray-200 bg-white/10 hover:bg-white/20 p-2 rounded-full transition-colors flex items-center justify-center"
               >
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
@@ -784,8 +784,8 @@ export default function Home() {
               </div>
             </div>
             <div className="bg-gray-50 px-6 py-4 flex justify-end border-t border-gray-100">
-              <button 
-                onClick={() => setSelectedProduct(null)} 
+              <button
+                onClick={() => setSelectedProduct(null)}
                 className="bg-cyan-500 hover:bg-cyan-600 text-white px-5 py-2 rounded-xl text-sm font-semibold transition-colors"
               >
                 Close
