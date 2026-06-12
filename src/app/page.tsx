@@ -25,11 +25,11 @@ import {
 } from "react-icons/fa6";
 
 const cardSlides = [
-  ["/lab-tech.jpg", "/dna-research.jpg", "/lab-scientist.jpg"],
-  ["/lab-scientist.jpg", "/lab-safety.jpg", "/dna-research.jpg"],
-  ["/dna-research.jpg", "/lab-tech.jpg", "/surgical-tools.jpg"],
-  ["/lab-safety.jpg", "/lab-scientist.jpg", "/lab-tech.jpg"],
-  ["/surgical-tools.jpg", "/dna-research.jpg", "/lab-safety.jpg"],
+  ["/dna-hand.jpg", "/scientist-glasses.jpg"],
+  ["/lab-glassware.jpg", "/lab-computers.jpg"],
+  ["/chromosomes.jpg", "/cells-microscope.jpg"],
+  ["/antibodies.jpg", "/virus-diagram.jpg"],
+  ["/lab-tech.jpg", "/lab-scientist.jpg"],
 ];
 
 const nutritionCategories = [
