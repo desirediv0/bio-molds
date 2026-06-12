@@ -259,7 +259,7 @@ export default function Home() {
                 "Services for labs, molecular research & academic institutions",
                 "MSME & Startup India registered company"
               ].map((item, i) => (
-                <li key={i} className="flex items-start gap-3 bg-gray-50 border border-gray-100 rounded-lg px-4 py-3">
+                <li key={i} className="flex items-start gap-3">
                   <div className="w-2 h-2 rounded-full bg-cyan-500 mt-1.5 flex-shrink-0"></div>
                   <span className="text-black text-sm">{item}</span>
                 </li>
