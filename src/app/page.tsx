@@ -146,9 +146,8 @@ export default function Home() {
               for a Healthier Tomorrow
             </h1>
 
-            <p className="text-lg text-gray-500 leading-relaxed mb-8">
-              BioMolds delivers diagnostic kits, research tools, and health care solutions — focused on rare diseases and multi-analyte detection across India.
-            </p>
+            <p className="text-base text-gray-500 leading-relaxed mb-8">
+              BioMolds delivers diagnostic kits, research tools, and healthcare solutions, focused on rare/common diseases and multi-analyte detection across India. With a strong commitment to innovation and quality, we support laboratories, hospitals, and research institutions with reliable and advanced diagnostic technologies. Our solutions are designed to enhance early detection, improve clinical decision-making, and contribute to better patient outcomes.            </p>
 
             <div className="flex flex-wrap gap-4 items-center mb-8">
               <Link href="#services" className="bg-cyan-500 text-white rounded-xl px-6 py-3 font-semibold hover:bg-cyan-400 transition-colors shadow-sm">
@@ -166,27 +165,27 @@ export default function Home() {
 
             {/* Card 1 - top left */}
             <div className="absolute top-[0%] left-[0%] w-[260px] h-[185px] rounded-2xl overflow-hidden shadow-lg border-2 border-white z-10 bg-white">
-              <CardCarousel images={cardSlides[0]} interval={3200} />
+              <CardCarousel images={cardSlides[0]} interval={5000} />
             </div>
 
             {/* Card 2 - top right */}
             <div className="absolute top-[2%] right-[0%] w-[260px] h-[185px] rounded-2xl overflow-hidden shadow-lg border-2 border-white z-20 bg-white">
-              <CardCarousel images={cardSlides[1]} interval={2800} />
+              <CardCarousel images={cardSlides[1]} interval={4500} />
             </div>
 
             {/* Card 3 - center (perfectly centered) */}
             <div className="absolute top-[30%] left-1/2 -translate-x-1/2 w-[260px] h-[185px] rounded-2xl overflow-hidden shadow-lg border-2 border-white z-30 bg-white">
-              <CardCarousel images={cardSlides[2]} interval={3500} />
+              <CardCarousel images={cardSlides[2]} interval={5500} />
             </div>
 
             {/* Card 4 - bottom left */}
             <div className="absolute bottom-[10%] left-[0%] w-[260px] h-[185px] rounded-2xl overflow-hidden shadow-lg border-2 border-white z-20 bg-white">
-              <CardCarousel images={cardSlides[3]} interval={4000} />
+              <CardCarousel images={cardSlides[3]} interval={6000} />
             </div>
 
             {/* Card 5 - bottom right */}
             <div className="absolute bottom-[12%] right-[0%] w-[260px] h-[185px] rounded-2xl overflow-hidden shadow-lg border-2 border-white z-20 bg-white">
-              <CardCarousel images={cardSlides[4]} interval={2600} />
+              <CardCarousel images={cardSlides[4]} interval={4000} />
             </div>
 
             {/* Floating Badge */}
@@ -204,22 +203,26 @@ export default function Home() {
 
           {/* Mobile: single carousel */}
           <div className="lg:hidden w-full h-[300px] relative rounded-2xl overflow-hidden shadow-lg border border-gray-100 bg-white">
-            <CardCarousel images={cardSlides[0]} interval={3000} />
+            <CardCarousel images={cardSlides[0]} interval={5000} />
           </div>
         </div>
       </section>
 
       {/* TRUSTED BY BAR */}
-      <section className="bg-cyan-pale border-y border-cyan-border py-3 px-4 sm:px-6">
-        <div className="max-w-7xl mx-auto flex flex-wrap items-center gap-x-6 gap-y-3">
-          <span className="text-xs font-bold tracking-widest text-gray-400 uppercase">We are Trusted by</span>
-          <div className="hidden lg:block w-px h-5 bg-gray-300"></div>
-          {["Diagnostic Labs", "Hospitals", "Research Institutions", "Pathology Centers", "Pharmaceutical Companies", "Academic Institutions", "Clinical Research Organizations", "IVF & Fertility Centers"].map((item, i) => (
-            <span key={i} className="inline-flex items-center gap-2 text-sm font-semibold text-gray-700">
-              <span className="w-2 h-2 rounded-full bg-cyan-500 flex-shrink-0"></span>
-              {item}
-            </span>
-          ))}
+      <section className="bg-cyan-pale border-y border-cyan-border py-4 px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center gap-4">
+          <div className="flex items-center gap-4 flex-shrink-0">
+            <span className="text-xs font-bold tracking-widest text-gray-400 uppercase">We are Trusted by</span>
+            <div className="hidden md:block w-px h-5 bg-gray-300"></div>
+          </div>
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+            {["Diagnostic Labs", "Hospitals", "Research Institutions", "Pathology Centers", "Pharmaceutical Companies", "Academic Institutions", "Clinical Research Organizations", "IVF & Fertility Centers"].map((item, i) => (
+              <span key={i} className="inline-flex items-center gap-2 text-sm font-semibold text-gray-700">
+                <span className="w-2 h-2 rounded-full bg-cyan-500 flex-shrink-0"></span>
+                {item}
+              </span>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -279,7 +282,7 @@ export default function Home() {
             {[
               { id: "Cytogenetics", icon: <FaDna />, cat: "Cytogenetics", name: "Cytogenetics", desc: "FISH Probes · Glass Slides · Media Culture", href: "/products/cytogenetics" },
               { id: "Molecular Diagnostic", icon: <FaFlask />, cat: "Molecular", name: "Molecular Diagnostic", desc: "RT-PCR Kit · Extraction · Oncology · Infection", href: "/products/molecular" },
-              { id: "IHC-antibody", icon: <FaMicroscope />, cat: "IHC Antibody", name: "IHC Antibody", desc: "+ve Glass Slides · NGS · Sanger · HLA Typing", href: "/products/ihc-antibody" },
+              { id: "IHC-antibody", icon: <FaMicroscope />, cat: "Histo Pathology", name: "Histo Pathology", desc: "Positive Slides · IHC Antibody · Automation", href: "/products/histo-pathology" },
               { id: "LAB-equipment", icon: <FaServer />, cat: "Lab Eq", name: "Lab Eq, Software & Consumable", desc: "Microscope · Hub · Review Scanning", href: "/products/lab-equipment" },
               { id: "Hospital-healthcare", icon: <FaSuitcaseMedical />, cat: "Hospital Healthcare", name: "Hospital Healthcare", desc: "Clinical diagnostic supplies & consumables", href: "/products/hospital-healthcare" },
               { id: "Diagnostic-kits", icon: <FaVial />, cat: "Diagnostic", name: "Diagnostic & Research Kits", desc: "RT-PCR · Sanger · FISH · Antibodies", href: "/products/molecular" }
@@ -497,7 +500,7 @@ export default function Home() {
               </div>
               <h3 className="font-semibold text-black mb-2">Bulk Orders</h3>
               <p className="text-sm text-gray-500 mb-4">We supply to pharmacies, gyms, and distributors.</p>
-              <a href="mailto:quotes@biomolds.com" className="block text-cyan-600 font-bold mb-2">quotes@biomolds.com</a>
+              <a href="mailto:quotes@gmail.com" className="block text-cyan-600 font-bold mb-2">quotes@gmail.com</a>
             </FadeUp>
           </div>
 
@@ -508,7 +511,7 @@ export default function Home() {
       <section id="learn" className="py-12 md:py-14 px-4 sm:px-6 bg-gray-50 border-t border-gray-100">
         <div className="max-w-7xl mx-auto">
           <FadeUp className="mb-12 max-w-3xl">
-            <span className="text-xs font-semibold tracking-widest uppercase text-cyan-600 mb-4 block">Education</span>
+            <span className="text-xs font-semibold tracking-widest uppercase text-cyan-600 mb-4 block">Learn With Us</span>
             <h2 className="font-serif text-3xl md:text-4xl text-black font-medium mb-4">Empowering the Scientific Community</h2>
             <p className="text-lg text-gray-600 leading-relaxed">
               At BioMolds, we believe that knowledge should be accessible. We provide free educational modules, protocols, and technical resources to support the next generation of scientists and improve lab practices.
@@ -696,8 +699,16 @@ export default function Home() {
                     <FaPhone />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-black text-lg mb-1">Phone Number</h3>
-                    <a href="tel:+919315465339" className="text-cyan-600 font-medium hover:text-cyan-500 transition-colors">+91 9315465339</a>
+                    <h3 className="font-semibold text-black text-lg mb-1">Phone Numbers</h3>
+                    <div className="flex flex-col gap-1 text-sm">
+                      <div className="flex flex-wrap gap-x-2 gap-y-0.5 items-center">
+                        <span className="text-xs text-gray-400 font-semibold uppercase">Mobile:</span>
+                        <a href="tel:+919315465339" className="text-cyan-600 font-medium hover:text-cyan-500 transition-colors">+91 9315465339</a>
+                        <span className="text-gray-300">/</span>
+                        <a href="tel:+918076704954" className="text-cyan-600 font-medium hover:text-cyan-500 transition-colors">8076704954</a>
+                      </div>
+
+                    </div>
                   </div>
                 </div>
 
@@ -709,8 +720,8 @@ export default function Home() {
                     <h3 className="font-semibold text-black text-lg mb-1">Email Addresses</h3>
                     <div className="flex flex-col gap-2 text-sm">
                       <a href="mailto:biomolediscsol@biomolds.com" className="text-gray-500 hover:text-cyan-600 transition-colors">biomolediscsol@biomolds.com</a>
-                      <a href="mailto:services@biomolds.com" className="text-gray-500 hover:text-cyan-600 transition-colors">services@biomolds.com</a>
-                      <a href="mailto:quotes@biomolds.com" className="text-gray-500 hover:text-cyan-600 transition-colors">quotes@biomolds.com</a>
+                      <a href="mailto:services@gmail.com" className="text-gray-500 hover:text-cyan-600 transition-colors">services@gmail.com</a>
+                      <a href="mailto:quotes@gmail.com" className="text-gray-500 hover:text-cyan-600 transition-colors">quotes@gmail.com</a>
                     </div>
                   </div>
                 </div>
@@ -733,7 +744,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <FadeUp delay={300} className="card-base p-6 flex items-center justify-between group hover:border-cyan-200 transition-colors bg-white">
               <div>
-                <h4 className="font-semibold text-black mb-1">General</h4>
+                <h4 className="font-semibold text-black mb-1">For Info</h4>
                 <p className="text-xs text-gray-500">biomolediscsol@biomolds.com</p>
               </div>
               <a href="mailto:biomolediscsol@biomolds.com" className="w-10 h-10 rounded-full bg-cyan-pale flex items-center justify-center text-cyan-600 group-hover:bg-cyan-500 group-hover:text-white transition-colors">
@@ -744,9 +755,9 @@ export default function Home() {
             <FadeUp delay={400} className="card-base p-6 flex items-center justify-between group hover:border-cyan-200 transition-colors bg-white">
               <div>
                 <h4 className="font-semibold text-black mb-1">Services</h4>
-                <p className="text-xs text-gray-500">services@biomolds.com</p>
+                <p className="text-xs text-gray-500">services@gmail.com</p>
               </div>
-              <a href="mailto:services@biomolds.com" className="w-10 h-10 rounded-full bg-cyan-pale flex items-center justify-center text-cyan-600 group-hover:bg-cyan-500 group-hover:text-white transition-colors">
+              <a href="mailto:services@gmail.com" className="w-10 h-10 rounded-full bg-cyan-pale flex items-center justify-center text-cyan-600 group-hover:bg-cyan-500 group-hover:text-white transition-colors">
                 <span aria-hidden="true"><FaArrowRight /></span>
               </a>
             </FadeUp>
@@ -754,9 +765,9 @@ export default function Home() {
             <FadeUp delay={500} className="card-base p-6 flex items-center justify-between group hover:border-cyan-200 transition-colors bg-white">
               <div>
                 <h4 className="font-semibold text-black mb-1">Quotes</h4>
-                <p className="text-xs text-gray-500">quotes@biomolds.com</p>
+                <p className="text-xs text-gray-500">quotes@gmail.com</p>
               </div>
-              <a href="mailto:quotes@biomolds.com" className="w-10 h-10 rounded-full bg-cyan-pale flex items-center justify-center text-cyan-600 group-hover:bg-cyan-500 group-hover:text-white transition-colors">
+              <a href="mailto:quotes@gmail.com" className="w-10 h-10 rounded-full bg-cyan-pale flex items-center justify-center text-cyan-600 group-hover:bg-cyan-500 group-hover:text-white transition-colors">
                 <span aria-hidden="true"><FaArrowRight /></span>
               </a>
             </FadeUp>

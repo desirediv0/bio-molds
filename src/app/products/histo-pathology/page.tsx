@@ -1,68 +1,62 @@
 import Link from "next/link";
 import FadeUp from "@/components/FadeUp";
 import PageHero from "@/components/PageHero";
-import { FaDna, FaFlask, FaVial, FaArrowRight, FaCheck } from "react-icons/fa6";
+import { FaFlask, FaMicroscope, FaServer, FaArrowRight, FaCheck, FaLaptopMedical } from "react-icons/fa6";
 
 const highlights = [
   {
     icon: <FaFlask className="text-3xl text-cyan-500" />,
-    title: "Extraction Kit",
-    desc: "High-yield, inhibitor-free DNA and RNA isolation kits using magnetic bead and spin column technology. Designed for blood, FFPE tissue, and liquid biopsy samples.",
+    title: "IHC Antibody",
+    desc: "High-specificity diagnostic antibodies and detection systems optimized for immunohistochemical staining of clinical tissue sections.",
     points: [
-      "Blood Genomic DNA & RNA Kits",
-      "FFPE DNA & RNA Isolation",
-      "Liquid Biopsy / cfDNA Isolation"
+      "Primary & Secondary Antibodies",
+      "Ready-to-use (RTU) & Concentrated formats",
+      "CE-IVD approved clinical markers"
     ],
-    href: "/products/extraction-kit"
+    href: "/#contact"
   },
   {
-    icon: <FaVial className="text-3xl text-cyan-500" />,
-    title: "RT-PCR Kits",
-    desc: "High-sensitivity real-time PCR kits for somatic mutation detection and rapid pathogenic differential diagnosis.",
+    icon: <FaMicroscope className="text-3xl text-cyan-500" />,
+    title: "Positive/Adhesive slide",
+    desc: "Premium positive-charged adhesive microscope slides designed to ensure superior cell and tissue adhesion during aggressive staining protocols.",
     points: [
-      "Oncology RT-PCR Kits",
-      "Infectious RT-PCR Kits"
+      "Leica & Roche Ventana compatible",
+      "Superior cell & tissue adhesion",
+      "90° and 45° corner options"
     ],
-    href: "/products/rt-pcr-kits"
+    href: "/#contact"
   },
   {
-    icon: <FaDna className="text-3xl text-cyan-500" />,
-    title: "NIPT Solution",
-    desc: "End-to-end library preparation and sequencing target panels optimized for high-throughput genomic analysis.",
+    icon: <FaLaptopMedical className="text-3xl text-cyan-500" />,
+    title: "Colour Frosted slide Printable",
+    desc: "Color-coded frosted glass slides suitable for printing on thermal and inkjet slide printers, facilitating easy sample tracking and identification.",
     points: [
-      "Oncology NGS Panels",
-      "Infectious NGS Panels",
-      "Transplant NGS Panels"
+      "Chemically resistant color frosting",
+      "Smooth surface for clear print quality",
+      "Compatible with major printing systems"
     ],
-    href: "/products/ngs"
+    href: "/#contact"
   },
   {
-    icon: <FaFlask className="text-3xl text-cyan-500" />,
-    title: "Molecular Reagent",
-    desc: "Our molecular reagent portfolio supports research, diagnostics, and genomic applications with high-performance solutions, including:",
+    icon: <FaServer className="text-3xl text-cyan-500" />,
+    title: "IHC Automation / Slide Printer",
+    desc: "Advanced automated slide printers and IHC stainer systems to streamline pathology laboratory workflow, minimize labeling errors, and increase throughput.",
     points: [
-      "Customised PCR & RT-PCR Panels",
-      "Real-Time PCR Master Mixes",
-      "Library Preparation Kits for NGS",
-      "DNA/RNA Extraction Reagents",
-      "Reverse Transcription Kits",
-      "qPCR Assays & Controls",
-      "Molecular Diagnostic Reagents",
-      "Custom Assay Development Solutions",
-      "Genomics & Sequencing Reagents",
-      "Nucleic Acid Purification Kits"
+      "High-speed automated slide printing",
+      "Robust automated IHC staining systems",
+      "LIMS integration & barcode scanning"
     ],
-    href: "/products/molecular-reagent"
+    href: "/#contact"
   }
 ];
 
-export default function MolecularPage() {
+export default function HistoPathologyPage() {
   return (
     <>
       <PageHero
-        title="Molecular Diagnostics"
-        sub="High-sensitivity real-time PCR kits, extraction systems, and next-generation sequencing reagents for diagnostic labs."
-        bgImage="/Molecular.jpg"
+        title="Histo Pathology"
+        sub="Positive charged glass slides, IHC antibodies, colour frosted slides, and automated laboratory systems for clinical pathology."
+        bgImage="/histo-pathology-hero.png"
       />
 
       {/* INTRO */}
@@ -70,12 +64,14 @@ export default function MolecularPage() {
         <div className="max-w-7xl mx-auto">
           <FadeUp>
             <p className="text-gray-600 leading-relaxed text-lg max-w-4xl mb-14 font-sans">
-              Clinical diagnosis has made extensive use of molecular techniques, including disease diagnosis, disease prognosis, and identification of infectious agents. The concepts of molecular biology laboratory practise, common techniques, and the scientific foundation for molecular diagnostics will all be covered in this fundamental molecular biology course series. This introductory-level eLearning course explains the real-time PCR and PCR concept. Real-time PCR features, PCR product analysis, and PCR processes are some of the subjects discussed.
+              Our Histo Pathology division delivers advanced tools for high-precision tissue diagnostics, compatibility testing, and pathology workflows. We offer a comprehensive suite of solutions tailored for diagnostic laboratories, research institutions, and clinical facilities.
+              <br /><br />
+              With products ranging from premium positive-charged adhesive microscope slides to cutting-edge automated slide printers and IHC staining automation, Biomolds Pvt. Ltd. ensures unmatched reliability and accuracy in molecular and histopathological workflows.
             </p>
           </FadeUp>
 
           {/* highlights CARDS (Grid of 4) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8 mb-20">
             {highlights.map((card, i) => (
               <FadeUp key={i} delay={i * 80}>
                 <div className="bg-cyan-pale border border-cyan-border rounded-2xl p-6 flex flex-col gap-4 h-full">
@@ -97,7 +93,7 @@ export default function MolecularPage() {
                   </ul>
 
                   <div className="flex flex-col gap-2 mt-auto pt-4 border-t border-cyan-100">
-                    <Link href="/#contact" className="inline-flex items-center gap-2 text-cyan-600 text-sm font-semibold hover:gap-3 transition-all">
+                    <Link href={card.href} className="inline-flex items-center gap-2 text-cyan-600 text-sm font-semibold hover:gap-3 transition-all">
                       Inquire Details <FaArrowRight className="text-xs" />
                     </Link>
                   </div>
@@ -113,7 +109,7 @@ export default function MolecularPage() {
         <div className="max-w-4xl mx-auto text-center">
           <FadeUp>
             <h2 className="font-serif text-3xl text-white font-medium mb-4">Need Consultation?</h2>
-            <p className="text-gray-400 mb-8 font-sans">Our molecular diagnostic experts are ready to assist with product selection, validation samples, and custom solutions.</p>
+            <p className="text-gray-400 mb-8 font-sans">Our histopathology diagnostics experts are ready to assist with automated stainer compatibility, validation runs, and custom solutions.</p>
             <div className="flex flex-wrap justify-center gap-4">
               <a href="tel:+919315465339" className="bg-cyan-500 text-white px-8 py-3 rounded-xl font-semibold hover:bg-cyan-400 transition-colors">
                 Call: +91 9315465339

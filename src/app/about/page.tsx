@@ -33,7 +33,7 @@ export default function AboutPage() {
                 <h2 className="font-serif text-3xl md:text-4xl text-black font-medium leading-tight mb-6">
                   Bridging the gap between cutting-edge technology and healthcare needs
                 </h2>
-                
+
                 <p className="text-gray-600 leading-relaxed mb-6 text-base font-sans">
                   Founded with a vision to bridge the gap between cutting-edge technology and healthcare needs, Biomolds has grown into a trusted partner for leading institutions by providing world-class instruments, diagnostic solutions, laboratory equipment, consumables, and technical support. Our strength lies not only in the products we offer but also in our commitment to understanding the unique requirements of every customer and delivering solutions that create real value.
                 </p>
@@ -115,7 +115,7 @@ export default function AboutPage() {
                 <a href="mailto:biomolediscsol@biomolds.com" className="bg-cyan-500 text-white px-8 py-3.5 rounded-xl font-semibold hover:bg-cyan-600 transition-colors shadow-sm">
                   Contact Us
                 </a>
-                <a href="mailto:quotes@biomolds.com" className="border border-white/20 text-white px-8 py-3 rounded-xl font-semibold hover:bg-white/10 hover:border-white transition-colors">
+                <a href="mailto:quotes@gmail.com" className="border border-white/20 text-white px-8 py-3 rounded-xl font-semibold hover:bg-white/10 hover:border-white transition-colors">
                   Request a Quote
                 </a>
               </div>

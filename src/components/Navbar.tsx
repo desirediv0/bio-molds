@@ -111,9 +111,9 @@ export default function Navbar() {
                 <span className="text-xl text-cyan-500 w-5 flex justify-center mt-0.5"><FaVial /></span>
                 <div className="flex flex-col"><span className="text-sm font-medium text-black">Molecular Diagnostic</span><span className="text-xs text-gray-400">RT-PCR Kit · Extraction · Oncology · Infection</span></div>
               </Link>
-              <Link href="/products/ihc-antibody" className={`px-5 py-2.5 hover:bg-cyan-pale group/link flex items-start gap-3 ${pathname === "/products/ihc-antibody" ? "bg-cyan-pale text-cyan-600" : ""}`}>
+              <Link href="/products/histo-pathology" className={`px-5 py-2.5 hover:bg-cyan-pale group/link flex items-start gap-3 ${pathname === "/products/histo-pathology" ? "bg-cyan-pale text-cyan-600" : ""}`}>
                 <span className="text-xl text-cyan-500 w-5 flex justify-center mt-0.5"><FaMicroscope /></span>
-                <div className="flex flex-col"><span className="text-sm font-medium text-black">IHC Antibody</span><span className="text-xs text-gray-400">+ve Glass Slides · NGS · Sanger · HLA Typing</span></div>
+                <div className="flex flex-col"><span className="text-sm font-medium text-black">Histo Pathology</span><span className="text-xs text-gray-400">IHC Antibody · Positive Slides · Automation</span></div>
               </Link>
               <Link href="/products/lab-equipment" className={`px-5 py-2.5 hover:bg-cyan-pale group/link flex items-start gap-3 ${pathname === "/products/lab-equipment" ? "bg-cyan-pale text-cyan-600" : ""}`}>
                 <span className="text-xl text-cyan-500 w-5 flex justify-center mt-0.5"><FaLaptopMedical /></span>
@@ -172,7 +172,7 @@ export default function Navbar() {
             Contact
           </Link>
 
-          <a href="mailto:quotes@biomolds.com" className="ml-4 bg-cyan-500 text-white px-5 py-2 rounded-lg text-sm font-semibold hover:bg-cyan-400 transition-colors shadow-sm">
+          <a href="mailto:quotes@gmail.com" className="ml-4 bg-cyan-500 text-white px-5 py-2 rounded-lg text-sm font-semibold hover:bg-cyan-400 transition-colors shadow-sm">
             Request a Quote
           </a>
         </div>
@@ -200,7 +200,7 @@ export default function Navbar() {
               <div className="flex flex-col gap-2 pb-4 pl-4">
                 <Link href="/products/cytogenetics" onClick={() => setIsOpen(false)} className={`py-1 ${pathname === "/products/cytogenetics" ? "text-cyan-600 font-medium" : "text-gray-600"}`}>Cytogenetics</Link>
                 <Link href="/products/molecular" onClick={() => setIsOpen(false)} className={`py-1 ${pathname === "/products/molecular" ? "text-cyan-600 font-medium" : "text-gray-600"}`}>Molecular</Link>
-                <Link href="/products/ihc-antibody" onClick={() => setIsOpen(false)} className={`py-1 ${pathname === "/products/ihc-antibody" ? "text-cyan-600 font-medium" : "text-gray-600"}`}>IHC Antibody</Link>
+                <Link href="/products/histo-pathology" onClick={() => setIsOpen(false)} className={`py-1 ${pathname === "/products/histo-pathology" ? "text-cyan-600 font-medium" : "text-gray-600"}`}>Histo Pathology</Link>
                 <Link href="/products/lab-equipment" onClick={() => setIsOpen(false)} className={`py-1 ${pathname === "/products/lab-equipment" ? "text-cyan-600 font-medium" : "text-gray-600"}`}>Lab Eq, Software and Consumable</Link>
                 <Link href="/products/hospital-healthcare" onClick={() => setIsOpen(false)} className={`py-1 ${pathname === "/products/hospital-healthcare" ? "text-cyan-600 font-medium" : "text-gray-600"}`}>Hospital Healthcare</Link>
                 <Link href="/products/turn-key" onClick={() => setIsOpen(false)} className={`py-1 ${pathname === "/products/turn-key" ? "text-cyan-600 font-medium" : "text-gray-600"}`}>Turn Key</Link>
@@ -230,7 +230,7 @@ export default function Navbar() {
           <Link href="/#news" onClick={() => setIsOpen(false)} className={`text-lg font-medium py-3 border-b border-gray-100 ${isLinkActive("/#news") ? "text-cyan-600 font-semibold" : "text-black"}`}>News & Media</Link>
           <Link href="/#contact" onClick={() => setIsOpen(false)} className={`text-lg font-medium py-3 border-b border-gray-100 ${isLinkActive("/#contact") ? "text-cyan-600 font-semibold" : "text-black"}`}>Contact</Link>
 
-          <a href="mailto:quotes@biomolds.com" className="mt-6 bg-cyan-500 text-white px-5 py-3 rounded-lg text-center font-semibold hover:bg-cyan-400 transition-colors">
+          <a href="mailto:quotes@gmail.com" className="mt-6 bg-cyan-500 text-white px-5 py-3 rounded-lg text-center font-semibold hover:bg-cyan-400 transition-colors">
             Request a Quote
           </a>
         </div>
