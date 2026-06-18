@@ -1,7 +1,7 @@
 import Link from "next/link";
 import FadeUp from "@/components/FadeUp";
 import PageHero from "@/components/PageHero";
-import { FaDna, FaFlask, FaMicroscope, FaDesktop, FaArrowRight, FaFilePdf } from "react-icons/fa6";
+import { FaDna, FaFlask, FaMicroscope, FaDesktop, FaArrowRight, FaFilePdf, FaWhatsapp } from "react-icons/fa6";
 
 const highlights = [
   {
@@ -29,6 +29,7 @@ const highlights = [
     title: "BioView Scanning Systems",
     desc: "Advanced automated fluorescence imaging and analysis systems for FISH scanning, karyotyping, IHC scoring, and digital pathology.",
     href: "/products/equipment",
+    pdf: "https://desirediv-storage.blr1.cdn.digitaloceanspaces.com/bio-molds/BRO-SYS-03%20BioView%20Systems%20Brochure%20-Digital.pdf",
   },
 ];
 
@@ -126,8 +127,8 @@ export default function CytogeneticsPage() {
             <h2 className="font-serif text-3xl text-white font-medium mb-4">Need Consultation?</h2>
             <p className="text-gray-400 mb-8">Our cytogenetics experts are ready to assist with product selection, validation samples, and custom solutions.</p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="tel:+919315465339" className="bg-cyan-500 text-white px-8 py-3 rounded-xl font-semibold hover:bg-cyan-400 transition-colors">
-                Call: +91 9315465339
+              <a href="https://wa.me/919315465339" target="_blank" rel="noopener noreferrer" className="bg-green-600 text-white px-8 py-3 rounded-xl font-semibold hover:bg-green-500 transition-colors flex items-center gap-2">
+                <FaWhatsapp className="text-xl" /> WhatsApp Now
               </a>
               <a href="mailto:biomolediscsol@biomolds.com" className="border border-cyan-500 text-cyan-400 px-8 py-3 rounded-xl font-semibold hover:bg-cyan-500/10 transition-colors">
                 biomolediscsol@biomolds.com

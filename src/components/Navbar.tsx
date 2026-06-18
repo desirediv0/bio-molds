@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { FaMicroscope, FaVial, FaDna, FaPills, FaLaptopMedical, FaChartBar, FaStethoscope } from "react-icons/fa6";
+import { FaMicroscope, FaVial, FaDna, FaPills, FaLaptopMedical, FaChartBar, FaStethoscope, FaServer } from "react-icons/fa6";
 import Image from "next/image";
 
 export default function Navbar() {
@@ -117,7 +117,7 @@ export default function Navbar() {
               </Link>
               <Link href="/products/lab-equipment" className={`px-5 py-2.5 hover:bg-cyan-pale group/link flex items-start gap-3 ${pathname === "/products/lab-equipment" ? "bg-cyan-pale text-cyan-600" : ""}`}>
                 <span className="text-xl text-cyan-500 w-5 flex justify-center mt-0.5"><FaLaptopMedical /></span>
-                <div className="flex flex-col"><span className="text-sm font-medium text-black">Lab Eq, Software & Consumable</span><span className="text-xs text-gray-400">Microscope · Hub · Review Scanning</span></div>
+                <div className="flex flex-col"><span className="text-sm font-medium text-black">Lab Equipment & Consumable</span><span className="text-xs text-gray-400">Microscope · Hub · Review Scanning</span></div>
               </Link>
               <Link href="/products/hospital-healthcare" className={`px-5 py-2.5 hover:bg-cyan-pale group/link flex items-start gap-3 ${pathname === "/products/hospital-healthcare" ? "bg-cyan-pale text-cyan-600" : ""}`}>
                 <span className="text-xl text-cyan-500 w-5 flex justify-center mt-0.5"><FaStethoscope /></span>
@@ -133,28 +133,28 @@ export default function Navbar() {
             </Link>
             <div className="absolute top-16 left-1/2 -translate-x-1/2 w-[280px] bg-white rounded-xl shadow-lg border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-2 pointer-events-none group-hover:pointer-events-auto flex flex-col">
               <Link href="/services/turn-key" className={`px-5 py-2.5 hover:bg-cyan-pale group/link flex items-start gap-3 ${pathname === "/services/turn-key" ? "bg-cyan-pale text-cyan-600" : ""}`}>
-                <span className="text-xl text-cyan-500 w-5 flex justify-center mt-0.5"><FaLaptopMedical /></span>
+                <span className="text-xl text-cyan-500 w-5 flex justify-center mt-0.5"><FaServer /></span>
                 <div className="flex flex-col"><span className="text-sm font-medium text-black">Turn Key</span><span className="text-xs text-gray-500">End-to-end lab solutions</span></div>
-              </Link>
-              <Link href="/services/sequencing" className={`px-5 py-2.5 hover:bg-cyan-pale group/link flex items-start gap-3 ${pathname === "/services/sequencing" ? "bg-cyan-pale text-cyan-600" : ""}`}>
-                <span className="text-xl text-cyan-500 w-5 flex justify-center mt-0.5"><FaVial /></span>
-                <div className="flex flex-col"><span className="text-sm font-medium text-black">Sequencing</span><span className="text-xs text-gray-500">NGS & Sanger sequencing</span></div>
-              </Link>
-              <Link href="/services/bioinformatics" className={`px-5 py-2.5 hover:bg-cyan-pale group/link flex items-start gap-3 ${pathname === "/services/bioinformatics" ? "bg-cyan-pale text-cyan-600" : ""}`}>
-                <span className="text-xl text-cyan-500 w-5 flex justify-center mt-0.5"><FaChartBar /></span>
-                <div className="flex flex-col"><span className="text-sm font-medium text-black">Bioinformatics</span><span className="text-xs text-gray-500">Genomic data analysis</span></div>
-              </Link>
-              <Link href="/services/biostatistics" className={`px-5 py-2.5 hover:bg-cyan-pale group/link flex items-start gap-3 ${pathname === "/services/biostatistics" ? "bg-cyan-pale text-cyan-600" : ""}`}>
-                <span className="text-xl text-cyan-500 w-5 flex justify-center mt-0.5"><FaChartBar /></span>
-                <div className="flex flex-col"><span className="text-sm font-medium text-black">Biostatistics</span><span className="text-xs text-gray-500">Statistical design & analysis</span></div>
               </Link>
               <Link href="/services/drug-discovery-analysis" className={`px-5 py-2.5 hover:bg-cyan-pale group/link flex items-start gap-3 ${pathname === "/services/drug-discovery-analysis" ? "bg-cyan-pale text-cyan-600" : ""}`}>
                 <span className="text-xl text-cyan-500 w-5 flex justify-center mt-0.5"><FaPills /></span>
                 <div className="flex flex-col"><span className="text-sm font-medium text-black">Drug Discovery Analysis</span><span className="text-xs text-gray-500">Target identification & validation</span></div>
               </Link>
-              <Link href="/services/cytogenetic-analysis" className={`px-5 py-2.5 hover:bg-cyan-pale group/link flex items-start gap-3 ${pathname === "/services/cytogenetic-analysis" ? "bg-cyan-pale text-cyan-600" : ""}`}>
+              <Link href="/services/biostatistics" className={`px-5 py-2.5 hover:bg-cyan-pale group/link flex items-start gap-3 ${pathname === "/services/biostatistics" ? "bg-cyan-pale text-cyan-600" : ""}`}>
+                <span className="text-xl text-cyan-500 w-5 flex justify-center mt-0.5"><FaChartBar /></span>
+                <div className="flex flex-col"><span className="text-sm font-medium text-black">Biostatistics</span><span className="text-xs text-gray-500">Statistical design & analysis</span></div>
+              </Link>
+              <Link href="/services/bioinformatics" className={`px-5 py-2.5 hover:bg-cyan-pale group/link flex items-start gap-3 ${pathname === "/services/bioinformatics" ? "bg-cyan-pale text-cyan-600" : ""}`}>
+                <span className="text-xl text-cyan-500 w-5 flex justify-center mt-0.5"><FaLaptopMedical /></span>
+                <div className="flex flex-col"><span className="text-sm font-medium text-black">Bioinformatics</span><span className="text-xs text-gray-500">Genomic data analysis</span></div>
+              </Link>
+              <Link href="/services/sequencing" className={`px-5 py-2.5 hover:bg-cyan-pale group/link flex items-start gap-3 ${pathname === "/services/sequencing" ? "bg-cyan-pale text-cyan-600" : ""}`}>
+                <span className="text-xl text-cyan-500 w-5 flex justify-center mt-0.5"><FaVial /></span>
+                <div className="flex flex-col"><span className="text-sm font-medium text-black">Sequencing</span><span className="text-xs text-gray-500">NGS & Sanger sequencing</span></div>
+              </Link>
+              <Link href="/services/genetic-test" className={`px-5 py-2.5 hover:bg-cyan-pale group/link flex items-start gap-3 ${pathname === "/services/genetic-test" ? "bg-cyan-pale text-cyan-600" : ""}`}>
                 <span className="text-xl text-cyan-500 w-5 flex justify-center mt-0.5"><FaDna /></span>
-                <div className="flex flex-col"><span className="text-sm font-medium text-black">Cytogenetic Analysis</span><span className="text-xs text-gray-500">Chromosomal analysis</span></div>
+                <div className="flex flex-col"><span className="text-sm font-medium text-black">Genetic Test</span><span className="text-xs text-gray-500">DNA, chromosomes & hereditary disease analysis</span></div>
               </Link>
             </div>
           </div>
@@ -172,7 +172,7 @@ export default function Navbar() {
             Contact
           </Link>
 
-          <a href="mailto:quotes@gmail.com" className="ml-4 bg-cyan-500 text-white px-5 py-2 rounded-lg text-sm font-semibold hover:bg-cyan-400 transition-colors shadow-sm">
+          <a href="mailto:biomolediscsol@biomolds.com" className="ml-4 bg-cyan-500 text-white px-5 py-2 rounded-lg text-sm font-semibold hover:bg-cyan-400 transition-colors shadow-sm">
             Request a Quote
           </a>
         </div>
@@ -215,11 +215,11 @@ export default function Navbar() {
             {activeDropdown === 'services' && (
               <div className="flex flex-col gap-2 pb-4 pl-4">
                 <Link href="/services/turn-key" onClick={() => setIsOpen(false)} className={`py-1 ${pathname === "/services/turn-key" ? "text-cyan-600 font-medium" : "text-gray-600"}`}>Turn Key</Link>
-                <Link href="/services/sequencing" onClick={() => setIsOpen(false)} className={`py-1 ${pathname === "/services/sequencing" ? "text-cyan-600 font-medium" : "text-gray-600"}`}>Sequencing</Link>
-                <Link href="/services/bioinformatics" onClick={() => setIsOpen(false)} className={`py-1 ${pathname === "/services/bioinformatics" ? "text-cyan-600 font-medium" : "text-gray-600"}`}>Bioinformatics</Link>
-                <Link href="/services/biostatistics" onClick={() => setIsOpen(false)} className={`py-1 ${pathname === "/services/biostatistics" ? "text-cyan-600 font-medium" : "text-gray-600"}`}>Biostatistics</Link>
                 <Link href="/services/drug-discovery-analysis" onClick={() => setIsOpen(false)} className={`py-1 ${pathname === "/services/drug-discovery-analysis" ? "text-cyan-600 font-medium" : "text-gray-600"}`}>Drug Discovery Analysis</Link>
-                <Link href="/services/cytogenetic-analysis" onClick={() => setIsOpen(false)} className={`py-1 ${pathname === "/services/cytogenetic-analysis" ? "text-cyan-600 font-medium" : "text-gray-600"}`}>Cytogenetic Analysis</Link>
+                <Link href="/services/biostatistics" onClick={() => setIsOpen(false)} className={`py-1 ${pathname === "/services/biostatistics" ? "text-cyan-600 font-medium" : "text-gray-600"}`}>Biostatistics</Link>
+                <Link href="/services/bioinformatics" onClick={() => setIsOpen(false)} className={`py-1 ${pathname === "/services/bioinformatics" ? "text-cyan-600 font-medium" : "text-gray-600"}`}>Bioinformatics</Link>
+                <Link href="/services/sequencing" onClick={() => setIsOpen(false)} className={`py-1 ${pathname === "/services/sequencing" ? "text-cyan-600 font-medium" : "text-gray-600"}`}>Sequencing</Link>
+                <Link href="/services/genetic-test" onClick={() => setIsOpen(false)} className={`py-1 ${pathname === "/services/genetic-test" ? "text-cyan-600 font-medium" : "text-gray-600"}`}>Genetic Test</Link>
               </div>
             )}
           </div>
@@ -230,7 +230,7 @@ export default function Navbar() {
           <Link href="/#news" onClick={() => setIsOpen(false)} className={`text-lg font-medium py-3 border-b border-gray-100 ${isLinkActive("/#news") ? "text-cyan-600 font-semibold" : "text-black"}`}>News & Media</Link>
           <Link href="/#contact" onClick={() => setIsOpen(false)} className={`text-lg font-medium py-3 border-b border-gray-100 ${isLinkActive("/#contact") ? "text-cyan-600 font-semibold" : "text-black"}`}>Contact</Link>
 
-          <a href="mailto:quotes@gmail.com" className="mt-6 bg-cyan-500 text-white px-5 py-3 rounded-lg text-center font-semibold hover:bg-cyan-400 transition-colors">
+          <a href="mailto:biomolediscsol@biomolds.com" className="mt-6 bg-cyan-500 text-white px-5 py-3 rounded-lg text-center font-semibold hover:bg-cyan-400 transition-colors">
             Request a Quote
           </a>
         </div>

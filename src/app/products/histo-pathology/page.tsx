@@ -1,7 +1,7 @@
 import Link from "next/link";
 import FadeUp from "@/components/FadeUp";
 import PageHero from "@/components/PageHero";
-import { FaFlask, FaMicroscope, FaServer, FaArrowRight, FaCheck, FaLaptopMedical } from "react-icons/fa6";
+import { FaFlask, FaMicroscope, FaServer, FaArrowRight, FaCheck, FaLaptopMedical, FaWhatsapp } from "react-icons/fa6";
 
 const highlights = [
   {
@@ -71,10 +71,10 @@ export default function HistoPathologyPage() {
           </FadeUp>
 
           {/* highlights CARDS (Grid of 4) */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8 mb-20">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-20">
             {highlights.map((card, i) => (
               <FadeUp key={i} delay={i * 80}>
-                <div className="bg-cyan-pale border border-cyan-border rounded-2xl p-6 flex flex-col gap-4 h-full">
+                <div className="bg-cyan-pale border border-cyan-border rounded-2xl p-5 flex flex-col gap-4 h-full">
                   <div className="w-14 h-14 bg-white rounded-xl flex items-center justify-center shadow-sm">
                     {card.icon}
                   </div>
@@ -83,7 +83,7 @@ export default function HistoPathologyPage() {
 
                   <ul className="flex flex-col gap-2.5 my-4">
                     {card.points.map((pt, index) => (
-                      <li key={index} className="flex items-center gap-3 text-sm text-gray-900 font-medium font-sans bg-white/60 hover:bg-white px-3 py-2 rounded-xl transition-colors border border-cyan-500/10 shadow-sm">
+                      <li key={index} className="flex items-center gap-3 text-xs text-gray-900 font-medium font-sans bg-white/60 hover:bg-white px-3 py-2 rounded-xl transition-colors border border-cyan-500/10 shadow-sm">
                         <div className="w-5 h-5 rounded-full bg-cyan-100 flex items-center justify-center flex-shrink-0">
                           <FaCheck className="text-cyan-600 text-[10px]" />
                         </div>
@@ -111,8 +111,8 @@ export default function HistoPathologyPage() {
             <h2 className="font-serif text-3xl text-white font-medium mb-4">Need Consultation?</h2>
             <p className="text-gray-400 mb-8 font-sans">Our histopathology diagnostics experts are ready to assist with automated stainer compatibility, validation runs, and custom solutions.</p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="tel:+919315465339" className="bg-cyan-500 text-white px-8 py-3 rounded-xl font-semibold hover:bg-cyan-400 transition-colors">
-                Call: +91 9315465339
+              <a href="https://wa.me/919315465339" target="_blank" rel="noopener noreferrer" className="bg-green-600 text-white px-8 py-3 rounded-xl font-semibold hover:bg-green-500 transition-colors flex items-center gap-2">
+                <FaWhatsapp className="text-xl" /> WhatsApp Now
               </a>
               <a href="mailto:biomolediscsol@biomolds.com" className="border border-cyan-500 text-cyan-400 px-8 py-3 rounded-xl font-semibold hover:bg-cyan-500/10 transition-colors">
                 biomolediscsol@biomolds.com

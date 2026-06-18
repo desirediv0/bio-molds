@@ -4,7 +4,7 @@ import { useParams } from "next/navigation";
 import Link from "next/link";
 import FadeUp from "@/components/FadeUp";
 import PageHero from "@/components/PageHero";
-import { FaCommentDots, FaArrowRight, FaDna, FaServer, FaLaptopMedical, FaChartPie, FaMicroscope, FaVial } from "react-icons/fa6";
+import { FaCommentDots, FaArrowRight, FaDna, FaServer, FaLaptopMedical, FaChartPie, FaMicroscope, FaVial, FaWhatsapp } from "react-icons/fa6";
 
 interface ServiceInfo {
   id: string;
@@ -214,8 +214,8 @@ export default function ServiceDetailPage() {
               </div>
               <h3 className="font-semibold text-xl mb-3">Need Consultation?</h3>
               <p className="text-sm text-white/80 mb-6 leading-relaxed">Our clinical and research experts are ready to assist you with tailored solutions.</p>
-              <a href="tel:+919315465339" className="block bg-white text-cyan-600 font-bold py-3 px-4 rounded-xl mb-3 shadow-sm hover:bg-gray-50 transition-colors">
-                Call: 9315465339
+              <a href="https://wa.me/919315465339" target="_blank" rel="noopener noreferrer" className="bg-green-600 text-white font-bold py-3 px-4 rounded-xl mb-3 shadow-sm hover:bg-green-500 transition-colors flex items-center justify-center gap-2">
+                <FaWhatsapp className="text-xl" /> WhatsApp Now
               </a>
               <a href="mailto:biomolediscsol@biomolds.com" className="text-sm text-white/90 hover:text-white block break-all font-medium underline underline-offset-4">
                 biomolediscsol@biomolds.com

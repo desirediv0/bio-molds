@@ -72,12 +72,9 @@ export default function Footer() {
               </li>
               <li className="flex gap-3 items-center">
                 <span className="text-cyan-400">✉️</span>
-                <span>services@gmail.com</span>
+                <span>biomolediscsol@gmail.com</span>
               </li>
-              <li className="flex gap-3 items-center">
-                <span className="text-cyan-400">✉️</span>
-                <span>quotes@gmail.com</span>
-              </li>
+
             </ul>
           </div>
 

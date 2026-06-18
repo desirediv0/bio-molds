@@ -321,12 +321,12 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { id: "genetic-test", icon: <FaDna />, name: "Genetic Test", desc: "DNA, chromosomes & hereditary disease analysis" },
-              { id: "sequencing", icon: <FaVial />, name: "Sequencing", desc: "NGS & Sanger sequencing services" },
-              { id: "bioinformatics", icon: <FaLaptopMedical />, name: "Bioinformatics", desc: "Genomic & computational data analysis" },
-              { id: "biostatistics", icon: <FaChartBar />, name: "Biostatistics", desc: "Statistical design & clinical analysis" },
+              { id: "turn-key", icon: <FaServer />, name: "Turn Key", desc: "End-to-end lab solutions & setup" },
               { id: "drug-discovery-analysis", icon: <FaPills />, name: "Drug Discovery Analysis", desc: "Target identification & validation" },
-              { id: "turn-key", icon: <FaServer />, name: "Turn Key", desc: "End-to-end lab solutions & setup" }
+              { id: "biostatistics", icon: <FaChartBar />, name: "Biostatistics", desc: "Statistical design & clinical analysis" },
+              { id: "bioinformatics", icon: <FaLaptopMedical />, name: "Bioinformatics", desc: "Genomic & computational data analysis" },
+              { id: "sequencing", icon: <FaVial />, name: "Sequencing", desc: "NGS & Sanger sequencing services" },
+              { id: "genetic-test", icon: <FaDna />, name: "Genetic Test", desc: "DNA, chromosomes & hereditary disease analysis" }
             ].map((service, i) => (
               <FadeUp key={i} delay={i * 100}>
                 <Link href={`/services/${service.id}`} className="block card-base p-7 group h-full cursor-pointer bg-white">
@@ -500,7 +500,7 @@ export default function Home() {
               </div>
               <h3 className="font-semibold text-black mb-2">Bulk Orders</h3>
               <p className="text-sm text-gray-500 mb-4">We supply to pharmacies, gyms, and distributors.</p>
-              <a href="mailto:quotes@gmail.com" className="block text-cyan-600 font-bold mb-2">quotes@gmail.com</a>
+              <a href="mailto:biomolediscsol@biomolds.com" className="block text-cyan-600 font-bold mb-2">biomolediscsol@biomolds.com</a>
             </FadeUp>
           </div>
 
@@ -720,8 +720,8 @@ export default function Home() {
                     <h3 className="font-semibold text-black text-lg mb-1">Email Addresses</h3>
                     <div className="flex flex-col gap-2 text-sm">
                       <a href="mailto:biomolediscsol@biomolds.com" className="text-gray-500 hover:text-cyan-600 transition-colors">biomolediscsol@biomolds.com</a>
-                      <a href="mailto:services@gmail.com" className="text-gray-500 hover:text-cyan-600 transition-colors">services@gmail.com</a>
-                      <a href="mailto:quotes@gmail.com" className="text-gray-500 hover:text-cyan-600 transition-colors">quotes@gmail.com</a>
+                      <a href="mailto:biomolediscsol@gmail.com" className="text-gray-500 hover:text-cyan-600 transition-colors">biomolediscsol@gmail.com</a>
+
                     </div>
                   </div>
                 </div>
@@ -741,7 +741,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <FadeUp delay={300} className="card-base p-6 flex items-center justify-between group hover:border-cyan-200 transition-colors bg-white">
               <div>
                 <h4 className="font-semibold text-black mb-1">For Info</h4>
@@ -752,22 +752,13 @@ export default function Home() {
               </a>
             </FadeUp>
 
-            <FadeUp delay={400} className="card-base p-6 flex items-center justify-between group hover:border-cyan-200 transition-colors bg-white">
-              <div>
-                <h4 className="font-semibold text-black mb-1">Services</h4>
-                <p className="text-xs text-gray-500">services@gmail.com</p>
-              </div>
-              <a href="mailto:services@gmail.com" className="w-10 h-10 rounded-full bg-cyan-pale flex items-center justify-center text-cyan-600 group-hover:bg-cyan-500 group-hover:text-white transition-colors">
-                <span aria-hidden="true"><FaArrowRight /></span>
-              </a>
-            </FadeUp>
 
             <FadeUp delay={500} className="card-base p-6 flex items-center justify-between group hover:border-cyan-200 transition-colors bg-white">
               <div>
                 <h4 className="font-semibold text-black mb-1">Quotes</h4>
-                <p className="text-xs text-gray-500">quotes@gmail.com</p>
+                <p className="text-xs text-gray-500">biomolediscsol@gmail.com</p>
               </div>
-              <a href="mailto:quotes@gmail.com" className="w-10 h-10 rounded-full bg-cyan-pale flex items-center justify-center text-cyan-600 group-hover:bg-cyan-500 group-hover:text-white transition-colors">
+              <a href="mailto:biomolediscsol@gmail.com" className="w-10 h-10 rounded-full bg-cyan-pale flex items-center justify-center text-cyan-600 group-hover:bg-cyan-500 group-hover:text-white transition-colors">
                 <span aria-hidden="true"><FaArrowRight /></span>
               </a>
             </FadeUp>

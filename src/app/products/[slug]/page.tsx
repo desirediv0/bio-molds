@@ -14,7 +14,8 @@ import {
   FaSyringe,
   FaStethoscope,
   FaBacteria,
-  FaFilePdf
+  FaFilePdf,
+  FaWhatsapp
 } from "react-icons/fa6";
 
 interface ProductTableItem {
@@ -103,7 +104,7 @@ const medicalProductData: Record<string, MedicalProduct> = {
     ]
   },
   "fish-and-sanger-sequencing": {
-    name: "FISH & Sanger Sequencing",
+    name: "FISH",
     category: "Diagnostics",
     overview: [
       "High Sensitivity Analysis",
@@ -256,30 +257,9 @@ const medicalProductData: Record<string, MedicalProduct> = {
         title: "Cytogenetics Culture Media",
         content: "BioMolds provides a comprehensive range of cytogenetics culture media specifically formulated for chromosomal analysis. Our media support peripheral blood lymphocyte culture, bone marrow culture, amniotic fluid culture, and chorionic villus sampling — enabling reliable karyotype preparation for congenital disease diagnosis, prenatal diagnostics, and hematological malignancy assessment."
       },
-      {
-        title: "Applications",
-        content: "Peripheral blood karyotyping · Bone marrow cytogenetics for haematological disorders · Prenatal diagnosis from amniotic fluid and CVS · Solid tumor chromosome analysis · Constitutional chromosome disorders · Oncological cytogenetics for treatment monitoring."
-      },
-      {
-        title: "Quality & Compliance",
-        content: "All culture media are manufactured under stringent quality control standards. Formulations are optimized for maximum mitotic index, clear banding, and consistent chromosome morphology — critical for accurate G-banding and FISH analysis."
-      }
+
     ],
-    tableCategories: [
-      {
-        name: "Culture Media Range",
-        items: [
-          { refNo: "CM-001", description: "Peripheral Blood Lymphocyte Culture Medium", specification: "500 mL", certificate: "RUO" },
-          { refNo: "CM-002", description: "Bone Marrow Culture Medium", specification: "500 mL", certificate: "RUO" },
-          { refNo: "CM-003", description: "Amniotic Fluid Culture Medium", specification: "500 mL", certificate: "RUO" },
-          { refNo: "CM-004", description: "Chorionic Villus Sampling (CVS) Medium", specification: "500 mL", certificate: "RUO" },
-          { refNo: "CM-005", description: "Solid Tumor Disaggregation & Culture Medium", specification: "500 mL", certificate: "RUO" },
-          { refNo: "CM-006", description: "Colcemid Solution (10 µg/mL)", specification: "10 mL", certificate: "RUO" },
-          { refNo: "CM-007", description: "Hypotonic Solution (KCl 0.075M)", specification: "500 mL", certificate: "RUO" },
-          { refNo: "CM-008", description: "Carnoy's Fixative (3:1 Methanol:Acetic Acid)", specification: "500 mL", certificate: "RUO" }
-        ]
-      }
-    ]
+
   }
 };
 
@@ -298,6 +278,31 @@ const getIconForCategory = (category: string) => {
 export default function ProductDetailPage() {
   const params = useParams();
   const slug = params.slug as string;
+
+  if (slug === "hospital-healthcare") {
+    return (
+      <div className="min-h-screen flex flex-col justify-center items-center bg-white px-4">
+        <FadeUp className="text-center max-w-xl">
+          <div className="w-20 h-20 bg-gray-50 text-cyan-600 rounded-full flex items-center justify-center mx-auto mb-6 text-4xl shadow-sm">
+            <FaStethoscope />
+          </div>
+          <h1 className="font-serif text-4xl md:text-5xl text-black font-semibold mb-4">Coming Soon</h1>
+          <p className="text-gray-500 text-lg leading-relaxed mb-8">
+            Our Hospital Healthcare division is currently under development. We are working hard to bring you clinical diagnostic supplies, medical consumables, and hospital healthcare solutions. Stay tuned!
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/" className="bg-cyan-500 text-white px-6 py-3 rounded-xl font-semibold hover:bg-cyan-400 transition-colors shadow-sm">
+              Back to Home
+            </Link>
+            <a href="https://wa.me/919315465339" target="_blank" rel="noopener noreferrer" className="border-2 border-gray-100 text-gray-600 px-6 py-3 rounded-xl font-semibold hover:border-cyan-500 transition-colors flex items-center justify-center gap-2">
+              <FaWhatsapp className="text-green-500 text-xl" /> WhatsApp Now
+            </a>
+          </div>
+        </FadeUp>
+      </div>
+    );
+  }
+
   const product = medicalProductData[slug];
 
   if (!product) {
@@ -318,7 +323,7 @@ export default function ProductDetailPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Breadcrumb */}
         <div className="mb-8">
-          <Link href="/products/rt-pcr-kit" className="text-sm text-gray-400 hover:text-cyan-500 flex items-center gap-2 transition-colors">
+          <Link href="/#products" className="text-sm text-gray-400 hover:text-cyan-500 flex items-center gap-2 transition-colors">
             <FaArrowLeft /> Back to Products
           </Link>
         </div>
@@ -347,7 +352,7 @@ export default function ProductDetailPage() {
                 {product.name}
               </h1>
 
-              <div className="flex flex-wrap gap-3 mb-8">
+              <div className="flex flex-wrap gap-3 mb-4">
                 {product.overview.map((item: string, i: number) => (
                   <span key={i} className="flex items-center gap-2 bg-gray-50 text-gray-600 px-4 py-2 rounded-full text-sm border border-gray-100">
                     <FaCircleCheck className="text-cyan-500" /> {item}
@@ -363,8 +368,8 @@ export default function ProductDetailPage() {
                 <Link href="/#contact" className="flex-grow bg-cyan-500 text-white py-4 rounded-2xl font-bold hover:bg-cyan-400 transition-all shadow-lg flex items-center justify-center gap-2">
                   <FaEnvelope /> Request a Quote
                 </Link>
-                <a href="tel:+919315465339" className="flex-grow bg-white border-2 border-gray-100 text-gray-600 py-4 rounded-2xl font-bold hover:border-cyan-500 transition-all flex items-center justify-center gap-2">
-                  Call Us
+                <a href="https://wa.me/919315465339" target="_blank" rel="noopener noreferrer" className="flex-grow bg-white border-2 border-gray-100 text-gray-600 py-4 rounded-2xl font-bold hover:border-cyan-500 transition-all flex items-center justify-center gap-2">
+                  <FaWhatsapp className="text-green-500 text-xl" /> WhatsApp Now
                 </a>
               </div>
               {product.catalogueUrl && (
@@ -378,7 +383,7 @@ export default function ProductDetailPage() {
 
         {/* Dynamic Sections (e.g. FISH details) */}
         {product.sections && product.sections.length > 0 && (
-          <FadeUp delay={100} className="space-y-12 mb-16">
+          <FadeUp delay={100} className="space-y-2 mb-8">
             {product.sections.map((sec, idx) => (
               <div key={idx} className="bg-gray-50 p-8 md:p-10 rounded-3xl border border-gray-100">
                 <h3 className="font-serif text-2xl text-black font-medium mb-4">{sec.title}</h3>
@@ -389,7 +394,7 @@ export default function ProductDetailPage() {
         )}
 
         {/* Dynamic Table (e.g. RT-PCR Kit details) */}
-        {product.tableCategories && product.tableCategories.length > 0 && (
+        {/* {product.tableCategories && product.tableCategories.length > 0 && (
           <FadeUp delay={200} className="space-y-12">
             {product.tableCategories.map((cat, idx) => (
               <div key={idx} className="bg-white rounded-3xl border border-gray-100 overflow-hidden shadow-sm">
@@ -421,7 +426,7 @@ export default function ProductDetailPage() {
               </div>
             ))}
           </FadeUp>
-        )}
+        )} */}
 
       </div>
     </div>
