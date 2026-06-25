@@ -81,8 +81,21 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-white/10 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-gray-600 text-xs">© 2024 BioMolecular Discovery and Solutions Private Limited. All rights reserved.</p>
-          <span className="text-cyan-500 text-xs font-medium">biomolds.com</span>
+          <p className="text-gray-500 text-xs">© 2026 BioMolecular Discovery and Solutions Private Limited. All rights reserved.</p>
+          <div className="flex items-center gap-4 text-xs">
+            <span className="text-slate-500 font-light">
+              Designed & Developed by{" "}
+              <a
+                href="https://desirediv.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-cyan-400 transition-colors text-slate-400 font-semibold"
+              >
+                Desire Div
+              </a>
+            </span>
+            <span className="text-cyan-500 font-medium">biomolds.com</span>
+          </div>
         </div>
       </div>
     </footer>
