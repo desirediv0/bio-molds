@@ -22,7 +22,7 @@ const highlights = [
     desc: "High-sensitivity real-time PCR kits for somatic mutation detection and rapid pathogenic differential diagnosis.",
     points: [
       { text: "Oncology RT-PCR Kits", pdf: "https://desirediv-storage.blr1.cdn.digitaloceanspaces.com/bio-molds/BiOMOIDs_Oncology_Portfolio_1.pdf%20(1).pdf" },
-      { text: "Infectious RT-PCR Kits" }
+      { text: "Infectious RT-PCR Kits", pdf: "https://desirediv-storage.blr1.cdn.digitaloceanspaces.com/bio-molds/BioMolds_Product_Catalogue_1.pdf" }
     ],
     href: "/products/rt-pcr-kit"
   },

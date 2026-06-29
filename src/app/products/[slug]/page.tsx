@@ -140,6 +140,7 @@ const medicalProductData: Record<string, MedicalProduct> = {
       "CE-IVD & RUO Options"
     ],
     description: "Comprehensive range of Real-Time PCR kits for the detection of respiratory, hepatitis, sexually transmitted, enterovirus, and tumor diseases.",
+    catalogueUrl: "https://desirediv-storage.blr1.cdn.digitaloceanspaces.com/bio-molds/BioMolds_Product_Catalogue_1.pdf",
     tableCategories: [
       {
         name: "Respiratory Pathogens Diseases",
