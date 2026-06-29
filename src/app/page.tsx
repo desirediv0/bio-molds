@@ -128,41 +128,9 @@ function CardCarousel({ images, interval = 3000 }: { images: string[]; interval?
   );
 }
 
-const galleryImages = Array.from(
-  { length: 18 },
-  (_, i) => `https://desirediv-storage.blr1.cdn.digitaloceanspaces.com/bio-molds/image/img%20(${i + 1}).jpeg`
-);
 
 export default function Home() {
   const [selectedProduct, setSelectedProduct] = useState<{ name: string; desc: string } | null>(null);
-
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const [isDown, setIsDown] = useState(false);
-  const [startX, setStartX] = useState(0);
-  const [scrollLeft, setScrollLeft] = useState(0);
-
-  const handleMouseDown = (e: React.MouseEvent) => {
-    if (!scrollRef.current) return;
-    setIsDown(true);
-    setStartX(e.pageX - scrollRef.current.offsetLeft);
-    setScrollLeft(scrollRef.current.scrollLeft);
-  };
-
-  const handleMouseLeave = () => {
-    setIsDown(false);
-  };
-
-  const handleMouseUp = () => {
-    setIsDown(false);
-  };
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!isDown || !scrollRef.current) return;
-    e.preventDefault();
-    const x = e.pageX - scrollRef.current.offsetLeft;
-    const walk = (x - startX) * 1.8; // increased speed slightly for better responsiveness
-    scrollRef.current.scrollLeft = scrollLeft - walk;
-  };
 
   return (
     <>
@@ -303,48 +271,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* GALLERY SECTION */}
-      <section className="py-16 bg-white overflow-hidden border-t border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 mb-10">
-          <FadeUp>
-            <span className="text-xs font-semibold tracking-widest uppercase text-pink mb-4 block">Product Showcase</span>
-            <h2 className="font-serif text-4xl md:text-5xl font-medium text-black leading-tight">Our Laboratory Gallery</h2>
-            <p className="text-sm text-gray-500 mt-2">Explore our premium molecular and cytogenetic solutions. Drag or scroll sideways to view all.</p>
-          </FadeUp>
-        </div>
-
-        <div className="relative w-full">
-          <div
-            ref={scrollRef}
-            onMouseDown={handleMouseDown}
-            onMouseLeave={handleMouseLeave}
-            onMouseUp={handleMouseUp}
-            onMouseMove={handleMouseMove}
-            className="flex gap-6 overflow-x-auto py-4 px-4 sm:px-8 md:px-16 cursor-grab active:cursor-grabbing select-none scroll-smooth no-scrollbar"
-            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-          >
-            {galleryImages.map((src, i) => (
-              <div
-                key={i}
-                className="flex-shrink-0 w-[280px] h-[360px] md:w-[360px] md:h-[460px] rounded-3xl overflow-hidden shadow-lg border border-gray-100 relative group transition-transform duration-300 hover:scale-[1.02] bg-gray-50"
-              >
-                <img
-                  src={src}
-                  alt={`Laboratory Gallery ${i + 1}`}
-                  className="w-full h-full object-cover pointer-events-none"
-                  loading="lazy"
-                />
-
-              </div>
-            ))}
-          </div>
-          <style>{`
-            .no-scrollbar::-webkit-scrollbar {
-              display: none;
-            }
-          `}</style>
-        </div>
-      </section>
 
       {/* 7. PRODUCTS */}
       <section id="products" className="py-12 md:py-14 px-4 sm:px-6 bg-gray-50 border-b border-gray-100">
