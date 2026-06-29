@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import FadeUp from "@/components/FadeUp";
@@ -129,8 +129,42 @@ function CardCarousel({ images, interval = 3000 }: { images: string[]; interval?
 }
 
 
+const galleryImages = Array.from(
+  { length: 18 },
+  (_, i) => `https://desirediv-storage.blr1.cdn.digitaloceanspaces.com/bio-molds/image/img%20(${i + 1}).jpeg`
+);
+
 export default function Home() {
   const [selectedProduct, setSelectedProduct] = useState<{ name: string; desc: string } | null>(null);
+  const [activeNewsTab, setActiveNewsTab] = useState<"news" | "cricket">("news");
+
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [isDown, setIsDown] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    if (!scrollRef.current) return;
+    setIsDown(true);
+    setStartX(e.pageX - scrollRef.current.offsetLeft);
+    setScrollLeft(scrollRef.current.scrollLeft);
+  };
+
+  const handleMouseLeave = () => {
+    setIsDown(false);
+  };
+
+  const handleMouseUp = () => {
+    setIsDown(false);
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDown || !scrollRef.current) return;
+    e.preventDefault();
+    const x = e.pageX - scrollRef.current.offsetLeft;
+    const walk = (x - startX) * 1.8;
+    scrollRef.current.scrollLeft = scrollLeft - walk;
+  };
 
   return (
     <>
@@ -563,62 +597,123 @@ export default function Home() {
             </p>
           </FadeUp>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                date: "May 15, 2024",
-                category: "Press Release",
-                title: "BioMolds Announces New Multiplex Diagnostic Kit for Rare Genetic Disorders",
-                excerpt: "Our new multi-analyte kit aims to reduce the time and cost of diagnosing several rare genetic markers, requiring only a single blood draw.",
-                icon: <FaVial />
-              },
-              {
-                date: "April 02, 2024",
-                category: "Research",
-                title: "Breakthrough in Target Identification for Autoimmune Pathway",
-                excerpt: "The BioMolds drug discovery team has successfully identified a novel target protein that shows promise in modulating specific autoimmune responses in pre-clinical models.",
-                icon: <FaLaptopMedical />
-              },
-              {
-                date: "March 18, 2024",
-                category: "Company News",
-                title: "BioMolds Recognized as 'Startup India' Registered Entity",
-                excerpt: "We are proud to announce our official recognition under the Startup India initiative, marking a significant milestone in our journey to innovate healthcare diagnostics.",
-                icon: <FaSuitcaseMedical />
-              }
-            ].map((item, i) => (
-              <FadeUp key={i} delay={i * 100} className="card-base overflow-hidden group flex flex-col h-full">
-                <div className="relative h-48 w-full bg-cyan-pale flex items-center justify-center text-7xl text-cyan-500 overflow-hidden">
-                  <div className="group-hover:scale-110 transition-transform duration-500">
-                    {item.icon}
-                  </div>
-                  <div className="absolute top-4 left-4 bg-white/90 backdrop-blur text-black text-xs font-semibold px-3 py-1 rounded-full shadow-sm">
-                    {item.category}
-                  </div>
-                </div>
-                <div className="p-6 flex flex-col flex-grow">
-                  <span className="text-gray-400 text-xs font-medium mb-3">{item.date}</span>
-                  <h3 className="font-serif text-xl font-medium text-black mb-3 line-clamp-2 group-hover:text-cyan-600 transition-colors">
-                    {item.title}
-                  </h3>
-                  <p className="text-sm text-gray-500 leading-relaxed mb-6 line-clamp-3">
-                    {item.excerpt}
-                  </p>
-                </div>
-              </FadeUp>
-            ))}
+          {/* Tabs Navigation */}
+          <div className="flex flex-wrap gap-4 mb-10 border-b border-gray-100 pb-4">
+            <button
+              onClick={() => setActiveNewsTab("news")}
+              className={`px-6 py-2.5 rounded-full font-medium text-sm transition-all duration-300 ${
+                activeNewsTab === "news"
+                  ? "bg-cyan-600 text-white shadow-md shadow-cyan-600/10"
+                  : "bg-gray-50 text-gray-600 hover:bg-gray-100"
+              }`}
+            >
+              News & Media
+            </button>
+            <button
+              onClick={() => setActiveNewsTab("cricket")}
+              className={`px-6 py-2.5 rounded-full font-medium text-sm transition-all duration-300 ${
+                activeNewsTab === "cricket"
+                  ? "bg-cyan-600 text-white shadow-md shadow-cyan-600/10"
+                  : "bg-gray-50 text-gray-600 hover:bg-gray-100"
+              }`}
+            >
+              Biomolds Badgers Cricket Team
+            </button>
           </div>
 
-          <FadeUp delay={300} className="mt-16 text-center">
-            <div className="inline-flex flex-col items-center justify-center p-8 bg-gray-50 rounded-2xl border border-gray-100 max-w-2xl mx-auto w-full">
-              <span className="text-3xl mb-4 text-cyan-600"><FaRegNewspaper /></span>
-              <h3 className="font-serif text-2xl font-medium text-black mb-2">Media & Press Inquiries</h3>
-              <p className="text-gray-500 text-sm mb-6">For press kits, media inquiries, or interview requests, please contact our communications team.</p>
-              <a href="mailto:biomolediscsol@biomolds.com" className="bg-cyan-500 text-white px-6 py-2.5 rounded-lg font-medium hover:bg-cyan-400 transition-colors shadow-sm">
-                Contact Media Team
-              </a>
+          {activeNewsTab === "news" && (
+            <>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {[
+                  {
+                    date: "May 15, 2024",
+                    category: "Press Release",
+                    title: "BioMolds Announces New Multiplex Diagnostic Kit for Rare Genetic Disorders",
+                    excerpt: "Our new multi-analyte kit aims to reduce the time and cost of diagnosing several rare genetic markers, requiring only a single blood draw.",
+                    icon: <FaVial />
+                  },
+                  {
+                    date: "April 02, 2024",
+                    category: "Research",
+                    title: "Breakthrough in Target Identification for Autoimmune Pathway",
+                    excerpt: "The BioMolds drug discovery team has successfully identified a novel target protein that shows promise in modulating specific autoimmune responses in pre-clinical models.",
+                    icon: <FaLaptopMedical />
+                  },
+                  {
+                    date: "March 18, 2024",
+                    category: "Company News",
+                    title: "BioMolds Recognized as 'Startup India' Registered Entity",
+                    excerpt: "We are proud to announce our official recognition under the Startup India initiative, marking a significant milestone in our journey to innovate healthcare diagnostics.",
+                    icon: <FaSuitcaseMedical />
+                  }
+                ].map((item, i) => (
+                  <FadeUp key={i} delay={i * 100} className="card-base overflow-hidden group flex flex-col h-full">
+                    <div className="relative h-48 w-full bg-cyan-pale flex items-center justify-center text-7xl text-cyan-500 overflow-hidden">
+                      <div className="group-hover:scale-110 transition-transform duration-500">
+                        {item.icon}
+                      </div>
+                      <div className="absolute top-4 left-4 bg-white/90 backdrop-blur text-black text-xs font-semibold px-3 py-1 rounded-full shadow-sm">
+                        {item.category}
+                      </div>
+                    </div>
+                    <div className="p-6 flex flex-col flex-grow">
+                      <span className="text-gray-400 text-xs font-medium mb-3">{item.date}</span>
+                      <h3 className="font-serif text-xl font-medium text-black mb-3 line-clamp-2 group-hover:text-cyan-600 transition-colors">
+                        {item.title}
+                      </h3>
+                      <p className="text-sm text-gray-500 leading-relaxed mb-6 line-clamp-3">
+                        {item.excerpt}
+                      </p>
+                    </div>
+                  </FadeUp>
+                ))}
+              </div>
+
+              <FadeUp delay={300} className="mt-16 text-center">
+                <div className="inline-flex flex-col items-center justify-center p-8 bg-gray-50 rounded-2xl border border-gray-100 max-w-2xl mx-auto w-full">
+                  <span className="text-3xl mb-4 text-cyan-600"><FaRegNewspaper /></span>
+                  <h3 className="font-serif text-2xl font-medium text-black mb-2">Media & Press Inquiries</h3>
+                  <p className="text-gray-500 text-sm mb-6">For press kits, media inquiries, or interview requests, please contact our communications team.</p>
+                  <a href="mailto:biomolediscsol@biomolds.com" className="bg-cyan-500 text-white px-6 py-2.5 rounded-lg font-medium hover:bg-cyan-400 transition-colors shadow-sm">
+                    Contact Media Team
+                  </a>
+                </div>
+              </FadeUp>
+            </>
+          )}
+
+          {activeNewsTab === "cricket" && (
+            <div className="relative w-full">
+              <div
+                ref={scrollRef}
+                onMouseDown={handleMouseDown}
+                onMouseLeave={handleMouseLeave}
+                onMouseUp={handleMouseUp}
+                onMouseMove={handleMouseMove}
+                className="flex gap-6 overflow-x-auto py-4 px-4 sm:px-8 cursor-grab active:cursor-grabbing select-none scroll-smooth no-scrollbar"
+                style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+              >
+                {galleryImages.map((src, i) => (
+                  <div
+                    key={i}
+                    className="flex-shrink-0 w-[280px] h-[360px] md:w-[360px] md:h-[460px] rounded-3xl overflow-hidden shadow-lg border border-gray-100 relative group transition-transform duration-300 hover:scale-[1.02] bg-gray-50"
+                  >
+                    <img
+                      src={src}
+                      alt={`Biomolds Badgers ${i + 1}`}
+                      className="w-full h-full object-cover pointer-events-none"
+                      loading="lazy"
+                    />
+                  </div>
+                ))}
+              </div>
+              <style>{`
+                .no-scrollbar::-webkit-scrollbar {
+                  display: none;
+                }
+              `}</style>
             </div>
-          </FadeUp>
+          )}
         </div>
       </section>
 
