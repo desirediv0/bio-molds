@@ -105,11 +105,11 @@ export default function Navbar() {
             <div className="absolute top-16 left-1/2 -translate-x-1/2 w-[310px] bg-white rounded-xl shadow-lg border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-2 pointer-events-none group-hover:pointer-events-auto flex flex-col">
               <Link href="/products/cytogenetics" className={`px-5 py-2.5 hover:bg-cyan-pale group/link flex items-start gap-3 ${pathname === "/products/cytogenetics" ? "bg-cyan-pale text-cyan-600" : ""}`}>
                 <span className="text-xl text-cyan-500 w-5 flex justify-center mt-0.5"><FaDna /></span>
-                <div className="flex flex-col"><span className="text-sm font-medium text-black">Cytogenetics</span><span className="text-xs text-gray-400">FISH Probes · Glass Slides · Media Culture</span></div>
+                <div className="flex flex-col"><span className="text-sm font-medium text-black">Cytogenetics</span><span className="text-xs text-gray-400">FISH Probes · Glass Slides · Culture Media </span></div>
               </Link>
               <Link href="/products/molecular" className={`px-5 py-2.5 hover:bg-cyan-pale group/link flex items-start gap-3 ${pathname === "/products/molecular" ? "bg-cyan-pale text-cyan-600" : ""}`}>
                 <span className="text-xl text-cyan-500 w-5 flex justify-center mt-0.5"><FaVial /></span>
-                <div className="flex flex-col"><span className="text-sm font-medium text-black">Molecular Diagnostic</span><span className="text-xs text-gray-400">RT-PCR Kit · Extraction · Oncology · Infection</span></div>
+                <div className="flex flex-col"><span className="text-sm font-medium text-black">Molecular Diagnostic</span><span className="text-xs text-gray-400">Extraction · Oncology · Infection · RT-PCR Kit</span></div>
               </Link>
               <Link href="/products/histo-pathology" className={`px-5 py-2.5 hover:bg-cyan-pale group/link flex items-start gap-3 ${pathname === "/products/histo-pathology" ? "bg-cyan-pale text-cyan-600" : ""}`}>
                 <span className="text-xl text-cyan-500 w-5 flex justify-center mt-0.5"><FaMicroscope /></span>

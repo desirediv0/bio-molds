@@ -34,9 +34,10 @@ const highlights = [
       "Oncology NGS Panels",
       "Infectious NGS Panels",
       "Transplant NGS Panels",
-      "NIPT Solution"
+      { text: "NIPT Solution", pdf: "https://desirediv-storage.blr1.cdn.digitaloceanspaces.com/bio-molds/BiOMolDs_NGS_Catalog_2026_updated.pdf" }
     ],
-    href: "/products/ngs"
+    href: "/products/ngs",
+    pdf: "https://desirediv-storage.blr1.cdn.digitaloceanspaces.com/bio-molds/BiOMolDs_NGS_Catalog_2026_updated.pdf"
   },
   {
     icon: <FaFlask className="text-3xl text-cyan-500" />,

@@ -318,6 +318,8 @@ export default function ProductDetailPage() {
     );
   }
 
+  const showImage = slug !== "fish-and-sanger-sequencing";
+
   return (
     <div className="bg-white min-h-screen pb-20 pt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -328,19 +330,21 @@ export default function ProductDetailPage() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start mb-16">
+        <div className={showImage ? "grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start mb-16" : "max-w-4xl mx-auto mb-16"}>
           {/* Left: Product Image */}
-          <div className="space-y-4">
-            <FadeUp className="relative aspect-square rounded-3xl overflow-hidden bg-gray-50 border border-gray-100 flex items-center justify-center group">
-              <div className="text-center px-8 w-full h-full flex flex-col justify-center items-center p-8 bg-gradient-to-br from-gray-50 to-gray-100">
-                <div className="w-32 h-32 bg-white rounded-full flex items-center justify-center text-cyan-500 text-6xl shadow-sm mb-6">
-                  {getIconForCategory(product.category)}
+          {showImage && (
+            <div className="space-y-4">
+              <FadeUp className="relative aspect-square rounded-3xl overflow-hidden bg-gray-50 border border-gray-100 flex items-center justify-center group">
+                <div className="text-center px-8 w-full h-full flex flex-col justify-center items-center p-8 bg-gradient-to-br from-gray-50 to-gray-100">
+                  <div className="w-32 h-32 bg-white rounded-full flex items-center justify-center text-cyan-500 text-6xl shadow-sm mb-6">
+                    {getIconForCategory(product.category)}
+                  </div>
+                  <h2 className="text-2xl font-bold mb-2 tracking-tighter text-black">{product.name}</h2>
+                  <p className="text-sm text-gray-500 uppercase tracking-widest">{product.category}</p>
                 </div>
-                <h2 className="text-2xl font-bold mb-2 tracking-tighter text-black">{product.name}</h2>
-                <p className="text-sm text-gray-500 uppercase tracking-widest">{product.category}</p>
-              </div>
-            </FadeUp>
-          </div>
+              </FadeUp>
+            </div>
+          )}
 
           {/* Right: Product Info */}
           <div className="flex flex-col gap-8">

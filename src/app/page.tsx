@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import FadeUp from "@/components/FadeUp";
@@ -128,8 +128,41 @@ function CardCarousel({ images, interval = 3000 }: { images: string[]; interval?
   );
 }
 
+const galleryImages = Array.from(
+  { length: 18 },
+  (_, i) => `https://desirediv-storage.blr1.cdn.digitaloceanspaces.com/bio-molds/image/img%20(${i + 1}).jpeg`
+);
+
 export default function Home() {
   const [selectedProduct, setSelectedProduct] = useState<{ name: string; desc: string } | null>(null);
+
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [isDown, setIsDown] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    if (!scrollRef.current) return;
+    setIsDown(true);
+    setStartX(e.pageX - scrollRef.current.offsetLeft);
+    setScrollLeft(scrollRef.current.scrollLeft);
+  };
+
+  const handleMouseLeave = () => {
+    setIsDown(false);
+  };
+
+  const handleMouseUp = () => {
+    setIsDown(false);
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDown || !scrollRef.current) return;
+    e.preventDefault();
+    const x = e.pageX - scrollRef.current.offsetLeft;
+    const walk = (x - startX) * 1.8; // increased speed slightly for better responsiveness
+    scrollRef.current.scrollLeft = scrollLeft - walk;
+  };
 
   return (
     <>
@@ -270,6 +303,49 @@ export default function Home() {
         </div>
       </section>
 
+      {/* GALLERY SECTION */}
+      <section className="py-16 bg-white overflow-hidden border-t border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 mb-10">
+          <FadeUp>
+            <span className="text-xs font-semibold tracking-widest uppercase text-pink mb-4 block">Product Showcase</span>
+            <h2 className="font-serif text-4xl md:text-5xl font-medium text-black leading-tight">Our Laboratory Gallery</h2>
+            <p className="text-sm text-gray-500 mt-2">Explore our premium molecular and cytogenetic solutions. Drag or scroll sideways to view all.</p>
+          </FadeUp>
+        </div>
+
+        <div className="relative w-full">
+          <div
+            ref={scrollRef}
+            onMouseDown={handleMouseDown}
+            onMouseLeave={handleMouseLeave}
+            onMouseUp={handleMouseUp}
+            onMouseMove={handleMouseMove}
+            className="flex gap-6 overflow-x-auto py-4 px-4 sm:px-8 md:px-16 cursor-grab active:cursor-grabbing select-none scroll-smooth no-scrollbar"
+            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+          >
+            {galleryImages.map((src, i) => (
+              <div
+                key={i}
+                className="flex-shrink-0 w-[280px] h-[360px] md:w-[360px] md:h-[460px] rounded-3xl overflow-hidden shadow-lg border border-gray-100 relative group transition-transform duration-300 hover:scale-[1.02] bg-gray-50"
+              >
+                <img
+                  src={src}
+                  alt={`Laboratory Gallery ${i + 1}`}
+                  className="w-full h-full object-cover pointer-events-none"
+                  loading="lazy"
+                />
+
+              </div>
+            ))}
+          </div>
+          <style>{`
+            .no-scrollbar::-webkit-scrollbar {
+              display: none;
+            }
+          `}</style>
+        </div>
+      </section>
+
       {/* 7. PRODUCTS */}
       <section id="products" className="py-12 md:py-14 px-4 sm:px-6 bg-gray-50 border-b border-gray-100">
         <div className="max-w-7xl mx-auto">
@@ -280,10 +356,10 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { id: "Cytogenetics", icon: <FaDna />, cat: "Cytogenetics", name: "Cytogenetics", desc: "FISH Probes · Glass Slides · Media Culture", href: "/products/cytogenetics" },
+              { id: "Cytogenetics", icon: <FaDna />, cat: "Cytogenetics", name: "Cytogenetics", desc: "FISH Probes · Glass Slides · Culture Media ", href: "/products/cytogenetics" },
               { id: "Molecular Diagnostic", icon: <FaFlask />, cat: "Molecular", name: "Molecular Diagnostic", desc: "RT-PCR Kit · Extraction · Oncology · Infection", href: "/products/molecular" },
               { id: "IHC-antibody", icon: <FaMicroscope />, cat: "Histo Pathology", name: "Histo Pathology", desc: "Positive Slides · IHC Antibody · Automation", href: "/products/histo-pathology" },
-              { id: "LAB-equipment", icon: <FaServer />, cat: "Lab Eq", name: "Lab Eq, Software & Consumable", desc: "Microscope · Hub · Review Scanning", href: "/products/lab-equipment" },
+              { id: "LAB-equipment", icon: <FaServer />, cat: "Lab Eq", name: "Lab Equipment & Consumable", desc: "Microscope · Hub · Review Scanning", href: "/products/lab-equipment" },
               { id: "Hospital-healthcare", icon: <FaSuitcaseMedical />, cat: "Hospital Healthcare", name: "Hospital Healthcare", desc: "Clinical diagnostic supplies & consumables", href: "/products/hospital-healthcare" },
               { id: "Diagnostic-kits", icon: <FaVial />, cat: "Diagnostic", name: "Diagnostic & Research Kits", desc: "RT-PCR · Sanger · FISH · Antibodies", href: "/products/molecular" }
             ].map((prod, i) => (
@@ -406,7 +482,7 @@ export default function Home() {
           <div className="flex flex-wrap items-center gap-6 text-sm font-medium text-gray-600">
             <span className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-cyan-500"></span>Microscope & Hub</span>
             <span className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-cyan-500"></span>FISH Probes</span>
-            <span className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-cyan-500"></span>Media Culture</span>
+            <span className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-cyan-500"></span>Culture Media </span>
             <span className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-cyan-500"></span>Review Scanning</span>
             <span className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-cyan-500"></span>RT-PCR Kit</span>
             <span className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-cyan-500"></span>NGS + Sanger Kit</span>
