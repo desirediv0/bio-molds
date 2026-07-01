@@ -138,6 +138,65 @@ export default function Home() {
   const [selectedProduct, setSelectedProduct] = useState<{ name: string; desc: string } | null>(null);
   const [activeNewsTab, setActiveNewsTab] = useState<"news" | "cricket">("news");
 
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    inquiry_type: "General Enquiry",
+    message: ""
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{
+    type: "success" | "error" | null;
+    message: string;
+  }>({ type: null, message: "" });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleFormSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus({ type: null, message: "" });
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Something went wrong. Please try again.");
+      }
+
+      setSubmitStatus({
+        type: "success",
+        message: "Thank you! Your message has been sent successfully. We will get back to you shortly.",
+      });
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        inquiry_type: "General Enquiry",
+        message: ""
+      });
+    } catch (error: any) {
+      setSubmitStatus({
+        type: "error",
+        message: error.message || "Failed to send message. Please try again.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   const scrollRef = useRef<HTMLDivElement>(null);
   const [isDown, setIsDown] = useState(false);
   const [startX, setStartX] = useState(0);
@@ -733,30 +792,70 @@ export default function Home() {
               <h2 className="font-serif text-3xl text-black font-medium mb-2">Send us a message</h2>
               <p className="text-gray-500 text-sm mb-8">Fill out the form below and our team will get back to you shortly.</p>
 
-              <form action="https://formsubmit.co/biomolediscsol@biomolds.com" method="POST" className="flex flex-col gap-5">
-                {/* FormSubmit Config */}
-                <input type="hidden" name="_subject" value="New submission from BioMolds Contact Form" />
-                <input type="hidden" name="_captcha" value="false" />
+              <form onSubmit={handleFormSubmit} className="flex flex-col gap-5">
+                {submitStatus.type && (
+                  <div className={`p-4 rounded-xl text-sm border font-medium flex items-start gap-3 animate-in fade-in duration-200 ${
+                    submitStatus.type === "success" 
+                      ? "bg-emerald-50 border-emerald-100 text-emerald-800" 
+                      : "bg-rose-50 border-rose-100 text-rose-800"
+                  }`}>
+                    {submitStatus.type === "success" ? (
+                      <svg className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    ) : (
+                      <svg className="w-5 h-5 text-rose-600 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    )}
+                    <div>{submitStatus.message}</div>
+                  </div>
+                )}
 
                 <div className="flex flex-col gap-1.5">
                   <label className="text-sm font-medium text-gray-700">Full Name*</label>
-                  <input type="text" name="name" required className="bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all text-black" />
+                  <input 
+                    type="text" 
+                    name="name" 
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    required 
+                    className="bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all text-black" 
+                  />
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div className="flex flex-col gap-1.5">
                     <label className="text-sm font-medium text-gray-700">Email Address*</label>
-                    <input type="email" name="email" required className="bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all text-black" />
+                    <input 
+                      type="email" 
+                      name="email" 
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      required 
+                      className="bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all text-black" 
+                    />
                   </div>
                   <div className="flex flex-col gap-1.5">
                     <label className="text-sm font-medium text-gray-700">Phone Number</label>
-                    <input type="tel" name="phone" className="bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all text-black" />
+                    <input 
+                      type="tel" 
+                      name="phone" 
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                      className="bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all text-black" 
+                    />
                   </div>
                 </div>
 
                 <div className="flex flex-col gap-1.5">
                   <label className="text-sm font-medium text-gray-700">Subject</label>
-                  <select name="inquiry_type" className="bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all text-black">
+                  <select 
+                    name="inquiry_type" 
+                    value={formData.inquiry_type}
+                    onChange={handleInputChange}
+                    className="bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all text-black"
+                  >
                     <option value="General Enquiry">General Enquiry</option>
                     <option value="Product Enquiry">Product Enquiry</option>
                     <option value="Service Request">Service Request</option>
@@ -767,14 +866,30 @@ export default function Home() {
 
                 <div className="flex flex-col gap-1.5">
                   <label className="text-sm font-medium text-gray-700">Your Message*</label>
-                  <textarea name="message" required rows={5} className="bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all resize-y text-black"></textarea>
+                  <textarea 
+                    name="message" 
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    required 
+                    rows={5} 
+                    className="bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all resize-y text-black"
+                  ></textarea>
                 </div>
 
                 <button
                   type="submit"
-                  className="bg-cyan-500 text-white py-3.5 rounded-lg font-semibold hover:bg-cyan-400 transition-colors mt-2 shadow-sm"
+                  disabled={isSubmitting}
+                  className="bg-cyan-500 text-white py-3.5 rounded-lg font-semibold hover:bg-cyan-400 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors mt-2 shadow-sm flex items-center justify-center gap-2"
                 >
-                  Submit Message
+                  {isSubmitting ? (
+                    <>
+                      <svg className="animate-spin h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                      </svg>
+                      Sending...
+                    </>
+                  ) : "Submit Message"}
                 </button>
               </form>
             </FadeUp>
