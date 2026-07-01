@@ -145,8 +145,9 @@ export async function POST(request: Request) {
     });
 
     return NextResponse.json({ success: true, message: 'Message sent successfully!' });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('SMTP Error:', error);
-    return NextResponse.json({ error: error.message || 'Failed to send message.' }, { status: 500 });
+    const errorMessage = error instanceof Error ? error.message : 'Failed to send message.';
+    return NextResponse.json({ error: errorMessage }, { status: 500 });
   }
 }

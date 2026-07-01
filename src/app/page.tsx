@@ -187,10 +187,11 @@ export default function Home() {
         inquiry_type: "General Enquiry",
         message: ""
       });
-    } catch (error: any) {
+    } catch (error: unknown) {
+      const errorMessage = error instanceof Error ? error.message : "Failed to send message. Please try again.";
       setSubmitStatus({
         type: "error",
-        message: error.message || "Failed to send message. Please try again.",
+        message: errorMessage,
       });
     } finally {
       setIsSubmitting(false);
