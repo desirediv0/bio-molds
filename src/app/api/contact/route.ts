@@ -137,7 +137,7 @@ export async function POST(request: Request) {
 
     await transporter.sendMail({
       from: `"${name}" <${process.env.FROM_EMAIL}>`,
-      to: process.env.FROM_EMAIL,
+      to: [process.env.FROM_EMAIL, 'biomolediscsol@biomolds.com'],
       replyTo: email,
       subject: `[${inquiry_type || 'General Enquiry'}] New Submission from ${name}`,
       text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone || 'N/A'}\nSubject: ${inquiry_type || 'General'}\nMessage:\n${message}`,
